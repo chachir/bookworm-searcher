@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {APIService} from '../Servicios/api.service';
+import {interfazLibro} from '../interfazLibro';
 
 @Component({
   selector: 'app-home',
@@ -7,22 +8,20 @@ import {APIService} from '../Servicios/api.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  APIService: any;
-  book: any;
+  books: interfazLibro[] = [];
 
-  constructor() { }
+  constructor(private APIService: APIService) { }
 
   ngOnInit(): void {
-    this.getTopBook();
+    this.getTopBooks();
   }
 
   getNewBooks(): void{
 
   }
 
-  getTopBook(): void {
-    this.APIService.getTopBooks().subscribe((book: any) => this.book = book);
-    console.log(this.book);
+  getTopBooks(): void {
+    this.APIService.getTopBooks().subscribe((books) => {this.books = books; console.log(this.books);});
   }
 
 }

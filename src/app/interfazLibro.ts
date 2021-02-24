@@ -1,6 +1,6 @@
 export interface interfazLibro {
 
-  id: String;
+  ID: String;
   title: String;
   author: String;
   content: String;

@@ -20,16 +20,18 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class APIService {
+  
   urlAPI: string = 'https://www.etnassoft.com/api/v1/get/';
 
 
   constructor(private http: HttpClient) { }
-  getTopBooks(): Observable<interfazLibro> {
-    return this.http.get<interfazLibro>(this.urlAPI + '?most_viewed', httpOptions); //most_commented
+
+  getTopBooks(): Observable<interfazLibro[]> {
+    return this.http.get<interfazLibro[]>(this.urlAPI + '?most_viewed&num_items=6', httpOptions); //most_commented
   }
 
-  getNewBooks(): Observable<interfazLibro> {
-    return this.http.get<interfazLibro>(this.urlAPI + 'classes', httpOptions);
+  getNewBooks(): Observable<interfazLibro[]> {
+    return this.http.get<interfazLibro[]>(this.urlAPI + 'classes', httpOptions);
 
   }
 
