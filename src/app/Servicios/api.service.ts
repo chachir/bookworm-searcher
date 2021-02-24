@@ -55,6 +55,11 @@ export class APIService {
     return this.http.get<interfazLibro[]>(this.filterURL, httpOptions);
   }
 
+  filterByPages(pages: string){
+    this.filterURL = this.filterURL +'&?results_range="' + pages + '"';
+    return this.http.get<interfazLibro[]>(this.filterURL, httpOptions);
+  }
+
   orderBy(order: number){
     if(order == 0) {
       this.filterURL = this.filterURL + '&?order=a_z';
