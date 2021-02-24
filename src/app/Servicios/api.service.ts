@@ -35,6 +35,9 @@ export class APIService {
   }
 
 
+  
+
+  /* Searcher filters */
   filterByLanguage(lang: string){
     this.filterURL = this.filterURL + '&?lang=' + lang;
     return this.http.get<interfazLibro[]>(this.filterURL, httpOptions);
@@ -52,6 +55,21 @@ export class APIService {
 
   filterBySubcategory(subcategory: string){
     this.filterURL = this.filterURL + '&?subcategory=' + subcategory;
+    return this.http.get<interfazLibro[]>(this.filterURL, httpOptions);
+  }
+
+  filterByPublisher(publisher: string){
+    this.filterURL = this.filterURL + '&?publisher="' + publisher + '"';
+    return this.http.get<interfazLibro[]>(this.filterURL, httpOptions);
+  }
+
+  filterByPublisherDate(date: string){
+    this.filterURL = this.filterURL + '&?publisher_date=' + date;
+    return this.http.get<interfazLibro[]>(this.filterURL, httpOptions);
+  }
+
+  numItems(num: string){
+    this.filterURL = this.filterURL + '&?num_items=' + num;
     return this.http.get<interfazLibro[]>(this.filterURL, httpOptions);
   }
 
