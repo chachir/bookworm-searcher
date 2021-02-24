@@ -22,7 +22,7 @@ const httpOptions = {
 export class APIService {
   
   urlAPI: string = 'https://www.etnassoft.com/api/v1/get/';
-
+  filterURL: string = this.urlAPI;
 
   constructor(private http: HttpClient) { }
 
@@ -32,7 +32,40 @@ export class APIService {
 
   getNewBooks(): Observable<interfazLibro[]> {
     return this.http.get<interfazLibro[]>(this.urlAPI + 'classes', httpOptions);
+  }
 
+  filterByLanguage(lang: string){
+    this.filterURL = this.filterURL + '&?lang=' + lang;
+    return this.http.get<interfazLibro[]>(this.filterURL, httpOptions);
+  }
+
+  filterByAuthor(author: string){
+    this.filterURL = this.filterURL + '&?book_author="' + author + '"';
+    return this.http.get<interfazLibro[]>(this.filterURL, httpOptions);
+  }
+
+  filterByCategory(category: string){
+    this.filterURL = this.filterURL + '&?category=' + category;
+    return this.http.get<interfazLibro[]>(this.filterURL, httpOptions);
+  }
+
+  filterBySubcategory(subcategory: string){
+    this.filterURL = this.filterURL + '&?subcategory=' + subcategory;
+    return this.http.get<interfazLibro[]>(this.filterURL, httpOptions);
+  }
+
+  orderBy(order: number){
+    if(order == 0) {
+      this.filterURL = this.filterURL + '&?order=a_z';
+    } else if (order == 1) {
+      this.filterURL = this.filterURL + '&?order=z_a';
+    } else if (order == 2) {
+      this.filterURL = this.filterURL + '&?order=newest';
+    } else if (order == 3) {
+      this.filterURL = this.filterURL + '&?order=oldest';
+    }
+    
+    return this.http.get<interfazLibro[]>(this.filterURL, httpOptions);
   }
 
 }
