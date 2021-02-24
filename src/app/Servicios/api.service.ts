@@ -35,7 +35,7 @@ export class APIService {
   }
 
 
-  
+
 
   /* Searcher filters */
   filterByLanguage(lang: string){
@@ -58,6 +58,7 @@ export class APIService {
     return this.http.get<interfazLibro[]>(this.filterURL, httpOptions);
   }
 
+
   filterByPublisher(publisher: string){
     this.filterURL = this.filterURL + '&?publisher="' + publisher + '"';
     return this.http.get<interfazLibro[]>(this.filterURL, httpOptions);
@@ -70,6 +71,11 @@ export class APIService {
 
   numItems(num: string){
     this.filterURL = this.filterURL + '&?num_items=' + num;
+  }
+  
+  filterByPages(pages: string){
+    this.filterURL = this.filterURL +'&?results_range="' + pages + '"';
+
     return this.http.get<interfazLibro[]>(this.filterURL, httpOptions);
   }
 
