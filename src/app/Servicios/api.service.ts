@@ -20,7 +20,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class APIService {
-  
+
   urlAPI: string = 'https://www.etnassoft.com/api/v1/get/';
 
 
@@ -31,7 +31,7 @@ export class APIService {
   }
 
   getNewBooks(): Observable<interfazLibro[]> {
-    return this.http.get<interfazLibro[]>(this.urlAPI + 'classes', httpOptions);
+    return this.http.get<interfazLibro[]>(this.urlAPI + '?order&num_items=6', httpOptions); //order newest
 
   }
 
