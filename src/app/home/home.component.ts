@@ -19,8 +19,7 @@ export class HomeComponent implements OnInit {
   constructor(private APIService: APIService) { }
 
   ngOnInit(): void {
-    this.getTopBooks();
-    this.getNewBooks();
+    this.getPrueba();
   }
 
   getNewBooks(): void{
@@ -38,7 +37,10 @@ export class HomeComponent implements OnInit {
 
   /***************** */
   getPrueba(): void{
-    this.APIService.searchByKeyword("css3 y javascript avanzado").subscribe((books) => {this.books = books; console.log(this.books)});
+    this.APIService.searchByKeyword("robótica").subscribe((books) => {this.books = books; });
+    this.APIService.filterByLanguage("all").subscribe((books) => {this.books = books;});
+    //this.APIService.filterByPublisherDate("2011").subscribe((books) => {this.books = books; });
+    this.APIService.orderBy(2).subscribe((books) => {this.books = books; console.log(this.books)});
   }
   /***************** */
 
