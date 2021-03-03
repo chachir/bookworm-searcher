@@ -11,15 +11,16 @@ export class HomeComponent implements OnInit {
   books: interfazLibro[] = [];
   book: interfazLibro[] = [];
   numberPages: String | undefined;
+  averageWPM = 300;
+  averageWordsPage = 500;
+
   
 
   constructor(private APIService: APIService) { 
   }
 
   ngOnInit(): void {
-    this.getTopBooks();
-    this.getNewBooks();
-    this.getReadingSpeeding(17081);
+    this.getPrueba();
   }
 
   getNewBooks(): void{
@@ -30,8 +31,14 @@ export class HomeComponent implements OnInit {
     this.APIService.getTopBooks().subscribe((books) => {this.books = books; });
   }
 
-  getReadingSpeeding(idBook: number): void{
+  getReadingSpeeding(idBook: number): number{ //minutes
     this.APIService.getBookByID(idBook).subscribe((book) => {this.book = book; this.numberPages = this.book.pop()?.pages; });
+    return this.averageWPM * this.averageWPM / this.averageWordsPage;
+  }
+
+  /***************** */
+  getPrueba(): void{
+    this.APIService.searchByKeyword("css3 y javascript avanzado").subscribe((books) => {this.books = books; console.log(this.books)});
   }
 
 }

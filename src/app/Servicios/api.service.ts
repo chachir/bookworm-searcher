@@ -39,14 +39,20 @@ export class APIService {
   }
 
   get_subcategories_by_category_ID(id_category: Number){
-    this.filterURL = this.filterURL + '&?get_subcategories_by_category_ID="' + id_category + '"';
-    return this.http.get<interfazLibro[]>(this.filterURL, httpOptions);
+    return this.http.get<interfazLibro[]>(this.urlAPI + '?get_subcategories_by_category_ID=' + id_category, httpOptions);
   }
 
 
 
 
   /* Searcher filters */
+  searchByKeyword(keyword: string){
+    keyword = keyword.replace(/\s/gi, '+');
+    console.log(keyword);
+    this.filterURL = this.filterURL + '?keyword=' + keyword;
+    return this.http.get<interfazLibro[]>(this.filterURL, httpOptions);
+  }
+
   filterByLanguage(lang: string){
     this.filterURL = this.filterURL + '&?lang=' + lang;
     return this.http.get<interfazLibro[]>(this.filterURL, httpOptions);
