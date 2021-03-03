@@ -84,10 +84,10 @@ export class APIService {
     return this.http.get<interfazLibro[]>(this.filterURL, httpOptions);
   }
 
-  numItems(num: string){
+  numItems(num: Number){
     this.filterURL = this.filterURL + '&?num_items=' + num;
   }
-  
+
   filterByPages(pages: string){
     this.filterURL = this.filterURL +'&?results_range="' + pages + '"';
 

@@ -14,17 +14,17 @@ export class HomeComponent implements OnInit {
   averageWPM = 300;
   averageWordsPage = 500;
 
-  
 
-  constructor(private APIService: APIService) { 
-  }
+
+  constructor(private APIService: APIService) { }
 
   ngOnInit(): void {
-    this.getPrueba();
+    this.getTopBooks();
+    this.getNewBooks();
   }
 
   getNewBooks(): void{
-    this.APIService.getNewBooks().subscribe((books) => {this.books = books; });
+    this.APIService.getNewBooks().subscribe((books) => {this.books = books; console.log(this.books);});
   }
 
   getTopBooks(): void {
@@ -40,6 +40,7 @@ export class HomeComponent implements OnInit {
   getPrueba(): void{
     this.APIService.searchByKeyword("css3 y javascript avanzado").subscribe((books) => {this.books = books; console.log(this.books)});
   }
+  /***************** */
 
 }
 
