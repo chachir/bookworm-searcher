@@ -93,4 +93,9 @@ export class APIService {
     return this.http.get<interfazLibro[]>(this.filterURL, httpOptions);
   }
 
+
+  getBookByID(idBook: number){
+    return this.http.get<interfazLibro[]>(this.urlAPI + '?id=' + idBook, httpOptions);
+  }
+
 }
