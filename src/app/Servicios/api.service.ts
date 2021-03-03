@@ -34,6 +34,15 @@ export class APIService {
     return this.http.get<interfazLibro[]>(this.urlAPI + '?order&num_items=6', httpOptions); //order newest
   }
 
+  getAllCategories(): Observable<interfazLibro[]>{
+    return this.http.get<interfazLibro[]>(this.urlAPI + '?get_categories=all', httpOptions) //all categories
+  }
+
+  get_subcategories_by_category_ID(id_category: Number){
+    this.filterURL = this.filterURL + '&?get_subcategories_by_category_ID="' + id_category + '"';
+    return this.http.get<interfazLibro[]>(this.filterURL, httpOptions);
+  }
+
 
   filterByLanguage(lang: string){
     this.filterURL = this.filterURL + '&?lang=' + lang;
@@ -59,6 +68,8 @@ export class APIService {
     this.filterURL = this.filterURL +'&?results_range="' + pages + '"';
     return this.http.get<interfazLibro[]>(this.filterURL, httpOptions);
   }
+
+
 
   orderBy(order: number){
     if(order == 0) {
