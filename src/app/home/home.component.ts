@@ -25,10 +25,6 @@ export class HomeComponent implements OnInit {
     this.APIService.getTopBooks().subscribe((books) => {this.books = books; console.log(this.books);});
   }
 
-  getAllCategories(): void{
-    this.APIService.getAllCategories().subscribe((books) => {this.books = books; console.log(this.books);});
-  }
-
 }
 
 
