@@ -1,6 +1,6 @@
 export interface interfazLibro {
 
-  id: String;
+  ID: String;
   title: String;
   author: String;
   content: String;
@@ -15,12 +15,12 @@ export interface interfazLibro {
   thumbnail: String;
   num_comments: String;
   categories: [
-    category_id: String,
+    category_id: number,
     name: String,
     nicename: String,
   ];
   tags: [
-    tag_id: String,
+    tag_id: number,
     name: String,
     nicename: String,
   ];
