@@ -19,8 +19,6 @@ export class HomeComponent implements OnInit {
   constructor(private APIService: APIService) { }
 
   ngOnInit(): void {
-    this.getTopBooks();
-    this.getNewBooks();
   }
 
   getNewBooks(): void{
@@ -36,11 +34,6 @@ export class HomeComponent implements OnInit {
     return this.averageWPM * this.averageWPM / this.averageWordsPage;
   }
 
-  /***************** */
-  getPrueba(): void{
-    this.APIService.filterByAuthor("Jordi").subscribe((books) => {this.books = books; console.log(this.books)});
-  }
-  /***************** */
 
 }
 

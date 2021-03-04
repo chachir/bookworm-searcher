@@ -48,49 +48,56 @@ export class APIService {
   /* Searcher filters */
   searchByKeyword(keyword: string){
     keyword = keyword.replace(/\s/gi, '+');
-    console.log(keyword);
     this.filterURL = this.filterURL + '?keyword=' + keyword;
     return this.http.get<interfazLibro[]>(this.filterURL, httpOptions);
   }
 
   filterByLanguage(lang: string){
-    this.filterURL = this.filterURL + '&?lang=' + lang;
+    this.filterURL = this.filterURL + '&lang=' + lang;
+    console.log(this.filterURL);
     return this.http.get<interfazLibro[]>(this.filterURL, httpOptions);
   }
 
   filterByAuthor(author: string){
-    this.filterURL = this.filterURL + '&?book_author=' + author + '"';
+    this.filterURL = this.filterURL + '&book_author="' + author + '"';
+    console.log(this.filterURL);
     return this.http.get<interfazLibro[]>(this.filterURL, httpOptions);
   }
 
-  filterByCategory(category: string){
-    this.filterURL = this.filterURL + '&?category=' + category;
+  filterByCategory(category: number){
+    this.filterURL = this.filterURL + '&category_id=' + category;
+    console.log(this.filterURL);
     return this.http.get<interfazLibro[]>(this.filterURL, httpOptions);
   }
 
   filterBySubcategory(subcategory: string){
-    this.filterURL = this.filterURL + '&?subcategory=' + subcategory;
+    this.filterURL = this.filterURL + '&subcategory=' + subcategory;
+    console.log(this.filterURL);
     return this.http.get<interfazLibro[]>(this.filterURL, httpOptions);
   }
 
 
   filterByPublisher(publisher: string){
-    this.filterURL = this.filterURL + '&?publisher="' + publisher + '"';
+    this.filterURL = this.filterURL + '&publisher="' + publisher + '"';
+    console.log(this.filterURL);
     return this.http.get<interfazLibro[]>(this.filterURL, httpOptions);
   }
 
   filterByPublisherDate(date: string){
-    this.filterURL = this.filterURL + '&?publisher_date=' + date;
+    this.filterURL = this.filterURL + '&publisher_date=' + date;
+    console.log(this.filterURL);
     return this.http.get<interfazLibro[]>(this.filterURL, httpOptions);
   }
 
   numItems(num: Number){
-    this.filterURL = this.filterURL + '&?num_items=' + num;
+    this.filterURL = this.filterURL + '&num_items=' + num;
+    console.log(this.filterURL);
+    return this.http.get<interfazLibro[]>(this.filterURL, httpOptions);
   }
 
   filterByPages(pages: string){
-    this.filterURL = this.filterURL +'&?results_range="' + pages + '"';
-
+    this.filterURL = this.filterURL +'&results_range="' + pages + '"';
+    console.log(this.filterURL);
     return this.http.get<interfazLibro[]>(this.filterURL, httpOptions);
   }
 
@@ -98,15 +105,15 @@ export class APIService {
 
   orderBy(order: number){
     if(order == 0) {
-      this.filterURL = this.filterURL + '&?order=a_z';
+      this.filterURL = this.filterURL + '&order=a_z';
     } else if (order == 1) {
-      this.filterURL = this.filterURL + '&?order=z_a';
+      this.filterURL = this.filterURL + '&order=z_a';
     } else if (order == 2) {
-      this.filterURL = this.filterURL + '&?order=newest';
+      this.filterURL = this.filterURL + '&order=newest';
     } else if (order == 3) {
-      this.filterURL = this.filterURL + '&?order=oldest';
+      this.filterURL = this.filterURL + '&order=oldest';
     }
-
+    console.log(this.filterURL);
     return this.http.get<interfazLibro[]>(this.filterURL, httpOptions);
   }
 
