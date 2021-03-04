@@ -38,7 +38,7 @@ export class HomeComponent implements OnInit {
 
   /***************** */
   getPrueba(): void{
-    this.APIService.searchByKeyword("css3 y javascript avanzado").subscribe((books) => {this.books = books; console.log(this.books)});
+    this.APIService.filterByAuthor("Jordi").subscribe((books) => {this.books = books; console.log(this.books)});
   }
   /***************** */
 

@@ -59,7 +59,7 @@ export class APIService {
   }
 
   filterByAuthor(author: string){
-    this.filterURL = this.filterURL + '&?book_author="' + author + '"';
+    this.filterURL = this.filterURL + '&?book_author=' + author + '"';
     return this.http.get<interfazLibro[]>(this.filterURL, httpOptions);
   }
 
