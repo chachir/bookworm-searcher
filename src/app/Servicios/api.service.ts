@@ -27,11 +27,11 @@ export class APIService {
   constructor(private http: HttpClient) { }
 
   getTopBooks(): Observable<interfazLibro[]> {
-    return this.http.get<interfazLibro[]>(this.urlAPI + '?most_viewed&num_items=6', httpOptions); //most_commented
+    return this.http.get<interfazLibro[]>(this.urlAPI + '?criteria=most_viewed&num_items=6', httpOptions); //most_commented
   }
 
   getNewBooks(): Observable<interfazLibro[]> {
-    return this.http.get<interfazLibro[]>(this.urlAPI + '?order&num_items=6', httpOptions); //order newest
+    return this.http.get<interfazLibro[]>(this.urlAPI + '?order=newest&num_items=6', httpOptions); //order newest
   }
 
   getAllCategories(): Observable<interfazLibro[]>{
