@@ -8,7 +8,8 @@ import {interfazLibro} from '../interfazLibro';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  books: interfazLibro[] = [];
+  topBooks: interfazLibro[] = [];
+  newBooks: interfazLibro[] = [];
   book: interfazLibro[] = [];
   numberPages: String | undefined;
   averageWPM = 300;
@@ -19,21 +20,24 @@ export class HomeComponent implements OnInit {
   constructor(private APIService: APIService) { }
 
   ngOnInit(): void {
+
+    this.getNewBooks();
+    this.getTopBooks();
+
   }
 
   getNewBooks(): void{
-    this.APIService.getNewBooks().subscribe((books) => {this.books = books; console.log(this.books);});
+    this.APIService.getNewBooks().subscribe((newBooks) => {this.newBooks = newBooks; });
   }
 
   getTopBooks(): void {
-    this.APIService.getTopBooks().subscribe((books) => {this.books = books; });
+    this.APIService.getTopBooks().subscribe((topBooks) => {this.topBooks = topBooks; });
   }
 
   getReadingSpeeding(idBook: number): number{ //minutes
     this.APIService.getBookByID(idBook).subscribe((book) => {this.book = book; this.numberPages = this.book.pop()?.pages; });
     return this.averageWPM * this.averageWPM / this.averageWordsPage;
   }
-
 
 }
 
