@@ -3,12 +3,12 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {HttpHeaders} from '@angular/common/http';
 
-//import {interfazLibro} from '';
-
-
 import {Observable} from 'rxjs';
 import {catchError} from 'rxjs/operators';
+
 import { interfazLibro } from '../interfazLibro';
+import { Category } from '../category';
+import { Subcategory } from '../subcategory';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -34,12 +34,13 @@ export class APIService {
     return this.http.get<interfazLibro[]>(this.urlAPI + '?order=newest&num_items=6', httpOptions); //order newest
   }
 
-  getAllCategories(): Observable<interfazLibro[]>{
-    return this.http.get<interfazLibro[]>(this.urlAPI + '?get_categories=all', httpOptions) //all categories
+  
+  getAllCategories(): Observable<Category[]>{
+    return this.http.get<Category[]>(this.urlAPI + '?get_categories=all', httpOptions) //all categories
   }
 
-  get_subcategories_by_category_ID(id_category: Number){
-    return this.http.get<interfazLibro[]>(this.urlAPI + '?get_subcategories_by_category_ID=' + id_category, httpOptions);
+  get_subcategories_by_category_ID(id_category: Number): Observable<Subcategory[]>{
+    return this.http.get<Subcategory[]>(this.urlAPI + '?get_subcategories_by_category_ID=' + id_category, httpOptions);
   }
 
 
