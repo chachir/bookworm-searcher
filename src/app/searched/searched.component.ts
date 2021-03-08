@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Category } from '../category';
 import { Subcategory } from '../subcategory';
 import { NumItems } from '../num-items';
+import {interfazLibro} from '../interfazLibro';
+
 
 import {APIService} from '../Servicios/api.service';
 
@@ -15,11 +17,13 @@ export class SearchedComponent implements OnInit {
   categories: Category[] = [];
   subcategories: Subcategory[] = [];
   numCategory: NumItems;
+  newBooks: interfazLibro[] = [];
   
   constructor(private APIService: APIService) { }
 
   ngOnInit(): void {
     this.getCategories();
+    this.getNewBooks();
   }
 
   getCategories(): void{ 
@@ -30,5 +34,9 @@ export class SearchedComponent implements OnInit {
     this.APIService.counterCategory(category_id).subscribe((numCategory) => {this.numCategory = numCategory; });
     return "hoa"; //this.numCategory.num_items;
   }
+
+  getNewBooks(): void{
+    this.APIService.getNewBooks().subscribe((newBooks) => {this.newBooks = newBooks; });
+  }  
 
 }
