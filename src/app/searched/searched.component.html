@@ -3,6 +3,15 @@
 
 </div>
 
+<div class="filters">
+    <ul *ngFor="let category of categories" class="list-group">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          {{category.name}}
+          <!---<span *ngFor="let cat_id of getCounter(category.category_id)" class="badge bg-primary rounded-pill">{{cat_id}}</span>-->
+        </li>
+      </ul>
+</div>
+
 
 <div class="pagination">
     <nav aria-label="Page navigation example">

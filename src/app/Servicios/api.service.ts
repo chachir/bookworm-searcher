@@ -9,6 +9,7 @@ import {catchError} from 'rxjs/operators';
 import { interfazLibro } from '../interfazLibro';
 import { Category } from '../category';
 import { Subcategory } from '../subcategory';
+import { NumItems } from '../num-items';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -34,13 +35,17 @@ export class APIService {
     return this.http.get<interfazLibro[]>(this.urlAPI + '?order=newest&num_items=6', httpOptions); //order newest
   }
 
-  
+
   getAllCategories(): Observable<Category[]>{
     return this.http.get<Category[]>(this.urlAPI + '?get_categories=all', httpOptions) //all categories
   }
 
   get_subcategories_by_category_ID(id_category: Number): Observable<Subcategory[]>{
     return this.http.get<Subcategory[]>(this.urlAPI + '?get_subcategories_by_category_ID=' + id_category, httpOptions);
+  }
+
+  counterCategory(id: number): Observable<NumItems>{
+    return this.http.get<NumItems>(this.urlAPI + '?category_id=' + id + '&count_items=true', httpOptions);
   }
 
 
