@@ -30,10 +30,11 @@ export class SearchedComponent implements OnInit {
     this.APIService.getAllCategories().subscribe((categories) => {this.categories = categories; });
   }
 
-  getCounter(category_id: number): string {
-    this.APIService.counterCategory(category_id).subscribe((numCategory) => {this.numCategory = numCategory; });
-    return "hoa"; //this.numCategory.num_items;
-  }
+  /*getCounter(category_id: number): string {
+    //this.APIService.counterCategory(category_id).subscribe((numCategory) => {this.numCategory = numCategory; });
+    console.log(category_id);
+    return "" + category_id;
+  }*/
 
   getNewBooks(): void{
     this.APIService.getNewBooks().subscribe((newBooks) => {this.newBooks = newBooks; });

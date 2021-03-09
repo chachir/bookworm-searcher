@@ -1,18 +1,17 @@
-
-
-  <!-- Contenido -->
+<!-- Contenido -->
 <div class="home">
   <div class="container">
     <div class="row row-cols-2">
     <!-- Top -->
-      <div class="top-books">
+    <div class="top-books">
+      <p>Libros populares</p>
         <div id="carousel0" class="carousel slide" data-ride="carousel">
           <ol class="carousel-indicators">
             <li data-target="#carousel0"  *ngFor="let book of topBooks;let index = index" [attr.data-slide-to]="index"></li>
           </ol>
           <div class="carousel-inner">
             <div class="carousel-item" *ngFor="let book of topBooks;let index = index;let isFirst = first" [ngClass]="{active:isFirst}">
-              <img [src]="book.cover" class="d-block w-100" [alt]="book.title">
+              <img [src]="book.cover" class="rounded d-block w-100" [alt]="book.title">
             </div>
           </div>
           <a class="carousel-control-prev" href="#carousel0" role="button" data-slide="prev">
@@ -24,21 +23,22 @@
             <span class="sr-only">Next</span>
           </a>
         </div>
-          <ul *ngFor="let book of topBooks" class="list-group">
-            <li class="list-group-item">{{ book.title }}</li>
+          <ul id="top_buttons" *ngFor="let book of topBooks" class="list-group">
+            <li class="list-group-item"><a href="#">{{ book.title }}</a></li>
           </ul>
       </div>
 
     
         <!-- Novedades -->
       <div class="new-books">
+        <p>Libros recientemente añadidos</p>
         <div id="carousel1" class="carousel slide" data-ride="carousel">
           <ol class="carousel-indicators">
             <li data-target="#carousel1"  *ngFor="let book of newBooks;let index = index" [attr.data-slide-to]="index"></li>
           </ol>
           <div class="carousel-inner">
             <div class="carousel-item" *ngFor="let book of newBooks;let index = index;let isFirst = first" [ngClass]="{active:isFirst}">
-              <img [src]="book.cover" class="d-block w-100" [alt]="book.title">
+              <img [src]="book.cover" class="rounded d-block w-100" [alt]="book.title">
             </div>
           </div>
           <a class="carousel-control-prev" href="#carousel1" role="button" data-slide="prev">
@@ -50,8 +50,8 @@
             <span class="sr-only">Next</span>
           </a>
       </div>
-      <ul *ngFor="let book of newBooks" class="list-group">
-        <li class="list-group-item">{{ book.title }}</li>
+      <ul id="new_buttons" *ngFor="let book of newBooks" class="list-group">
+        <li class="list-group-item"><a href="#">{{ book.title }}</a></li>
       </ul>
     </div>
   </div>

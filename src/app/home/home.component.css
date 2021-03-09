@@ -1,0 +1,58 @@
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+p {
+    font-family: arial;
+    font-size: 1.5rem;
+    color: black;
+    padding-top: 30px;
+    text-align: center;
+    text-shadow: 2px 2px 1px #94b2b8;;
+}
+
+
+.top-books div {
+    height: auto; 
+    width: auto; 
+    max-width: 300px; 
+    max-height: 400px;
+}
+
+
+.new-books div {
+    height: auto; 
+    width: auto; 
+    max-width: 300px; 
+    max-height: 400px;
+}
+
+ul {
+    width:400px;
+    resize:both;
+    text-align: center;
+}
+
+
+#top_buttons li a {
+    color: black;
+    display: block;
+  }
+   
+#top_buttons li a:hover {
+  color: #000000;
+  background-color: #33B5E5;
+}
+
+
+#new_buttons li a {
+    color: black;
+    display: block;
+  }
+   
+#new_buttons li a:hover {
+  color: #000000;
+  background-color: #33B5E5;
+}
