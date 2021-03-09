@@ -1,3 +1,36 @@
-.menu{
-  background-color: aqua;
+
+.menu {
+    background-color: #293335;
+
 }
+
+.nav-link, .navbar-brand {
+    color: white;
+}
+
+.nav-link:hover {
+    background-color: #5b5e5e;
+}
+
+.dropdown-menu {
+    background-color: #293335;
+
+}
+
+.dropdown-item {
+    color: white;
+}
+
+.dropdown-item:hover {
+    background-color: #5b5e5e;
+}
+
+
+button:hover {
+    background-color: #5b5e5e;
+}
+
+button {
+    background-color: #293335;
+    transition: background-color .5s;
+ }
