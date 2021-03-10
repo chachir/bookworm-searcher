@@ -29,30 +29,43 @@ p {
     max-height: 400px;
 }
 
-ul {
+/*.book-list ul {
     width:400px;
     resize:both;
     text-align: center;
+}*/
+
+
+
+a.button{
+  display:inline-block;
+  padding:0.35em 1.2em;
+  margin:0 0.3em 0.3em 0;
+  border-radius:0.12em;
+  text-decoration:none;
+  font-family:'Roboto',sans-serif;
+  font-weight:300;
+  color: black;
+  text-align:center;
+  transition: all 0.2s;
 }
 
-
-#top_buttons li a {
-    color: black;
-    display: block;
-  }
-   
-#top_buttons li a:hover {
-  color: #000000;
-  background-color: #33B5E5;
+a.button:hover{
+  color: white;
 }
 
+li{
+   background-color:white;
+ }
 
-#new_buttons li a {
-    color: black;
-    display: block;
+
+li:hover{
+  background-color:#293335;
+}
+
+@media all and (max-width:30em){
+  a.button{
+    display:block;
+    margin:0.4em auto;
   }
-   
-#new_buttons li a:hover {
-  color: #000000;
-  background-color: #33B5E5;
 }
