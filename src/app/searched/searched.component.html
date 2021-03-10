@@ -1,56 +1,61 @@
-<p>searched works!</p>
-<div class="categories">
-
-</div>
-
-<div class="filters">
-    <ul *ngFor="let category of categories" class="list-group">
-        <li class="list-group-item d-flex justify-content-between align-items-center">
-          {{category.name}}
-          <!--<span class="badge bg-primary rounded-pill">{{getCounter(category.category_id)}}</span>-->
-          <!---<span class="badge bg-primary rounded-pill">{{getCounter(category.category_id)}}</span>-->
-        </li>
-      </ul>
-</div>
-
-<div class="list-group">
-  <a href="#" class="list-group-item list-group-item-action active" aria-current="true"> Ordenar alfabéticamente</a>
-  <a href="#" class="list-group-item list-group-item-action">Ordenar por fecha publicación</a>
-  <a href="#" class="list-group-item list-group-item-action">Título</a>
-  <a href="#" class="list-group-item list-group-item-action">Editorial</a>
-  <a href="#" class="list-group-item list-group-item-action">Fecha de publicación</a>
-  <a href="#" class="list-group-item list-group-item-action">Idioma</a>
-  <a href="#" class="list-group-item list-group-item-action disabled">Autor</a>
-</div>
-
-
-
-<div class="book-catalog">
-  <div class="container">
-    <div class="row row-cols-2">
-      <div *ngFor="let book of newBooks">
-        <img [src]="book.cover" [alt]="book.title">
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+      <select class="form-select" aria-label="Default select example">
+        <option selected>Categorías</option>
+        <option *ngFor="let category of categories">{{category.name}}</option>
+      </select>
+    </div>
+    <div class="col-8">
+      <form class="d-flex">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Buscar</button>
+    </form>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4">
+      <div class="list-group">
+        <a href="#" class="list-group-item list-group-item-action active" aria-current="true"> Ordenar alfabéticamente</a>
+        <a href="#" class="list-group-item list-group-item-action">Ordenar por fecha publicación</a>
+        <a href="#" class="list-group-item list-group-item-action">Título</a>
+        <a href="#" class="list-group-item list-group-item-action">Editorial</a>
+        <a href="#" class="list-group-item list-group-item-action">Fecha de publicación</a>
+        <a href="#" class="list-group-item list-group-item-action">Idioma</a>
+        <a href="#" class="list-group-item list-group-item-action">Autor</a>
+      </div>
+    </div>
+    <div class="col-8">
+      <div class="book-catalog">
+        <div class="container">
+          <div class="row row-cols-3">
+            <div *ngFor="let book of newBooks">
+              <img class="rounded" [src]="book.cover" [alt]="book.title">
+            </div>
+            <div class="pagination">
+              <nav aria-label="Page navigation example">
+                  <ul class="pagination">
+                    <li class="page-item">
+                      <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                      </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                      <a class="page-link" href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+          </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
+  </div>
 
-<div class="pagination">
-    <nav aria-label="Page navigation example">
-        <ul class="pagination">
-          <li class="page-item">
-            <a class="page-link" href="#" aria-label="Previous">
-              <span aria-hidden="true">&laquo;</span>
-            </a>
-          </li>
-          <li class="page-item"><a class="page-link" href="#">1</a></li>
-          <li class="page-item"><a class="page-link" href="#">2</a></li>
-          <li class="page-item"><a class="page-link" href="#">3</a></li>
-          <li class="page-item">
-            <a class="page-link" href="#" aria-label="Next">
-              <span aria-hidden="true">&raquo;</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
-</div>
+
