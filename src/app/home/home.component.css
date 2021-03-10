@@ -15,22 +15,20 @@ p {
 
 
 .top-books div {
-    height: auto; 
-    width: auto; 
-    max-width: 300px; 
+
+    max-width: 350px;
     max-height: 400px;
 }
 
 
 .new-books div {
-    height: auto; 
-    width: auto; 
-    max-width: 300px; 
+
+    max-width: 350px;
     max-height: 400px;
 }
 
 ul {
-    width:400px;
+    width:350px;
     resize:both;
     text-align: center;
 }
@@ -40,7 +38,7 @@ ul {
     color: black;
     display: block;
   }
-   
+
 #top_buttons li a:hover {
   color: #000000;
   background-color: #33B5E5;
@@ -51,7 +49,7 @@ ul {
     color: black;
     display: block;
   }
-   
+
 #new_buttons li a:hover {
   color: #000000;
   background-color: #33B5E5;
