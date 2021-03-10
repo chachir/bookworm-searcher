@@ -4,7 +4,7 @@ export interface interfazLibro {
   title: String;
   author: String;
   content: String;
-  content_shor: String;
+  content_short: String;
   publisher: String;
   publisher_date: String;
   pages: string;
