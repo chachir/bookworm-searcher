@@ -15,22 +15,25 @@ p {
 
 
 .top-books div {
-    height: auto; 
-    width: auto; 
-    max-width: 300px; 
+
+    max-width: 350px;
     max-height: 400px;
 }
 
 
 .new-books div {
-    height: auto; 
-    width: auto; 
-    max-width: 300px; 
+
+    max-width: 350px;
     max-height: 400px;
 }
 
+
 /*.book-list ul {
     width:400px;
+=======
+ul {
+    width:350px;
+
     resize:both;
     text-align: center;
 }*/
