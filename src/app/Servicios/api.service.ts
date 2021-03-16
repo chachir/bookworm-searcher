@@ -36,6 +36,7 @@ export class APIService {
   }
 
 
+  /***to-delete */
   getAllCategories(): Observable<Category[]>{
     return this.http.get<Category[]>(this.urlAPI + '?get_categories=all', httpOptions) //all categories
   }
@@ -47,6 +48,7 @@ export class APIService {
   counterCategory(id: number): Observable<NumItems>{
     return this.http.get<NumItems>(this.urlAPI + '?category_id=' + id + '&count_items=true', httpOptions);
   }
+  /***to-delete */
 
 
 
@@ -76,11 +78,13 @@ export class APIService {
     return this.http.get<interfazLibro[]>(this.filterURL, httpOptions);
   }
 
+  /*to-delete*/
   filterBySubcategory(subcategory: string){
     this.filterURL = this.filterURL + '&subcategory=' + subcategory;
     console.log(this.filterURL);
     return this.http.get<interfazLibro[]>(this.filterURL, httpOptions);
   }
+  /**to delete */
 
 
   filterByPublisher(publisher: string){
@@ -89,17 +93,19 @@ export class APIService {
     return this.http.get<interfazLibro[]>(this.filterURL, httpOptions);
   }
 
-  filterByPublisherDate(date: string){
+  filterByPublisherDate(date: string){ //?
     this.filterURL = this.filterURL + '&publisher_date=' + date;
     console.log(this.filterURL);
     return this.http.get<interfazLibro[]>(this.filterURL, httpOptions);
   }
 
+/***to-delete */
   numItems(num: Number){
     this.filterURL = this.filterURL + '&num_items=' + num;
     console.log(this.filterURL);
     return this.http.get<interfazLibro[]>(this.filterURL, httpOptions);
   }
+/***to-delete */
 
   filterByPages(pages: string){
     this.filterURL = this.filterURL +'&results_range="' + pages + '"';

@@ -19,8 +19,8 @@
             Link
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-            <li><a class="dropdown-item" routerLink="/book">Book</a></li>
-            <li><a class="dropdown-item" routerLink="/search">Search</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/book']">Book</a></li>
+            <li><a class="dropdown-item" [routerLink]="['/search']">Search</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">Something else here</a></li>
           </ul>
@@ -38,7 +38,7 @@
   </nav>
 </div>
 
-
+<router-outlet></router-outlet>
 
 <!-- footer -->
 <div class="footer">

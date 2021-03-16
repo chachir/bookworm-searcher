@@ -20,6 +20,7 @@ export class SearchedComponent implements OnInit {
   newBooks: interfazLibro[] = [];
   
   constructor(private APIService: APIService) { }
+  nLibros = 3;
 
   ngOnInit(): void {
     this.getCategories();
@@ -38,6 +39,11 @@ export class SearchedComponent implements OnInit {
 
   getNewBooks(): void{
     this.APIService.getNewBooks().subscribe((newBooks) => {this.newBooks = newBooks; });
-  }  
+  }
+  
+  setNewValueBook(num: number){
+    this.nLibros = num;
+    console.log(num);
+  }
 
 }
