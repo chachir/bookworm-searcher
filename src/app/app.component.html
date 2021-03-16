@@ -12,15 +12,15 @@
           <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/#">Búsqueda avanzada </a>
+          <a class="nav-link" href="#"> All categories </a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
             Link
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-            <li><a class="dropdown-item" [routerLink]="['/book']">Book</a></li>
-            <li><a class="dropdown-item" [routerLink]="['/search']">Search</a></li>
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">Something else here</a></li>
           </ul>
@@ -38,7 +38,12 @@
   </nav>
 </div>
 
-<router-outlet></router-outlet>
+<app-searched></app-searched>
+<!--<app-book></app-book>
+<app-home></app-home>-->
+
+
+
 
 <!-- footer -->
 <div class="footer">
