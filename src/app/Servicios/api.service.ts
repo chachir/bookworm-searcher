@@ -134,4 +134,7 @@ export class APIService {
     return this.http.get<interfazLibro[]>(this.urlAPI + '?id=' + idBook, httpOptions);
   }
 
+
+  /*** GOOGLE BOOKS API ***/
+
 }
