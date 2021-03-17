@@ -1,15 +1,9 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
-import {HttpClient} from '@angular/common/http';
-import {HttpHeaders} from '@angular/common/http';
-
-import {Observable} from 'rxjs';
-import {catchError} from 'rxjs/operators';
-
-import { interfazLibro } from '../interfazLibro';
-import { Category } from '../category';
-import { Subcategory } from '../subcategory';
-import { NumItems } from '../num-items';
+import { Googlebook } from '../interfaces/googlebook';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -22,12 +16,12 @@ const httpOptions = {
 })
 export class APIService {
 
-  urlAPI: string = 'https://www.etnassoft.com/api/v1/get/';
-  filterURL: string = this.urlAPI;
+  /*urlAPI: string = 'https://www.etnassoft.com/api/v1/get/';*/
+  //filterURL: string = this.urlAPI;
 
   constructor(private http: HttpClient) { }
 
-  getTopBooks(): Observable<interfazLibro[]> {
+  /*getTopBooks(): Observable<interfazLibro[]> {
     return this.http.get<interfazLibro[]>(this.urlAPI + '?criteria=most_viewed&num_items=6', httpOptions); //most_commented
   }
 
@@ -36,25 +30,10 @@ export class APIService {
   }
 
 
-  /***to-delete */
-  getAllCategories(): Observable<Category[]>{
-    return this.http.get<Category[]>(this.urlAPI + '?get_categories=all', httpOptions) //all categories
-  }
-
-  get_subcategories_by_category_ID(id_category: Number): Observable<Subcategory[]>{
-    return this.http.get<Subcategory[]>(this.urlAPI + '?get_subcategories_by_category_ID=' + id_category, httpOptions);
-  }
-
-  counterCategory(id: number): Observable<NumItems>{
-    return this.http.get<NumItems>(this.urlAPI + '?category_id=' + id + '&count_items=true', httpOptions);
-  }
-  /***to-delete */
-
-
 
 
   /* Searcher filters */
-  searchByKeyword(keyword: string){
+  /*searchByKeyword(keyword: string){
     keyword = keyword.replace(/\s/gi, '+');
     this.filterURL = this.filterURL + '?keyword=' + keyword;
     return this.http.get<interfazLibro[]>(this.filterURL, httpOptions);
@@ -78,14 +57,6 @@ export class APIService {
     return this.http.get<interfazLibro[]>(this.filterURL, httpOptions);
   }
 
-  /*to-delete*/
-  filterBySubcategory(subcategory: string){
-    this.filterURL = this.filterURL + '&subcategory=' + subcategory;
-    console.log(this.filterURL);
-    return this.http.get<interfazLibro[]>(this.filterURL, httpOptions);
-  }
-  /**to delete */
-
 
   filterByPublisher(publisher: string){
     this.filterURL = this.filterURL + '&publisher="' + publisher + '"';
@@ -98,14 +69,6 @@ export class APIService {
     console.log(this.filterURL);
     return this.http.get<interfazLibro[]>(this.filterURL, httpOptions);
   }
-
-/***to-delete */
-  numItems(num: Number){
-    this.filterURL = this.filterURL + '&num_items=' + num;
-    console.log(this.filterURL);
-    return this.http.get<interfazLibro[]>(this.filterURL, httpOptions);
-  }
-/***to-delete */
 
   filterByPages(pages: string){
     this.filterURL = this.filterURL +'&results_range="' + pages + '"';
@@ -136,5 +99,9 @@ export class APIService {
 
 
   /*** GOOGLE BOOKS API ***/
+  urlGBAPI = "https://www.googleapis.com/books/v1/volumes?q=";
+  getRecentBooks(category: string): Observable<Googlebook> {
+    return this.http.get<Googlebook>(this.urlGBAPI + 'subject:' + category + '&orderBy=newest', httpOptions);
+  }
 
 }

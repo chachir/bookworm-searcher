@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {APIService} from '../Servicios/api.service';
-import {interfazLibro} from '../interfazLibro';
+import { APIService } from '../services/api.service';
+
+import { Googlebook } from '../interfaces/googlebook';
 
 @Component({
   selector: 'app-home',
@@ -8,8 +9,7 @@ import {interfazLibro} from '../interfazLibro';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  topBooks: interfazLibro[] = [];
-  newBooks: interfazLibro[] = [];
+  recentBooks: Googlebook;
 
 
 
@@ -18,17 +18,17 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
 
     this.getNewBooks();
-    this.getTopBooks();
+    /*this.getTopBooks();*/
 
   }
 
   getNewBooks(): void{
-    this.APIService.getNewBooks().subscribe((newBooks) => {this.newBooks = newBooks; });
+    this.APIService.getRecentBooks('art').subscribe((recentBooks) => {this.recentBooks = recentBooks; for(var som of recentBooks.items){ console.log(som.volumeInfo.title);}   });
   }
 
-  getTopBooks(): void {
+  /*getTopBooks(): void {
     this.APIService.getTopBooks().subscribe((topBooks) => {this.topBooks = topBooks; });
-  }
+  }*/
 
 }
 

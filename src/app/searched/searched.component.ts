@@ -1,12 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Category } from '../category';
-import { Subcategory } from '../subcategory';
-import { NumItems } from '../num-items';
-import {interfazLibro} from '../interfazLibro';
-
-
-import {APIService} from '../Servicios/api.service';
+import { APIService } from '../services/api.service';
 
 @Component({
   selector: 'app-searched',
@@ -14,32 +8,22 @@ import {APIService} from '../Servicios/api.service';
   styleUrls: ['./searched.component.css']
 })
 export class SearchedComponent implements OnInit {
-  categories: Category[] = [];
-  subcategories: Subcategory[] = [];
-  numCategory: NumItems;
-  newBooks: interfazLibro[] = [];
   
   constructor(private APIService: APIService) { }
   nLibros = 3;
 
   ngOnInit(): void {
-    this.getCategories();
-    this.getNewBooks();
+    //this.getCategories();
+    //this.getNewBooks();
   }
 
-  getCategories(): void{ 
+  /*getCategories(): void{ 
     this.APIService.getAllCategories().subscribe((categories) => {this.categories = categories; });
-  }
-
-  /*getCounter(category_id: number): string {
-    //this.APIService.counterCategory(category_id).subscribe((numCategory) => {this.numCategory = numCategory; });
-    console.log(category_id);
-    return "" + category_id;
   }*/
 
-  getNewBooks(): void{
+  /*getNewBooks(): void{
     this.APIService.getNewBooks().subscribe((newBooks) => {this.newBooks = newBooks; });
-  }
+  }*/
   
   setNewValueBook(num: number){
     this.nLibros = num;
