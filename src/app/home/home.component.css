@@ -1,6 +1,6 @@
 .welcome {
   width: 45%;
-  height: 40%;
+  height:40%;
   background-color: #DFE7E9;
   border-radius: 25px;
   padding: 2rem;
@@ -8,9 +8,9 @@
 }
 
 .book-carousels {
-  width: 40%;
-  height: 40%;
-  background: url("/assets/img/background.jpg") no-repeat center center fixed;
+  width: 45%;
+  height:45%;
+  background: url("/assets/img/image (2).jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
