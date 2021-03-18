@@ -1,57 +1,47 @@
+<div class="container-fluid">
 
-<div class="container">
+  <div class="row subhead">
+    <br>
+    <br>
+    <br>
+    <br>
+  </div>
+
   <div class="row">
-    <div class="col-6">
-      <div class="top-books">
-        <p>Libros populares</p>
-          <div id="carousel0" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-              <li data-target="#carousel0"  *ngFor="let book of recentBooks.items;let index = index" [attr.data-slide-to]="index"></li>
-            </ol>
-            <div class="carousel-inner">
-              <div class="carousel-item" *ngFor="let book of recentBooks.items;let index = index;let isFirst = first" [ngClass]="{active:isFirst}">
-                <img [src]="book.volumeInfo.imageLinks.thumbnail" class="rounded d-block w-100" [alt]="book.volumeInfo.title">
-              </div>
-            </div>
-            <a class="carousel-control-prev" href="#carousel0" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carousel0" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
-          </div>
-            <ul id="top_buttons" *ngFor="let book of recentBooks.items" class="list-group">
-              <li class="list-group"><a href="#" class="button">{{ book.volumeInfo.title }}</a></li>
-            </ul>
-        </div>
+    <div id="info" class="column welcome">
+     
+      <h1>Looking for your next reading?</h1>
+      <br>
+
+      <form class="d-flex">
+        <input class="form-control search" type="search" placeholder="Search a book" aria-label="Search">
+        <button class="btn" type="submit"><img src="../assets/img/magnifying-glass.png"/></button>
+        <!--waiting icon-->
+      </form>
+
+      <br><br><br>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, recusandae distinctio quas voluptate, minus temporibus quos, dignissimos quaerat officiis vitae debitis impedit ipsam est laborum cupiditate quibusdam! Alias, minima voluptatibus?<br>
+      
+      <br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor nostrum provident ad sequi, itaque dolores nemo mollitia molestiae doloremque ipsum quibusdam! Dolores sit amet porro beatae rerum, nemo nobis inventore!
+      <br>
+      <img src="../assets/img/worm.png" alt="Book" width="50" height="60">
+
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Non doloribus cum, ad quisquam amet, ipsa labore eaque fuga debitis consectetur nesciunt maxime, veniam a? Possimus quidem aliquam dolore praesentium hic.<br><br><br>
     </div>
-    <div class="col-6">
-      <div class="new-books">
-        <p>Libros recientemente añadidos</p>
-        <div id="carousel1" class="carousel slide" data-ride="carousel">
-          <ol class="carousel-indicators">
-            <li data-target="#carousel1"  *ngFor="let book of recentBooks.items;let index = index" [attr.data-slide-to]="index"></li>
-          </ol>
-          <div class="carousel-inner">
-            <div class="carousel-item" *ngFor="let book of recentBooks.items;let index = index;let isFirst = first" [ngClass]="{active:isFirst}">
-              <img [src]="book.volumeInfo.imageLinks.smallThumbnail" class="rounded d-block w-100" [alt]="book.volumeInfo.title">
-            </div>
-          </div>
-          <a class="carousel-control-prev" href="#carousel1" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="carousel-control-next" href="#carousel1" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
-      </div>
-      <ul id="new_buttons" *ngFor="let book of recentBooks.items" class="list-group">
-        <li class="list-group"><a href="#" class="button">{{ book.volumeInfo.title }}</a></li>
-      </ul>
+
+    <div class="column book-carousels">
+
+      <!--<div class="category">
+        <select class="form-select" aria-label="Default select example">
+          <option selected>Categorías</option>
+          <option *ngFor="let category of categories" (change)="getNewBooks(category)">{{category}}</option>
+        </select>
+      </div>-->
+
+      <app-book-carousel></app-book-carousel>
+
     </div>
+
   </div>
-    </div>
-  </div>
+  
+</div>

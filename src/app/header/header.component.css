@@ -1,0 +1,39 @@
+.menu {
+    background-color: #6386C6;
+
+}
+
+
+.nav-link, .navbar-brand {
+    color: white;
+}
+
+.nav-link:hover {
+    background-color: #DFE7E9;
+    color: black;
+}
+
+.dropdown-menu {
+    background-color: #a8c2c7;
+
+}
+
+.dropdown-item {
+    color: white;
+}
+
+.dropdown-item:hover {
+    background-color: #DFE7E9;
+    color: black;
+}
+
+
+button:hover {
+    background-color: #DFE7E9;
+    color: black;
+}
+
+button {
+    background-color: #a8c2c7;
+    transition: background-color .5s;
+ }

@@ -6,12 +6,18 @@ import { AppRoutingModule,  routingComponents } from './app-routing.module';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
+import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
+import { BookCarouselComponent } from './book-carousel/book-carousel.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents,
+    FooterComponent,
+    HeaderComponent,
+    BookCarouselComponent,
   ],
   imports: [
     BrowserModule,
