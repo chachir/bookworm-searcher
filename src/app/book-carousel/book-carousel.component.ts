@@ -10,6 +10,7 @@ import { Googlebook } from '../interfaces/googlebook';
 })
 export class BookCarouselComponent implements OnInit {
   recentBooks: Googlebook;
+  relevantBooks: Googlebook;
   categories = ["Art", "Physics", "Mathematics", "Engineering", "Technology", "Poetry"];
 
 
@@ -18,12 +19,16 @@ export class BookCarouselComponent implements OnInit {
   ngOnInit(): void {
 
     this.getNewBooks('Art');
-    /*this.getTopBooks();*/
+    this.getTopBooks('Art');
 
   }
 
   getNewBooks(category: string): void{
     this.APIService.getRecentBooks(category).subscribe((recentBooks) => {this.recentBooks = recentBooks;   });
+  }
+
+  getTopBooks(category: string): void{
+    this.APIService.getRelevantBooks(category).subscribe((relevantBooks) => {this.relevantBooks = relevantBooks;   });
   }
 
 }

@@ -43,11 +43,11 @@
         <div id="carousel0" class="carousel slide" data-ride="carousel">
 
           <ol class="carousel-indicators">
-            <li data-target="#carousel0"  *ngFor="let book of recentBooks.items;let index = index" [attr.data-slide-to]="index"></li>
+            <li data-target="#carousel0"  *ngFor="let book of relevantBooks.items;let index = index" [attr.data-slide-to]="index"></li>
           </ol>
 
           <div class="carousel-inner">
-            <div class="carousel-item" *ngFor="let book of recentBooks.items;let index = index;let isFirst = first" [ngClass]="{active:isFirst}">
+            <div class="carousel-item" *ngFor="let book of relevantBooks.items;let index = index;let isFirst = first" [ngClass]="{active:isFirst}">
               <img [src]="book.volumeInfo.imageLinks.thumbnail" class="rounded d-block w-100" [alt]="book.volumeInfo.title">
             </div>
           </div>
@@ -66,7 +66,7 @@
       </div>
       <div class="column newest-books-list">
 
-        <ul id="newest_buttons" *ngFor="let book of recentBooks.items" class="list-group">
+        <ul id="newest_buttons" *ngFor="let book of relevantBooks.items" class="list-group">
           <li class="list-group"><a href="#" class="button">{{ book.volumeInfo.title }}</a></li>
         </ul>
 

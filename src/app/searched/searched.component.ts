@@ -12,6 +12,20 @@ export class SearchedComponent implements OnInit {
   constructor(private APIService: APIService) { }
   nLibros = 3;
 
+  q: string = "q=";
+
+  title: string = "";
+  author: string = "";
+  publisher: string = "";
+  subject: string = "";
+  isbn: string = "";
+
+  language: string = "";
+  type: string = "";
+  availability: string = "";
+
+  order: string = "";
+
   ngOnInit(): void {
     //this.getCategories();
     //this.getNewBooks();
@@ -28,6 +42,67 @@ export class SearchedComponent implements OnInit {
   setNewValueBook(num: number){
     this.nLibros = num;
     console.log(num);
+  }
+
+
+
+
+
+
+
+  /* Searcher - query */
+  searchByKeyword(keyword: string) {
+    keyword = keyword.replace(/\s/gi, '+');
+    this.q = this.q + keyword;
+  }
+
+  searchByAuthor(author: string) {
+    author = author.replace(/\s/gi, '+');
+    this.author = "inauthor:" + author;
+  }
+
+  searchByTitle(title: string) {
+    title = title.replace(/\s/gi, '+');
+    this.title = "intitle:" + title;
+  }
+
+  searchByPublisher(publisher: string) {
+    publisher = publisher.replace(/\s/gi, '+');
+    this.publisher = "inpublisher:" + publisher;
+  }
+
+  searchBySubject(subject: string) {
+    subject = subject.replace(/\s/gi, '+');
+    this.subject = "subject:" + subject;
+  }
+
+  searchByISBN(isbn: string){
+    isbn = isbn.replace(/\s/gi, '+');
+    this.isbn = "isbn:" + isbn;
+  }
+
+  
+
+
+  /* Searcher - filters */
+  filterByLanguage(lang: string) {
+    this.language = "&langRestrict=" + lang;
+  }
+
+  filterType(type: string) { //all, books, magazines
+    this.type = "&printType=" + type;
+  }
+
+  filterAvailability(availability: string) { //partial, fill, free-ebooks, paid-ebooks, ebooks
+    this.availability = "&filter=" + availability;
+  }
+
+
+
+
+  /* Searcher - order */
+  orderBy(order: string) {
+    this.order = "&orderBy=" + order;
   }
 
 }
