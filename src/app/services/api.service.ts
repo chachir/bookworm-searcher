@@ -16,8 +16,16 @@ const httpOptions = {
 })
 export class APIService {
 
-  /*urlAPI: string = 'https://www.etnassoft.com/api/v1/get/';*/
-  //filterURL: string = this.urlAPI;
+  urlGBAPI: string = "https://www.googleapis.com/books/v1/volumes?q=";
+  filterURL: string;
+
+  query: string;
+
+  title: string;
+  author: string;
+  publisher: string;
+  subject: string;
+  isbn: string;
 
   constructor(private http: HttpClient) { }
 
@@ -33,17 +41,28 @@ export class APIService {
 
 
   /* Searcher filters */
-  /*searchByKeyword(keyword: string){
+  searchByKeyword(keyword: string) {
     keyword = keyword.replace(/\s/gi, '+');
-    this.filterURL = this.filterURL + '?keyword=' + keyword;
-    return this.http.get<interfazLibro[]>(this.filterURL, httpOptions);
+
+    this.urlGBAPI = this.urlGBAPI + keyword;
+
+    return this.http.get<Googlebook>(this.urlGBAPI, httpOptions);
   }
 
-  filterByLanguage(lang: string){
-    this.filterURL = this.filterURL + '&lang=' + lang;
-    console.log(this.filterURL);
-    return this.http.get<interfazLibro[]>(this.filterURL, httpOptions);
+  searchByAuthor(author: string) {
+    this.author = author.replace(/\s/gi, '+');
+
+    return this.http.get<Googlebook>(this.urlGBAPI, httpOptions);
   }
+
+  
+  filterByLanguage(lang: string) {
+    this.filterURL = this.filterURL + "&langRestrict=" + lang;
+    return this.http.get<Googlebook>(this.filterURL, httpOptions);
+  }
+
+
+  /*
 
   filterByAuthor(author: string){
     this.filterURL = this.filterURL + '&book_author="' + author + '"';
@@ -98,8 +117,7 @@ export class APIService {
   }
 
 
-  /*** GOOGLE BOOKS API ***/
-  urlGBAPI = "https://www.googleapis.com/books/v1/volumes?q=";
+*/
   getRecentBooks(category: string): Observable<Googlebook> {
     return this.http.get<Googlebook>(this.urlGBAPI + 'subject:' + category + '&orderBy=newest', httpOptions);
   }
