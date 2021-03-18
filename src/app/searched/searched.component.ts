@@ -12,7 +12,7 @@ export class SearchedComponent implements OnInit {
   constructor(private APIService: APIService) { }
   nLibros = 3;
 
-  q: string = "q=";
+  q: string = "";
 
   title: string = "";
   author: string = "";

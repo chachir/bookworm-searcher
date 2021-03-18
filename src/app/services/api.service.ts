@@ -16,7 +16,7 @@ const httpOptions = {
 })
 export class APIService {
 
-  urlGBAPI: string = "https://www.googleapis.com/books/v1/volumes?";
+  urlGBAPI: string = "https://www.googleapis.com/books/v1/volumes?q=";
 
   constructor(private http: HttpClient) { }
 
