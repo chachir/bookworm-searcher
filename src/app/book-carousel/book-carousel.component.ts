@@ -12,23 +12,26 @@ export class BookCarouselComponent implements OnInit {
   recentBooks: Googlebook;
   relevantBooks: Googlebook;
   categories = ["Art", "Physics", "Mathematics", "Engineering", "Technology", "Poetry"];
+  selectedCategory = "Art";
 
 
   constructor(private APIService: APIService) { }
 
   ngOnInit(): void {
 
-    this.getNewBooks('Art');
-    this.getTopBooks('Art');
+    this.getNewBooks(this.selectedCategory);
+    this.getTopBooks(this.selectedCategory);
 
   }
 
+
+  /** Recommendations on home page */
   getNewBooks(category: string): void{
-    this.APIService.getRecentBooks(category).subscribe((recentBooks) => {this.recentBooks = recentBooks;   });
+    this.APIService.search('subject:' + category + '&orderBy=newest&maxResults=6').subscribe((recentBooks) => {this.recentBooks = recentBooks;   });
   }
 
   getTopBooks(category: string): void{
-    this.APIService.getRelevantBooks(category).subscribe((relevantBooks) => {this.relevantBooks = relevantBooks;   });
+    this.APIService.search('subject:' + category + '&orderBy=relevance&maxResults=6').subscribe((relevantBooks) => {this.relevantBooks = relevantBooks;   });
   }
 
 }

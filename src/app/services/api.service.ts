@@ -21,15 +21,6 @@ export class APIService {
   constructor(private http: HttpClient) { }
 
 
-  /** Recommendations on home page */
-  getRecentBooks(category: string): Observable<Googlebook> {
-    return this.http.get<Googlebook>(this.urlGBAPI + 'subject:' + category + '&orderBy=newest&maxResults=6', httpOptions);
-  }
-
-  getRelevantBooks(category: string): Observable<Googlebook> {
-    return this.http.get<Googlebook>(this.urlGBAPI + 'subject:' + category + '&orderBy=relevance&maxResults=6', httpOptions);
-  }
-
   /* Search */
   search(query: string): Observable<Googlebook> {
     return this.http.get<Googlebook>(this.urlGBAPI + query, httpOptions);

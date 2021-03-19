@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Googlebook } from '../interfaces/googlebook';
+
 import { APIService } from '../services/api.service';
 
 @Component({
@@ -8,9 +10,12 @@ import { APIService } from '../services/api.service';
   styleUrls: ['./searched.component.css']
 })
 export class SearchedComponent implements OnInit {
-  
-  constructor(private APIService: APIService) { }
+
+  books: Googlebook;
+
   nLibros = 3;
+
+  url: string = "";
 
   q: string = "";
 
@@ -26,28 +31,34 @@ export class SearchedComponent implements OnInit {
 
   order: string = "";
 
+
+  recentBooks: Googlebook;
+  
+  constructor(private APIService: APIService) { }
+
   ngOnInit(): void {
-    //this.getCategories();
-    //this.getNewBooks();
+    this.getNewBooks('Art');
   }
 
-  /*getCategories(): void{ 
-    this.APIService.getAllCategories().subscribe((categories) => {this.categories = categories; });
-  }*/
-
-  /*getNewBooks(): void{
-    this.APIService.getNewBooks().subscribe((newBooks) => {this.newBooks = newBooks; });
-  }*/
   
   setNewValueBook(num: number){
     this.nLibros = num;
     console.log(num);
   }
 
+  getNewBooks(category: string): void{
+    this.APIService.search('subject:' + category + '&orderBy=newest&maxResults=6').subscribe((recentBooks) => {this.recentBooks = recentBooks;   });
+  }
 
 
 
-
+  search(){
+    this.url = this.q
+     + this.title + this.author + this.publisher + this.subject + this.isbn
+     + this.language + this.type + this.availability + this.order;
+    
+    this.APIService.search(this.url).subscribe((books) => {this.books = books;   });
+  }
 
 
   /* Searcher - query */
@@ -82,8 +93,6 @@ export class SearchedComponent implements OnInit {
   }
 
   
-
-
   /* Searcher - filters */
   filterByLanguage(lang: string) {
     this.language = "&langRestrict=" + lang;
@@ -96,8 +105,6 @@ export class SearchedComponent implements OnInit {
   filterAvailability(availability: string) { //partial, fill, free-ebooks, paid-ebooks, ebooks
     this.availability = "&filter=" + availability;
   }
-
-
 
 
   /* Searcher - order */

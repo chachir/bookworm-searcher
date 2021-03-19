@@ -1,10 +1,6 @@
 <div class="container">
   <div class="row">
     <div class="col-4">
-      <select class="form-select" aria-label="Default select example">
-        <option selected>Categorías</option>
-        <!--<option *ngFor="let category of categories">{{category.name}}</option>-->
-      </select>
     </div>
     <div class="col-8">
       <form class="d-flex">
@@ -16,13 +12,20 @@
   <div class="row">
     <div class="col-4">
       <div class="list-group">
-        <a href="#" class="list-group-item list-group-item-action active" aria-current="true"> Ordenar alfabéticamente</a>
-        <a href="#" class="list-group-item list-group-item-action">Ordenar por fecha publicación</a>
-        <a href="#" class="list-group-item list-group-item-action">Título</a>
-        <a href="#" class="list-group-item list-group-item-action">Editorial</a>
-        <a href="#" class="list-group-item list-group-item-action">Fecha de publicación</a>
-        <a href="#" class="list-group-item list-group-item-action">Idioma</a>
-        <a href="#" class="list-group-item list-group-item-action">Autor</a>
+        <input class="form-control" type="text" placeholder="Author">
+        <input class="form-control" type="text" placeholder="Title">
+        <input class="form-control" type="text" placeholder="Publisher">
+        <input class="form-control" type="text" placeholder="Subject">
+        <input class="form-control" type="text" placeholder="ISBN">
+        <select class="form-select" aria-label="Default select example">
+          <option selected>Language</option>
+          <!--<option *ngFor="let category of categories">{{category.name}}</option>-->
+        </select>
+        <input class="form-control" type="text" placeholder="Type">
+        <input class="form-control" type="text" placeholder="Availability">
+        Order by
+        <input type='radio' name='foo'>Newest books
+        <input type='radio' name='foo'>Relevant books
       </div>
     </div>
     <div class="col-8">
@@ -44,9 +47,9 @@
         <br>
                 
           <div class="row row-cols-{{nLibros}}">
-            <!--<div *ngFor="let book of newBooks">
-              <img class="rounded" [src]="book.cover" [alt]="book.title">
-            </div>-->            
+            <div *ngFor="let book of recentBooks.items">
+              <img class="rounded" [src]="book.volumeInfo.imageLinks.thumbnail" [alt]="book.volumeInfo.title">
+            </div>        
           </div>
           
           <div class="row row-cols-3">
