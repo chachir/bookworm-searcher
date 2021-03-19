@@ -112,3 +112,18 @@
     text-align: center;
   }
 
+select {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: larger;
+}
+
+option {
+  background-color: black;
+  font-size: small;
+}
+
+.category_list {
+  max-width: 300px;
+}

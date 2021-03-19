@@ -1,5 +1,9 @@
 <div class="container-fluid">
-    <h1 class="header_new">Newest books</h1>
+    <h1 class="header_new">Recentyy books on
+      <select class="category_list">
+        <option *ngFor="let category of categories">{{category}}</option>
+      </select>
+    </h1>
     <div class="row row-cols-2">
       <div class="column newest-books">
 
@@ -36,7 +40,11 @@
       </div>
 
     </div>
-    <h1 class="header_new">Top books</h1>
+    <h1 class="header_new">Relevant books on
+      <select class="category_list">
+        <option *ngFor="let category of categories">{{category}}</option>
+      </select>
+    </h1>
     <div class="row row-cols-2">
       <div class="column newest-books">
 
