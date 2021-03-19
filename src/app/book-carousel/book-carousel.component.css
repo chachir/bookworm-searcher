@@ -11,6 +11,10 @@
     right: -15%;
   }
 
+  .carousel-indicators{
+    top: 100%;
+  }
+
   img{
     width: 250px;
     height: 300px;
@@ -65,8 +69,6 @@
     margin-left: auto;
   }
 
-
-
   a.button{
     display:inline-block;
     padding:0.35em 1.2em;
@@ -81,12 +83,12 @@
 
   a.button:hover {
     color: white;
+
   }
 
   li {
      background-color:white;
-     opacity: 0.5;
-     border-color: black;
+     opacity: 0.9;
      border-radius: 10%;
      color: black;
   }
@@ -94,6 +96,7 @@
 
   li:hover {
     background-color:#293335;
+    border: 2px solid black;
   }
 
   @media all and (max-width:30em){
