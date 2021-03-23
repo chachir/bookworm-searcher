@@ -1,11 +1,7 @@
-.menu {
-    background-color: #6386C6;
-
-}
 
 
 .nav-link, .navbar-brand {
-    color: white;
+    color: white !important;
     font-size: 20px;
 
 }
@@ -30,27 +26,23 @@
     color: black;
 }
 
-.about{
-  float: right;
-}
-
-
-
 button:hover {
     background-color: #DFE7E9;
     color: black;
 }
 
 button {
-    background-color: #a8c2c7;
+    background-color:#DFE7E9;
     transition: background-color .5s;
  }
+
+
 
  li > a:hover{
    border-color: black;
  }
 
-
+ 
  .right-button {
      float: right;
  }
