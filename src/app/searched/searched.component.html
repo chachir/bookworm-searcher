@@ -29,20 +29,20 @@
 
         <div class="col list-group">
           <select class="form-select input-search" aria-label="Default select example">
-            <option selected>Language</option>
+            <option disabled selected>Language</option>
             <!--<option *ngFor="let category of categories">{{category.name}}</option>-->
           </select>
-          <select class="form-select input-search" aria-label="Default select example">
-            <option selected>Type</option>
-            <option *ngFor="let type of types">{{type}}</option>
+          <select class="form-select input-search" placeholder="Type" aria-label="Default select example">
+            <option disabled selected>Type</option>
+            <option *ngFor="let type of types" value="{{type}}">{{type}}</option>
           </select>
           <select class="form-select input-search" aria-label="Default select example">
-            <option selected>Availability</option>
-            <option *ngFor="let availability of availabilities">{{availability}}</option>
+            <option disabled selected>Availability</option>
+            <option *ngFor="let availability of availabilities" value="{{availability}}">{{availability}}</option>
           </select>
-          Order by
-          <input type='radio' name='foo'>Newest books
-          <input type='radio' name='foo'>Relevant books
+         <!-- Order by
+          <input type='radio' name='order' value='newest'>Newest books
+          <input type='radio' name='order' value='relevance'>Relevant books-->
         </div>
       </div>
 
@@ -51,7 +51,7 @@
 
 
 
-    
+
     <div class="col-8">
       <div class="book-catalog">
         <div class="container">
