@@ -1,105 +1,109 @@
-<div class="container">
-  <div class="row">
-    <div class="col-4">
-    </div>
+<div class="container-fluid">
+  <div class="row row-cols-2">
     <div class="col-8">
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Buscar</button>
-      </form>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col search">
-      <p>Advanced search</p>
-
-      <div class="row row-cols-3">
-        <div class="col list-group">
-          <input class="form-control input-search" type="text" placeholder="Title">
-          <input class="form-control input-search" type="text" placeholder="Author">
-        </div>
-
-        <div class="col list-group">
-          <input class="form-control input-search" type="text" placeholder="Publisher">
-          <input class="form-control input-search" type="text" placeholder="Subject">
-          <input class="form-control input-search" type="text" placeholder="ISBN">
-        </div>
-
-
-        <div class="col list-group">
-          <select class="form-select input-search" aria-label="Default select example">
-            <option selected>Language</option>
-            <!--<option *ngFor="let category of categories">{{category.name}}</option>-->
-          </select>
-          <select class="form-select input-search" aria-label="Default select example">
-            <option selected>Type</option>
-            <option *ngFor="let type of types">{{type}}</option>
-          </select>
-          <select class="form-select input-search" aria-label="Default select example">
-            <option selected>Availability</option>
-            <option *ngFor="let availability of availabilities">{{availability}}</option>
-          </select>
-          Order by
-          <input type='radio' name='foo'>Newest books
-          <input type='radio' name='foo'>Relevant books
-        </div>
-      </div>
-
-
     </div>
 
+      <div class="col-4 search">
+        <p>Advanced search</p>
 
-
-    
-    <div class="col-8">
-      <div class="book-catalog">
-        <div class="container">
-          <!--
-          4<input type="radio" name="num-book" value="2" checked>
-          6<input type="radio" name="num-book" value="3">
-
-          <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-            <div class="btn-group mr-2" role="group" aria-label="First group">
-              <button type="button" class="btn btn-secondary" (click)="setNewValueBook(2)">4</button>
-              <button type="button" class="btn btn-secondary" (click)="setNewValueBook(3)" checked>6</button> class="btn btn-secondary"
-            </div>
-          </div>-->
-
-
-
-          <br>
-
-          <div class="row row-cols-{{nLibros}}">
-            <div *ngFor="let book of recentBooks.items">
-              <img class="rounded" [src]="book.volumeInfo.imageLinks.thumbnail" [alt]="book.volumeInfo.title">
-            </div>
+        <div class="row">
+          <div class="col-12">
+            <form class="d-flex justify-content.center">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Title</button>
+            </form>
           </div>
 
-          <div class="row row-cols-3">
-            <div class="pagination">
-              <nav aria-label="Page navigation example">
-                <ul class="pagination">
-                  <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
-                      <span aria-hidden="true">&laquo;</span>
-                    </a>
-                  </li>
-                  <li class="page-item"><a class="page-link" href="#">1</a></li>
-                  <li class="page-item"><a class="page-link" href="#">2</a></li>
-                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                  <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                      <span aria-hidden="true">&raquo;</span>
-                    </a>
-                  </li>
-                </ul>
-              </nav>
-            </div>
+          <div class="col-6 list-group">
+            <input class="form-control input-search" type="text" placeholder="Author">
+            <input class="form-control input-search" type="text" placeholder="ISBN">
+
+          </div>
+
+          <div class="col-6 list-group">
+            <input class="form-control input-search" type="text" placeholder="Publisher">
+            <input class="form-control input-search" type="text" placeholder="Subject">
+          </div>
+
+
+
+        <div class="row">
+          <div class="col list-group select">
+            <select class="form-select input-search" aria-label="Default select example">
+              <option selected>Language</option>
+              <!--<option *ngFor="let category of categories">{{category.name}}</option>-->
+            </select>
+          </div>
+          <div class="col list-group select">
+            <select class="form-select input-search" aria-label="Default select example">
+              <option selected>Type</option>
+              <option *ngFor="let type of types">{{type}}</option>
+            </select>
+          </div>
+          <div class="col list-group select">
+            <select class="form-select input-search" aria-label="Default select example">
+              <option selected>Availability</option>
+              <option *ngFor="let availability of availabilities">{{availability}}</option>
+            </select>
+          </div>
+
           </div>
         </div>
 
+
       </div>
-    </div>
+
+      <div class="container-fluid">
+       <div class="col-12">
+        <div class="book-catalog">
+
+            <!--
+            4<input type="radio" name="num-book" value="2" checked>
+            6<input type="radio" name="num-book" value="3">
+
+            <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+              <div class="btn-group mr-2" role="group" aria-label="First group">
+                <button type="button" class="btn btn-secondary" (click)="setNewValueBook(2)">4</button>
+                <button type="button" class="btn btn-secondary" (click)="setNewValueBook(3)" checked>6</button> class="btn btn-secondary"
+              </div>
+            </div>-->
+
+
+
+            <br>
+
+            <div class="row row-cols-{{nLibros}}">
+              <div *ngFor="let book of recentBooks.items">
+                <img class="rounded" [src]="book.volumeInfo.imageLinks.thumbnail" [alt]="book.volumeInfo.title">
+              </div>
+            </div>
+
+            <div class="row row-cols-3">
+              <div class="pagination">
+                <nav aria-label="Page navigation example">
+                  <ul class="pagination">
+                    <li class="page-item">
+                      <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                      </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                      <a class="page-link" href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
   </div>
+
+
 </div>
