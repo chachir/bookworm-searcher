@@ -9,31 +9,49 @@
       </form>
     </div>
   </div>
+
   <div class="row">
-    <div class="col-4">
-      <div class="list-group">
-        <input class="form-control" type="text" placeholder="Author">
-        <input class="form-control" type="text" placeholder="Title">
-        <input class="form-control" type="text" placeholder="Publisher">
-        <input class="form-control" type="text" placeholder="Subject">
-        <input class="form-control" type="text" placeholder="ISBN">
-        <select class="form-select" aria-label="Default select example">
-          <option selected>Language</option>
-          <!--<option *ngFor="let category of categories">{{category.name}}</option>-->
-        </select>
-        <select class="form-select" aria-label="Default select example">
-          <option selected>Type</option>
-          <!--<option *ngFor="let category of categories">{{category.name}}</option>-->
-        </select>
-        <select class="form-select" aria-label="Default select example">
-          <option selected>Availability</option>
-          <!--<option *ngFor="let category of categories">{{category.name}}</option>-->
-        </select>
-        Order by
-        <input type='radio' name='foo'>Newest books
-        <input type='radio' name='foo'>Relevant books
+    <div class="col search">
+      <p>Advanced search</p>
+
+      <div class="row row-cols-3">
+        <div class="col list-group">
+          <input class="form-control input-search" type="text" placeholder="Title">
+          <input class="form-control input-search" type="text" placeholder="Author">
+        </div>
+
+        <div class="col list-group">
+          <input class="form-control input-search" type="text" placeholder="Publisher">
+          <input class="form-control input-search" type="text" placeholder="Subject">
+          <input class="form-control input-search" type="text" placeholder="ISBN">
+        </div>
+
+
+        <div class="col list-group">
+          <select class="form-select input-search" aria-label="Default select example">
+            <option selected>Language</option>
+            <!--<option *ngFor="let category of categories">{{category.name}}</option>-->
+          </select>
+          <select class="form-select input-search" aria-label="Default select example">
+            <option selected>Type</option>
+            <option *ngFor="let type of types">{{type}}</option>
+          </select>
+          <select class="form-select input-search" aria-label="Default select example">
+            <option selected>Availability</option>
+            <option *ngFor="let availability of availabilities">{{availability}}</option>
+          </select>
+          Order by
+          <input type='radio' name='foo'>Newest books
+          <input type='radio' name='foo'>Relevant books
+        </div>
       </div>
+
+
     </div>
+
+
+
+    
     <div class="col-8">
       <div class="book-catalog">
         <div class="container">
@@ -50,40 +68,38 @@
 
 
 
-        <br>
-                
+          <br>
+
           <div class="row row-cols-{{nLibros}}">
             <div *ngFor="let book of recentBooks.items">
               <img class="rounded" [src]="book.volumeInfo.imageLinks.thumbnail" [alt]="book.volumeInfo.title">
-            </div>        
-          </div>
-          
-          <div class="row row-cols-3">
-            <div class="pagination">
-              <nav aria-label="Page navigation example">
-                  <ul class="pagination">
-                    <li class="page-item">
-                      <a class="page-link" href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                      </a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                      <a class="page-link" href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                      </a>
-                    </li>
-                  </ul>
-                </nav>
-              </div>
             </div>
           </div>
 
+          <div class="row row-cols-3">
+            <div class="pagination">
+              <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                      <span aria-hidden="true">&laquo;</span>
+                    </a>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                      <span aria-hidden="true">&raquo;</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
         </div>
+
       </div>
+    </div>
   </div>
 </div>
-
-

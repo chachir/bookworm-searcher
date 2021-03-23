@@ -113,17 +113,27 @@
   }
 
 select {
-    background-color: transparent;
+    background-color: black;
+    opacity: 0.5;
     border: none;
     color: white;
-    font-size: larger;
+    font-size: 60px;
+    
 }
 
 option {
-  background-color: black;
+  color: white;
   font-size: small;
 }
 
 .category_list {
   max-width: 300px;
+}
+
+p {
+  font-size: 60px;
+}
+
+.cat {
+  width: 100%;
 }

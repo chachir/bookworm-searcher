@@ -14,6 +14,8 @@ export class SearchedComponent implements OnInit {
   books: Googlebook;
 
   nLibros = 3;
+  types = ["all", "books", "magazines"];
+  availabilities = ["partial", "fill", "free-ebooks", "paid-ebooks", "ebooks"];
 
   url: string = "";
 
@@ -25,9 +27,9 @@ export class SearchedComponent implements OnInit {
   subject: string = "";
   isbn: string = "";
 
-  language: string = "";
-  type: string = "";
-  availability: string = "";
+  selectedLanguage: string = "";
+  selectedType: string = "";
+  selectedAvailability: string = "";
 
   order: string = "";
 
@@ -55,7 +57,7 @@ export class SearchedComponent implements OnInit {
   search(){
     this.url = this.q
      + this.title + this.author + this.publisher + this.subject + this.isbn
-     + this.language + this.type + this.availability + this.order;
+     + this.selectedLanguage + this.selectedType + this.selectedAvailability + this.order;
     
     this.APIService.search(this.url).subscribe((books) => {this.books = books;   });
   }
@@ -95,15 +97,15 @@ export class SearchedComponent implements OnInit {
   
   /* Searcher - filters */
   filterByLanguage(lang: string) {
-    this.language = "&langRestrict=" + lang;
+    this.selectedLanguage = "&langRestrict=" + lang;
   }
 
   filterType(type: string) { //all, books, magazines
-    this.type = "&printType=" + type;
+    this.selectedType = "&printType=" + type;
   }
 
   filterAvailability(availability: string) { //partial, fill, free-ebooks, paid-ebooks, ebooks
-    this.availability = "&filter=" + availability;
+    this.selectedAvailability = "&filter=" + availability;
   }
 
 
