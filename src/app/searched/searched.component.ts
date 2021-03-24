@@ -19,7 +19,7 @@ export class SearchedComponent implements OnInit {
 
   url: string = "";
 
-  q: string = "";
+  //q: string = "";
 
   title: string = "";
   author: string = "";
@@ -55,19 +55,22 @@ export class SearchedComponent implements OnInit {
 
 
   search(){
-    this.url = this.q
-     + this.title + this.author + this.publisher + this.subject + this.isbn
-     + this.selectedLanguage + this.selectedType + this.selectedAvailability + this.order;
+    this.url = this.title + this.author + this.publisher + this.subject + this.isbn
+    //filters
+     + (this.selectedLanguage?.trim().length > 0) ? "&" : "" + this.selectedLanguage 
+     + (this.selectedType?.trim().length > 0) ? "&" : "" + this.selectedType 
+     + (this.selectedAvailability?.trim().length > 0) ? "&" : "" + this.selectedAvailability 
+     + (this.order?.trim().length > 0) ? "&" : "" + this.order;
     
     this.APIService.search(this.url).subscribe((books) => {this.books = books;   });
   }
 
 
   /* Searcher - query */
-  searchByKeyword(keyword: string) {
+  /*searchByKeyword(keyword: string) {
     keyword = keyword.replace(/\s/gi, '+');
     this.q = this.q + keyword;
-  }
+  }*/
 
   searchByAuthor(author: string) {
     author = author.replace(/\s/gi, '+');
@@ -102,6 +105,7 @@ export class SearchedComponent implements OnInit {
 
   filterType(type: string) { //all, books, magazines
     this.selectedType = "&printType=" + type;
+    console.log(this.selectedType);
   }
 
   filterAvailability(availability: string) { //partial, fill, free-ebooks, paid-ebooks, ebooks

@@ -9,20 +9,20 @@
         <div class="row">
           <div class="col-12">
             <form class="d-flex justify-content.center">
-              <input class="form-control me-2" type="search" placeholder="Title" aria-label="Title">
+              <input #titleBox class="form-control me-2" type="search" placeholder="Title" aria-label="Title" (input)="searchByTitle(titleBox.value)">
               <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
           </div>
 
           <div class="col-6 list-group">
-            <input class="form-control input-search" type="text" placeholder="Author">
-            <input class="form-control input-search" type="text" placeholder="ISBN">
+            <input #authorBox class="form-control input-search" type="text" placeholder="Author" (input)="searchByAuthor(authorBox.value)">
+            <input #ISBNBox class="form-control input-search" type="text" placeholder="ISBN" (input)="searchByISBN(ISBNBox.value)">
 
           </div>
 
           <div class="col-6 list-group">
-            <input class="form-control input-search" type="text" placeholder="Publisher">
-            <input class="form-control input-search" type="text" placeholder="Subject">
+            <input #publisherBox class="form-control input-search" type="text" placeholder="Publisher" (input)="searchByPublisher(publisherBox.value)">
+            <input #subjectBox class="form-control input-search" type="text" placeholder="Subject" (input)="searchBySubject(subjectBox.value)">
           </div>
 
 
@@ -35,10 +35,12 @@
             </select>
           </div>
           <div class="col list-group select">
-            <select class="form-select input-search" aria-label="Default select example">
-              <option disabled selected>Type</option>
+            <mat-label>
+            <select class="form-select input-search">
+              <option disabled selected value="">Type</option>
               <option *ngFor="let type of types" value="{{type}}">{{type}}</option>
             </select>
+          </mat-label>
           </div>
           <div class="col list-group select">
             <select class="form-select input-search" aria-label="Default select example">
