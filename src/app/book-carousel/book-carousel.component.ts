@@ -9,7 +9,7 @@ import { Googlebook } from '../interfaces/googlebook';
   styleUrls: ['./book-carousel.component.css']
 })
 export class BookCarouselComponent implements OnInit {
-  recentBooks: Googlebook;
+  public recentBooks: Googlebook;
   relevantBooks: Googlebook;
   categories = ["art", "physics", "mathematics", "engineering", "technology", "poetry"];
   selectedCategory = "art";
@@ -18,14 +18,18 @@ export class BookCarouselComponent implements OnInit {
   constructor(private APIService: APIService) { }
 
   ngOnInit(): void {
+    this.recentBooks = {
+      totalItems: 0,
+      items: null,
+    };
+    this.relevantBooks = {
+      totalItems: 0,
+      items: null,
+    };
 
     this.getNewBooks(this.selectedCategory);
     this.getTopBooks(this.selectedCategory);
 
-  }
-
-  show(){
-    console.log("hello");
   }
 
 

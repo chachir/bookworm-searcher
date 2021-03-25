@@ -10,7 +10,7 @@
           <div class="col-12">
             <form class="d-flex justify-content.center">
               <input #titleBox class="form-control me-2" type="search" placeholder="Title" aria-label="Title" (input)="searchByTitle(titleBox.value)">
-              <button class="btn btn-outline-success" type="submit">Search</button>
+              <button class="btn btn-outline-success" type="button" (click)="search()">Search</button>
             </form>
           </div>
 
@@ -29,23 +29,21 @@
 
         <div class="row">
           <div class="col list-group select">
-            <select class="form-select input-search" aria-label="Default select example">
+            <select class="form-select input-search">
               <option disabled selected>Language</option>
               <!--<option *ngFor="let category of categories">{{category.name}}</option>-->
             </select>
           </div>
           <div class="col list-group select">
-            <mat-label>
             <select class="form-select input-search">
-              <option disabled selected value="">Type</option>
-              <option *ngFor="let type of types" value="{{type}}">{{type}}</option>
+              <option disabled selected [value]="">Type</option>
+              <option *ngFor="let type of types">{{type}}</option>
             </select>
-          </mat-label>
           </div>
           <div class="col list-group select">
-            <select class="form-select input-search" aria-label="Default select example">
+            <select class="form-select input-search">
               <option disabled selected>Availability</option>
-              <option *ngFor="let availability of availabilities" value="{{availability}}">{{availability}}</option>
+              <option *ngFor="let availability of availabilities">{{availability}}</option>
             </select>
           </div>
 
@@ -76,8 +74,9 @@
 
             <br>
 
-            <div class="row row-cols-{{nLibros}}">
-              <div *ngFor="let book of recentBooks.items">
+            <!--<div class="row row-cols-{{nLibros}}">-->
+              <div class="row row-cols-3">
+              <div *ngFor="let book of books.items">
                 <img class="rounded" [src]="book.volumeInfo.imageLinks.thumbnail" [alt]="book.volumeInfo.title">
               </div>
             </div>
