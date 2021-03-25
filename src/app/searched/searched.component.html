@@ -4,21 +4,23 @@
       <h5>Advanced search</h5>
 
         <div class="row">
+
           <div class="col-12 list-group">
             <input class="form-control input-search" type="text" placeholder="Title">
           </div>
         </div>
         <div class="row">
           <div class="col-6 list-group">
-            <input class="form-control input-search" type="text" placeholder="Author">
-            <input class="form-control input-search" type="text" placeholder="ISBN">
+            <input #authorBox class="form-control input-search" type="text" placeholder="Author" (input)="searchByAuthor(authorBox.value)">
+            <input #ISBNBox class="form-control input-search" type="text" placeholder="ISBN" (input)="searchByISBN(ISBNBox.value)">
 
           </div>
 
           <div class="col-6 list-group">
-            <input class="form-control input-search" type="text" placeholder="Publisher">
-            <input class="form-control input-search" type="text" placeholder="Subject">
+            <input #publisherBox class="form-control input-search" type="text" placeholder="Publisher" (input)="searchByPublisher(publisherBox.value)">
+            <input #subjectBox class="form-control input-search" type="text" placeholder="Subject" (input)="searchBySubject(subjectBox.value)">
           </div>
+
         </div>
           <div class="row">
             <div class="col list-group select">
@@ -90,15 +92,15 @@
       </nav>
     </div>
 
-</div>
-</div>
-</div>
-
 
 </div>
+</div>
+</div>
+
 
 
 </div>
 
 
+</div>
 
