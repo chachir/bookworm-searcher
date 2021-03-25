@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <p class="header_new">Recent books on</p>
+    <h3 class="header_new">Recent books on</h3>
       <div class="cat" contenteditable="true">
       <select [(ngModel)]="selectedRecentCategory" (change)='getNewBooks(selectedRecentCategory)' class="category_list">
         <option *ngFor="let category of categories" [value]="category">{{category}}</option>
@@ -45,7 +45,7 @@
       <select [(ngModel)]="selectedRelevantCategory" (change)='getTopBooks(selectedRelevantCategory)' class="category_list">
         <option *ngFor="let category of categories" [value]="category">{{category}}</option>
       </select>
-    </p>
+
     <div class="row row-cols-2">
       <div class="column newest-books">
 
