@@ -12,7 +12,8 @@ export class BookCarouselComponent implements OnInit {
   public recentBooks: Googlebook;
   relevantBooks: Googlebook;
   categories = ["art", "physics", "mathematics", "engineering", "technology", "poetry"];
-  selectedCategory = "art";
+  selectedRecentCategory = "art";
+  selectedRelevantCategory = "art";
 
 
   constructor(private APIService: APIService) { }
@@ -27,8 +28,8 @@ export class BookCarouselComponent implements OnInit {
       items: null,
     };
 
-    this.getNewBooks(this.selectedCategory);
-    this.getTopBooks(this.selectedCategory);
+    this.getNewBooks(this.selectedRecentCategory);
+    this.getTopBooks(this.selectedRelevantCategory);
 
   }
 

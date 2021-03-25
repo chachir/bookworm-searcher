@@ -17,85 +17,63 @@ export class SearchedComponent implements OnInit {
   books: Googlebook;
   bookSearch: Booksearch;
 
-
-
-  //nLibros = 3;
   types = ["all", "books", "magazines"];
   availabilities = ["partial", "fill", "free-ebooks", "paid-ebooks", "ebooks"];
 
   url: string = "";
+  selectedType:string= "Type";
+  selectedLanguage: string = "Language";
+  selectedAvailability: string = "Availability";
 
   //q: string = "";
 
 
-  title: string = "";
-  author: string = "";
-  publisher: string = "";
-  subject: string = "";
-  isbn: string = "";
-
-  selectedLanguage: string = "";
-  selectedType: string = "";
-  selectedAvailability: string = "";
-
-  order: string = "";
-
 
   
   constructor(private APIService: APIService) {
-    //this.bookSearch = new Booksearch();
    }
 
   ngOnInit(): void {
-    //this.getNewBooks('Art');
     this.books = {
       totalItems: 0,
       items: null,
     };
+
+    this.bookSearch = {
+      title: "",
+      author:"",
+      publisher: "",
+      subject: "",
+      isbn: "",
+    
+      selectedLanguage: "",
+      selectedType: "",
+      selectedAvailability: "",
+    
+      order: "",
+    };
+
   }
 
   
-  
-  /*setNewValueBook(num: number){
-    this.nLibros = num;
-    console.log(num);
-  }*/
 
-  /*getNewBooks(category: string): void{
-    this.APIService.search('subject:' + category + '&orderBy=newest&maxResults=6').subscribe((books) => {this.books = books;   });
-  }*/
-
-
-
-  /*search(){
-    this.url = (this.bookSearch.title?.trim().length > 0) ? "+intitle:" : "" + this.bookSearch.title 
-    + (this.bookSearch.author?.trim().length > 0) ? "+inauthor:" : "" + this.bookSearch.author 
-    + (this.bookSearch.publisher?.trim().length > 0) ? "+inpublisher:" : "" + this.bookSearch.publisher 
-    + (this.bookSearch.subject?.trim().length > 0) ? "+subject:" : "" + this.bookSearch.subject 
-    + (this.bookSearch.isbn?.trim().length > 0) ? "+isbn:" : "" + this.bookSearch.isbn
-    //filters
-     + (this.bookSearch.selectedLanguage?.trim().length > 0) ? "&" : "" + this.bookSearch.selectedLanguage 
-     + (this.bookSearch.selectedType?.trim().length > 0) ? "&" : "" + this.bookSearch.selectedType 
-     + (this.bookSearch.selectedAvailability?.trim().length > 0) ? "&" : "" + this.bookSearch.selectedAvailability 
-     + (this.bookSearch.order?.trim().length > 0) ? "&" : "" + this.bookSearch.order;
-    console.log(this.url.substring(1))
-    this.APIService.search(this.url.substring(1)).subscribe((books) => {this.books = books;   });
-  }*/
 
   search(){
     //TO-DO: clean code
-    this.url = (this.title?.trim().length > 0 ? "+intitle:" : "") + this.title 
-    + (this.author?.trim().length > 0 ? "+inauthor:" : "") + this.author 
-    + (this.publisher?.trim().length > 0 ? "+inpublisher:" : "") + this.publisher 
-    + (this.subject?.trim().length > 0 ? "+subject:" : "") + this.subject 
-    + (this.isbn?.trim().length > 0 ? "+isbn:" : "") + this.isbn
+    this.url = (this.bookSearch.title?.trim().length > 0 ? "+intitle:" : "") + this.bookSearch.title 
+    + (this.bookSearch.author?.trim().length > 0 ? "+inauthor:" : "") + this.bookSearch.author 
+    + (this.bookSearch.publisher?.trim().length > 0 ? "+inpublisher:" : "") + this.bookSearch.publisher 
+    + (this.bookSearch.subject?.trim().length > 0 ? "+subject:" : "") + this.bookSearch.subject 
+    + (this.bookSearch.isbn?.trim().length > 0 ? "+isbn:" : "") + this.bookSearch.isbn
     //filters
-     + (this.selectedLanguage?.trim().length > 0 ? "&" : "") + this.selectedLanguage 
-     + (this.selectedType?.trim().length > 0? "&" : "") + this.selectedType 
-     + (this.selectedAvailability?.trim().length > 0 ? "&" : "") + this.selectedAvailability 
-     + (this.order?.trim().length > 0 ? "&" : "") + this.order;
+     + (this.bookSearch.selectedLanguage?.trim().length > 0 ? "&" : "") + this.bookSearch.selectedLanguage 
+     + (this.bookSearch.selectedType?.trim().length > 0? "&" : "") + this.bookSearch.selectedType 
+     + (this.bookSearch.selectedAvailability?.trim().length > 0 ? "&" : "") + this.bookSearch.selectedAvailability 
+     + (this.bookSearch.order?.trim().length > 0 ? "&" : "") + this.bookSearch.order;
      
-    this.APIService.search(this.url.substring(1)).subscribe((books) => {this.books = books;   });
+    if(this.url){
+      this.APIService.search(this.url.substring(1)).subscribe((books) => {this.books = books;   });
+    }
   }
 
 
@@ -107,48 +85,48 @@ export class SearchedComponent implements OnInit {
 
   searchByAuthor(author: string) {
     author = author.replace(/\s/gi, '+');
-    this.author = author;
+    this.bookSearch.author = author;
   }
 
   searchByTitle(title: string) {
     title = title.replace(/\s/gi, '+');
-    this.title = title;
+    this.bookSearch.title = title;
   }
 
   searchByPublisher(publisher: string) {
     publisher = publisher.replace(/\s/gi, '+');
-    this.publisher = publisher;
+    this.bookSearch.publisher = publisher;
   }
 
   searchBySubject(subject: string) {
     subject = subject.replace(/\s/gi, '+');
-    this.subject = subject;
+    this.bookSearch.subject = subject;
   }
 
   searchByISBN(isbn: string){
     isbn = isbn.replace(/\s/gi, '+');
-    this.isbn = isbn;
+    this.bookSearch.isbn = isbn;
   }
 
   
   /* Searcher - filters */
   filterByLanguage(lang: string) {
-    this.selectedLanguage = "&langRestrict=" + lang;
+    this.bookSearch.selectedLanguage = "langRestrict=" + lang;
   }
 
   filterType(type: string) { //all, books, magazines
-    this.selectedType = "&printType=" + type;
-    console.log(this.selectedType);
+    this.bookSearch.selectedType = "printType=" + type;
+    console.log(this.bookSearch.selectedType);
   }
 
   filterAvailability(availability: string) { //partial, fill, free-ebooks, paid-ebooks, ebooks
-    this.selectedAvailability = "&filter=" + availability;
+    this.bookSearch.selectedAvailability = "filter=" + availability;
   }
 
 
   /* Searcher - order */
   orderBy(order: string) {
-    this.order = "&orderBy=" + order;
+    this.bookSearch.order = "orderBy=" + order;
     this.search();
   }
 

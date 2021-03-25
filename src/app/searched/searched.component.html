@@ -31,15 +31,15 @@
               </select>
             </div>
               <div class="col list-group select">
-                <select class="form-select input-search" aria-label="Default select example">
+                <select [(ngModel)]="selectedType" (change)='filterType(selectedType)' class="form-select input-search" aria-label="Default select example">
                   <option disabled selected>Type</option>
-                  <option *ngFor="let type of types">{{type}}</option>
+                  <option *ngFor="let type of types" [value]="type">{{type}}</option>
                 </select>
               </div>
               <div class="col list-group select">
-                <select class="form-select input-search" aria-label="Default select example">
+                <select [(ngModel)]="selectedAvailability" (change)='filterAvailability(selectedAvailability)' class="form-select input-search" aria-label="Default select example">
                   <option disabled selected>Availability</option>
-                  <option *ngFor="let availability of availabilities">{{availability}}</option>
+                  <option *ngFor="let availability of availabilities" [value]="availability">{{availability}}</option>
                 </select>
               </div>
           </div>
@@ -57,10 +57,10 @@
       <h5>Ordenar por:</h5>
       <div class="row">
         <div class="col">
-          <label>Relevancia</label> <input class="radioButton" type="radio" name="num-book" value="2" checked>
+          <label>Relevancia</label> <input class="radioButton" type="radio" name="num-book" value="2" (input)="orderBy('relevance')" checked>
         </div>
         <div class="col">
-          <label>Más recientes</label><input class="radioButton" type="radio" name="num-book" value="3">
+          <label>Más recientes</label><input class="radioButton" type="radio" name="num-book" (input)="orderBy('newest')">
         </div>
         <div class="col">
           <p>Results: {{books.totalItems}}</p>
@@ -74,7 +74,7 @@
         <img class="rounded d-block img-fluid" [src]="book.volumeInfo.imageLinks.thumbnail" [alt]="book.volumeInfo.title">
       </div>
     </div>
-    <div class="pagination">
+    <div *ngIf="books.totalItems > 0" class="pagination">
       <nav aria-label="Page navigation example">
         <ul class="pagination">
           <li class="page-item">
