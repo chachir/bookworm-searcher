@@ -1,3 +1,8 @@
+ .container-fluid{
+   background-color: rgb(0, 0, 0, 0.5);
+   border-radius: 25px;
+ }
+
  .carousel{
     margin-right: auto;
     margin-left: auto;
@@ -30,6 +35,10 @@
   .row{
     margin-bottom: 30px;
     margin-top: 20px;
+  }
+
+  .column{
+    margin-bottom: 20px;
   }
 
   .category_list{
