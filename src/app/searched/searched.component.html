@@ -1,19 +1,15 @@
-<div class="container-fluid">
+<div class="container">
   <div class="row row-cols-2">
-    <div class="col-8">
-    </div>
-
-      <div class="col-4 search">
-        <p>Advanced search</p>
+    <div class="col-5 search">
+      <h5>Advanced search</h5>
 
         <div class="row">
-          <div class="col-12">
-            <form class="d-flex justify-content.center">
-              <input #titleBox class="form-control me-2" type="search" placeholder="Title" aria-label="Title" (input)="searchByTitle(titleBox.value)">
-              <button class="btn btn-outline-success" type="button" (click)="search()">Search</button>
-            </form>
-          </div>
 
+          <div class="col-12 list-group">
+            <input class="form-control input-search" type="text" placeholder="Title">
+          </div>
+        </div>
+        <div class="row">
           <div class="col-6 list-group">
             <input #authorBox class="form-control input-search" type="text" placeholder="Author" (input)="searchByAuthor(authorBox.value)">
             <input #ISBNBox class="form-control input-search" type="text" placeholder="ISBN" (input)="searchByISBN(ISBNBox.value)">
@@ -26,87 +22,87 @@
           </div>
 
 
-
-        <div class="row">
-          <div class="col list-group select">
-            <select class="form-select input-search">
-              <option disabled selected>Language</option>
-              <!--<option *ngFor="let category of categories">{{category.name}}</option>-->
-            </select>
-          </div>
-          <div class="col list-group select">
-            <select class="form-select input-search">
-              <option disabled selected [value]="">Type</option>
-              <option *ngFor="let type of types">{{type}}</option>
-            </select>
-          </div>
-          <div class="col list-group select">
-            <select class="form-select input-search">
-              <option disabled selected>Availability</option>
-              <option *ngFor="let availability of availabilities">{{availability}}</option>
-            </select>
-          </div>
-
-
-          </div>
         </div>
-
-
-      </div>
-
-      <div class="container-fluid">
-       <div class="col-12">
-        <div class="book-catalog">
-
-            <!--
-            4<input type="radio" name="num-book" value="2" checked>
-            6<input type="radio" name="num-book" value="3">
-
-
-            <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-              <div class="btn-group mr-2" role="group" aria-label="First group">
-                <button type="button" class="btn btn-secondary" (click)="setNewValueBook(2)">4</button>
-                <button type="button" class="btn btn-secondary" (click)="setNewValueBook(3)" checked>6</button> class="btn btn-secondary"
-              </div>
-            </div>-->
-
-
-
-            <br>
-
-            <!--<div class="row row-cols-{{nLibros}}">-->
-              <div class="row row-cols-3">
-              <div *ngFor="let book of books.items">
-                <img class="rounded" [src]="book.volumeInfo.imageLinks.thumbnail" [alt]="book.volumeInfo.title">
-              </div>
+          <div class="row">
+            <div class="col list-group select">
+              <select class="form-select input-search" aria-label="Default select example">
+                <option disabled selected>Language</option>
+                <!--<option *ngFor="let category of categories">{{category.name}}</option>-->
+              </select>
             </div>
-
-            <div class="row row-cols-3">
-              <div class="pagination">
-                <nav aria-label="Page navigation example">
-                  <ul class="pagination">
-                    <li class="page-item">
-                      <a class="page-link" href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                      </a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                      <a class="page-link" href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                      </a>
-                    </li>
-                  </ul>
-                </nav>
+              <div class="col list-group select">
+                <select class="form-select input-search" aria-label="Default select example">
+                  <option disabled selected>Type</option>
+                  <option *ngFor="let type of types">{{type}}</option>
+                </select>
               </div>
-            </div>
+              <div class="col list-group select">
+                <select class="form-select input-search" aria-label="Default select example">
+                  <option disabled selected>Availability</option>
+                  <option *ngFor="let availability of availabilities">{{availability}}</option>
+                </select>
+              </div>
           </div>
 
-        </div>
-      </div>
+          <div class="col">
+            <img class="worm img-fluid" src="..\assets\img\wormasks.png">
+          </div>
+
+          <div class="col">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </div>
   </div>
+  <div class="container-fluid">
+    <div class="col-12 orderFiltre">
+      <h5>Ordenar por:</h5>
+      <div class="row">
+        <div class="col">
+          <label>Relevancia</label> <input class="radioButton" type="radio" name="num-book" value="2" checked>
+        </div>
+        <div class="col">
+          <label>Más recientes</label><input class="radioButton" type="radio" name="num-book" value="3">
+        </div>
+        <div class="col">
+          <p>Results: 41</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-12">
+     <div class="book-catalog">
+    <div class="row row-cols-{{nLibros}}">
+      <div *ngFor="let book of recentBooks.items">
+        <img class="rounded d-block img-fluid" [src]="book.volumeInfo.imageLinks.thumbnail" [alt]="book.volumeInfo.title">
+      </div>
+    </div>
+    <div class="pagination">
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item">
+            <a class="page-link" href="#" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
 
 
 </div>
+</div>
+</div>
+
+
+
+</div>
+
+
+</div>
+
