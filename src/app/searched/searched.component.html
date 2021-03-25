@@ -6,7 +6,7 @@
         <div class="row">
 
           <div class="col-12 list-group">
-            <input class="form-control input-search" type="text" placeholder="Title">
+            <input #titleBox class="form-control input-search" type="text" placeholder="Title" (input)="searchByTitle(titleBox.value)">
           </div>
         </div>
         <div class="row">
@@ -49,7 +49,7 @@
           </div>
 
           <div class="col">
-            <button class="btn btn-outline-success" type="submit">Search</button>
+            <button class="btn btn-outline-success" type="button" (click)="search()">Search</button>
           </div>
   </div>
   <div class="container-fluid">
@@ -63,14 +63,14 @@
           <label>Más recientes</label><input class="radioButton" type="radio" name="num-book" value="3">
         </div>
         <div class="col">
-          <p>Results: 41</p>
+          <p>Results: {{books.totalItems}}</p>
         </div>
       </div>
     </div>
     <div class="col-12">
      <div class="book-catalog">
-    <div class="row row-cols-{{nLibros}}">
-      <div *ngFor="let book of recentBooks.items">
+    <div class="row row-cols-3">
+      <div *ngFor="let book of books.items">
         <img class="rounded d-block img-fluid" [src]="book.volumeInfo.imageLinks.thumbnail" [alt]="book.volumeInfo.title">
       </div>
     </div>

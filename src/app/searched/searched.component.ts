@@ -85,7 +85,7 @@ export class SearchedComponent implements OnInit {
   search(){
     //TO-DO: clean code
     this.url = (this.title?.trim().length > 0 ? "+intitle:" : "") + this.title 
-    + (this.bookSearch.author?.trim().length > 0 ? "+inauthor:" : "") + this.bookSearch.author 
+    + (this.author?.trim().length > 0 ? "+inauthor:" : "") + this.author 
     + (this.publisher?.trim().length > 0 ? "+inpublisher:" : "") + this.publisher 
     + (this.subject?.trim().length > 0 ? "+subject:" : "") + this.subject 
     + (this.isbn?.trim().length > 0 ? "+isbn:" : "") + this.isbn
@@ -107,7 +107,7 @@ export class SearchedComponent implements OnInit {
 
   searchByAuthor(author: string) {
     author = author.replace(/\s/gi, '+');
-    this.bookSearch.author = author;
+    this.author = author;
   }
 
   searchByTitle(title: string) {
