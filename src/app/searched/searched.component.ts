@@ -25,11 +25,13 @@ export class SearchedComponent implements OnInit {
   selectedLanguage: string = "Language";
   selectedAvailability: string = "Availability";
 
+  p: number = 1;
+
   //q: string = "";
 
 
 
-  
+
   constructor(private APIService: APIService) {
    }
 
@@ -45,32 +47,32 @@ export class SearchedComponent implements OnInit {
       publisher: "",
       subject: "",
       isbn: "",
-    
+
       selectedLanguage: "",
       selectedType: "",
       selectedAvailability: "",
-    
+
       order: "",
     };
 
   }
 
-  
+
 
 
   search(){
     //TO-DO: clean code
-    this.url = (this.bookSearch.title?.trim().length > 0 ? "+intitle:" : "") + this.bookSearch.title 
-    + (this.bookSearch.author?.trim().length > 0 ? "+inauthor:" : "") + this.bookSearch.author 
-    + (this.bookSearch.publisher?.trim().length > 0 ? "+inpublisher:" : "") + this.bookSearch.publisher 
-    + (this.bookSearch.subject?.trim().length > 0 ? "+subject:" : "") + this.bookSearch.subject 
+    this.url = (this.bookSearch.title?.trim().length > 0 ? "+intitle:" : "") + this.bookSearch.title
+    + (this.bookSearch.author?.trim().length > 0 ? "+inauthor:" : "") + this.bookSearch.author
+    + (this.bookSearch.publisher?.trim().length > 0 ? "+inpublisher:" : "") + this.bookSearch.publisher
+    + (this.bookSearch.subject?.trim().length > 0 ? "+subject:" : "") + this.bookSearch.subject
     + (this.bookSearch.isbn?.trim().length > 0 ? "+isbn:" : "") + this.bookSearch.isbn
     //filters
-     + (this.bookSearch.selectedLanguage?.trim().length > 0 ? "&" : "") + this.bookSearch.selectedLanguage 
-     + (this.bookSearch.selectedType?.trim().length > 0? "&" : "") + this.bookSearch.selectedType 
-     + (this.bookSearch.selectedAvailability?.trim().length > 0 ? "&" : "") + this.bookSearch.selectedAvailability 
+     + (this.bookSearch.selectedLanguage?.trim().length > 0 ? "&" : "") + this.bookSearch.selectedLanguage
+     + (this.bookSearch.selectedType?.trim().length > 0? "&" : "") + this.bookSearch.selectedType
+     + (this.bookSearch.selectedAvailability?.trim().length > 0 ? "&" : "") + this.bookSearch.selectedAvailability
      + (this.bookSearch.order?.trim().length > 0 ? "&" : "") + this.bookSearch.order;
-     
+
     if(this.url){
       this.APIService.search(this.url.substring(1)).subscribe((books) => {this.books = books;   });
     }
@@ -108,7 +110,7 @@ export class SearchedComponent implements OnInit {
     this.bookSearch.isbn = isbn;
   }
 
-  
+
   /* Searcher - filters */
   filterByLanguage(lang: string) {
     this.bookSearch.selectedLanguage = "langRestrict=" + lang;

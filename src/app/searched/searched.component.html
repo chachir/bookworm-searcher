@@ -70,11 +70,12 @@
     <div class="col-12">
      <div class="book-catalog">
     <div class="row row-cols-3">
-      <div *ngFor="let book of books.items">
+      <div *ngFor="let book of books.items | paginate: {itemsPerPage: 6, currentPage: p}">
         <img class="rounded d-block img-fluid" [src]="book.volumeInfo.imageLinks.thumbnail" [alt]="book.volumeInfo.title">
       </div>
     </div>
-    <div *ngIf="books.totalItems > 0" class="pagination">
+   <!-- <div *ngIf="books.totalItems > 0" class="pagination">
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
       <nav aria-label="Page navigation example">
         <ul class="pagination">
           <li class="page-item">
@@ -92,7 +93,7 @@
           </li>
         </ul>
       </nav>
-    </div>
+    </div>-->
 
 
 </div>
