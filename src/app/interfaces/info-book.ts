@@ -10,8 +10,9 @@ export interface InfoBook {
     publishedDate: string;
     description: string;
     pageCount: string;
+    averageRating: number;
     printType: string;
-    imageLinks: ImageBook;
+    imageLinks: ImageBook | null;
     language: string;
     categories: [string];
     industryIdentifiers: IndustryId;

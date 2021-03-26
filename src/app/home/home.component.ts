@@ -11,8 +11,10 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
 
-   
+  }
 
+  action(){
+    console.log('buscador')
   }
 
 }
