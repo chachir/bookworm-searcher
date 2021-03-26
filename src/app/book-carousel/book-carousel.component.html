@@ -16,7 +16,7 @@
 
           <div class="carousel-inner">
             <div class="carousel-item" *ngFor="let book of recentBooks.items;let index = index;let isFirst = first" [ngClass]="{active:isFirst}">
-              <img [src]="book.volumeInfo.imageLinks.thumbnail" class="rounded d-block w-100" [alt]="book.volumeInfo.title">
+              <img [src]="book.volumeInfo.imageLinks != undefined ? book.volumeInfo.imageLinks.thumbnail : 'assets/img/wormnotfound.jpg'" class="rounded d-block w-100" [alt]="book.volumeInfo.title">
             </div>
           </div>
 
@@ -58,7 +58,7 @@
 
           <div class="carousel-inner">
             <div class="carousel-item" *ngFor="let book of relevantBooks.items;let index = index;let isFirst = first" [ngClass]="{active:isFirst}">
-              <img [src]="book.volumeInfo.imageLinks.thumbnail" class="rounded d-block w-100" [alt]="book.volumeInfo.title">
+              <img [src]="book.volumeInfo.imageLinks != undefined ? book.volumeInfo.imageLinks.thumbnail : 'assets/img/wormnotfound.jpg'" class="rounded d-block w-100" [alt]="book.volumeInfo.title">
             </div>
           </div>
 

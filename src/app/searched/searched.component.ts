@@ -80,10 +80,10 @@ export class SearchedComponent implements OnInit {
 
 
   /* Searcher - query */
-  /*searchByKeyword(keyword: string) {
+  searchByKeyword(keyword: string) {
     keyword = keyword.replace(/\s/gi, '+');
-    this.q = this.q + keyword;
-  }*/
+    //this.q = this.q + keyword;
+  }
 
   searchByAuthor(author: string) {
     author = author.replace(/\s/gi, '+');

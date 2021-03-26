@@ -44,23 +44,26 @@
               </div>
           </div>
 
+
+          <div class="col button-search">
+            <button class="btn btn-outline-success" type="button" (click)="search()">Search</button>
+          </div>
+
           <div class="col">
             <img class="worm img-fluid" src="..\assets\img\wormasks.png">
           </div>
 
-          <div class="col">
-            <button class="btn btn-outline-success" type="button" (click)="search()">Search</button>
-          </div>
+         
   </div>
   <div class="container-fluid">
     <div class="col-12 orderFiltre">
-      <h5>Ordenar por:</h5>
+      <h5>Order by:</h5>
       <div class="row">
         <div class="col">
-          <label>Relevancia</label> <input class="radioButton" type="radio" name="num-book" value="2" (input)="orderBy('relevance')" checked>
+          <label>Relevance</label> <input class="radioButton" type="radio" name="num-book" value="2" (input)="orderBy('relevance')" checked>
         </div>
         <div class="col">
-          <label>Más recientes</label><input class="radioButton" type="radio" name="num-book" (input)="orderBy('newest')">
+          <label>Date</label><input class="radioButton" type="radio" name="num-book" (input)="orderBy('newest')">
         </div>
         <div class="col">
           <p>Results: {{books.totalItems}}</p>
@@ -71,7 +74,7 @@
      <div class="book-catalog">
     <div class="row row-cols-3">
       <div *ngFor="let book of books.items">
-        <img class="rounded d-block img-fluid" [src]="book.volumeInfo.imageLinks.thumbnail" [alt]="book.volumeInfo.title">
+        <img class="rounded d-block img-fluid" [src]="book.volumeInfo.imageLinks != undefined ? book.volumeInfo.imageLinks.thumbnail : 'assets/img/wormnotfound.jpg'" [alt]="book.volumeInfo.title">
       </div>
     </div>
    <!-- <div *ngIf="books.totalItems > 0" class="pagination">

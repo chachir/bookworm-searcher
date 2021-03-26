@@ -106,3 +106,9 @@ h5{
 .orderContainer{
   height: 40%;
 }
+
+
+.button-search{
+  /*position: absolute; delete if you want the button working*/
+  left: 20%;
+}
