@@ -70,7 +70,7 @@
     <div class="col-12">
      <div class="book-catalog">
     <div class="row row-cols-3">
-      <div *ngFor="let book of books.items | paginate: {itemsPerPage: 6, currentPage: p}">
+      <div *ngFor="let book of books.items">
         <img class="rounded d-block img-fluid" [src]="book.volumeInfo.imageLinks.thumbnail" [alt]="book.volumeInfo.title">
       </div>
     </div>
