@@ -1,5 +1,5 @@
  .container-fluid{
-   background-color: rgb(0, 0, 0, 0.5);
+   background-color: rgb(223, 231, 233, 0.5);
    border-radius: 25px;
  }
 
@@ -107,7 +107,6 @@
   li {
      background-color:rgb(255, 255, 255, 0.8);
      border-radius: 10%;
-     color: black;
   }
 
 
@@ -124,6 +123,6 @@
 
 
   .header_new {
-    color: white;
+    color: black;
     text-align: center;
   }

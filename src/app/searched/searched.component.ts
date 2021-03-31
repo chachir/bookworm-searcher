@@ -25,11 +25,7 @@ export class SearchedComponent implements OnInit {
   selectedLanguage: string = "Language";
   selectedAvailability: string = "Availability";
 
-  p: number = 1;
-
   //q: string = "";
-
-
 
 
   constructor(private APIService: APIService) {
@@ -130,6 +126,7 @@ export class SearchedComponent implements OnInit {
   orderBy(order: string) {
     this.bookSearch.order = "orderBy=" + order;
     this.search();
-  }
+
+}
 
 }

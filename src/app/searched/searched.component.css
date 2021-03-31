@@ -74,7 +74,7 @@
 */
 
 .orderFiltre{
-  background-color: #DFE7E9;
+  background-color: rgb(223, 231, 233);
   border-radius: 25px;
   margin-left: auto;
   margin-right: auto;
@@ -112,3 +112,8 @@ h5{
   /*position: absolute; delete if you want the button working*/
   left: 20%;
 }
+
+.book-catalog{
+  margin-top: 20px;
+}
+
