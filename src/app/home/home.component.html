@@ -11,8 +11,8 @@
       <br>
 
       <form class="d-flex">
-        <input class="form-control search" type="search" placeholder="Search a book" aria-label="Search">
-        <button class="btn" type="button" (click)="action()"><a routerLink="/search"><img src="../assets/img/magnifying-glass.png"/></a></button>
+        <input #keywordBox class="form-control search" type="search" placeholder="Search a book" (input)="searchKey(keywordBox.value)">
+        <button class="btn" type="button"><a routerLink="/search"><img src="../assets/img/magnifying-glass.png"/></a></button>
         <!--waiting icon-->
       </form>
 

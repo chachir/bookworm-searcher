@@ -4,6 +4,7 @@ import { Googlebook } from '../interfaces/googlebook';
 import { Booksearch } from '../interfaces/booksearch';
 
 import { APIService } from '../services/api.service';
+import { BookServiceService } from '../services/book-service.service';
 
 @Component({
   selector: 'app-searched',
@@ -26,14 +27,22 @@ export class SearchedComponent implements OnInit {
   selectedAvailability: string = "Availability";
 
   //q: string = "";
+  q: string;
 
 
 
   
-  constructor(private APIService: APIService) {
+  constructor(private APIService: APIService, private data: BookServiceService) {
    }
 
   ngOnInit(): void {
+
+    //if(this.q) {
+      this.data.currentStatus.subscribe(q  => this.q = q);
+      this.APIService.search(this.q).subscribe((books) => {this.books = books;   });
+    //}
+
+
     this.books = {
       totalItems: 0,
       items: null,
@@ -73,7 +82,9 @@ export class SearchedComponent implements OnInit {
      
     if(this.url){
       this.APIService.search(this.url.substring(1)).subscribe((books) => {this.books = books;   });
+      //after search values should be null
     }
+    
   }
 
 
