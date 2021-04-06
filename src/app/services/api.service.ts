@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 import { Googlebook } from '../interfaces/googlebook';
+import { ItemBook } from '../interfaces/item-book';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -16,16 +17,22 @@ const httpOptions = {
 })
 export class APIService {
 
-  urlGBAPI: string = "https://www.googleapis.com/books/v1/volumes?q=";
+  urlGBAPI: string = "https://www.googleapis.com/books/v1/volumes";
+  urlGBAPI2: string = this.urlGBAPI + "?q=";
 
   constructor(private http: HttpClient) { }
 
 
   /* Search */
   search(query: string): Observable<Googlebook> {
-    console.log(this.urlGBAPI + query);
-    return this.http.get<Googlebook>(this.urlGBAPI + query, httpOptions);
+    console.log(this.urlGBAPI2 + query);
+    return this.http.get<Googlebook>(this.urlGBAPI2 + query, httpOptions);
   } 
+
+  searchById(id: string): Observable<ItemBook> {
+    console.log(this.urlGBAPI + '/' + id);
+    return this.http.get<ItemBook>(this.urlGBAPI + '/' + id, httpOptions);
+  }
   
 
 }
