@@ -24,16 +24,13 @@ export class BookComponent implements OnInit {
   }
 
   /**to do - unresolved */
-  getReadingSpeeding(idBook: number): number{ //minutes
+  getReadingSpeeding(idBook: number){ //minutes
     this.APIService.search('subject:' + "Language" + '&orderBy=newest').subscribe((recentBooks) => {this.recentBooks = recentBooks;
-                                                                                                    this.numberPages = this.recentBooks.items?.pop()?.volumeInfo.pageCount; });
-    console.log(this.numberPages);
-    console.log(3);
-    /*this.time = Number(this.numberPages) * this.averageWPM / this.averageWordsPage;
-    this.hours = this.time / 60;
-    this.minutes = this.time % 60;
-    console.log(this.hours + '+' + this.minutes + '+' + this.time);*/
-    return this.minutes;
+                                                                                                    this.numberPages = this.recentBooks.items?.pop()?.volumeInfo.pageCount;
+                                                                                                    this.time = Number(this.numberPages) * this.averageWPM / this.averageWordsPage;
+                                                                                                    this.hours = Math.floor(this.time / 60);
+                                                                                                    this.minutes = Math.floor(this.time % 60);});
+    
   }
 
 

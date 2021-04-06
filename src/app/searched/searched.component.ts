@@ -19,7 +19,7 @@ export class SearchedComponent implements OnInit {
   bookSearch: Booksearch;
 
   types = ["all", "books", "magazines"];
-  availabilities = ["partial", "fill", "free-ebooks", "paid-ebooks", "ebooks"];
+  availabilities = ["partial", "full", "free-ebooks", "paid-ebooks", "ebooks"];
 
   url: string = "";
   selectedType:string= "Type";
