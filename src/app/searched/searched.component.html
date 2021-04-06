@@ -6,19 +6,19 @@
         <div class="row">
 
           <div class="col-12 list-group">
-            <input #titleBox class="form-control input-search" type="text" placeholder="Title" (input)="searchByTitle(titleBox.value)">
+            <input #titleBox class="form-control input-search" type="text" placeholder="Title" (keydown.enter)="search()" (input)="searchByTitle(titleBox.value)">
           </div>
         </div>
         <div class="row">
           <div class="col-6 list-group">
-            <input #authorBox class="form-control input-search" type="text" placeholder="Author" (input)="searchByAuthor(authorBox.value)">
-            <input #ISBNBox class="form-control input-search" type="text" placeholder="ISBN" (input)="searchByISBN(ISBNBox.value)">
+            <input #authorBox class="form-control input-search" type="text" placeholder="Author" (keydown.enter)="search()" (input)="searchByAuthor(authorBox.value)">
+            <input #ISBNBox class="form-control input-search" type="text" placeholder="ISBN" (keydown.enter)="search()" (input)="searchByISBN(ISBNBox.value)">
 
           </div>
 
           <div class="col-6 list-group">
-            <input #publisherBox class="form-control input-search" type="text" placeholder="Publisher" (input)="searchByPublisher(publisherBox.value)">
-            <input #subjectBox class="form-control input-search" type="text" placeholder="Subject" (input)="searchBySubject(subjectBox.value)">
+            <input #publisherBox class="form-control input-search" type="text" placeholder="Publisher" (keydown.enter)="search()" (input)="searchByPublisher(publisherBox.value)">
+            <input #subjectBox class="form-control input-search" type="text" placeholder="Subject" (keydown.enter)="search()" (input)="searchBySubject(subjectBox.value)">
           </div>
 
 
@@ -46,7 +46,7 @@
 
 
           <div class="col button-search">
-            <button class="btn btn-outline-success" type="button" (click)="search()">Search</button>
+            <button class="btn btn-outline-success" type="button">Search</button>
           </div>
 
           <div class="col">

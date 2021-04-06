@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BookServiceService } from '../services/book-service.service';
 
 @Component({
   selector: 'app-home',
@@ -7,14 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+ 
+  constructor(private data: BookServiceService) { }
+  status: string; //keyword
 
   ngOnInit(): void {
-
+    this.data.currentStatus.subscribe(status => this.status = status);
   }
 
-  action(){
-    console.log('buscador')
+  searchKey(keyword: string){
+    keyword = keyword.replace(/\s/gi, '+');
+    console.log(keyword);
+    this.data.changeStatus(keyword);
   }
 
 }
