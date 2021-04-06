@@ -35,7 +35,7 @@
       <div class="column newest-books-list">
 
         <ul id="newest_buttons" *ngFor="let book of recentBooks.items" class="list-group">
-          <li class="list-group"><a href={{book.volumeInfo.authors}} class="button">{{ book.volumeInfo.title }}</a></li>
+          <li class="list-group"><a href="/book/{{book.id}}" class="button">{{ book.volumeInfo.title }}</a></li>
         </ul>
 
       </div>
