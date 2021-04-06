@@ -53,7 +53,7 @@
             <img class="worm img-fluid" src="..\assets\img\wormasks.png">
           </div>
 
-         
+
   </div>
   <div class="container-fluid">
     <div class="col-12 orderFiltre">
@@ -77,7 +77,8 @@
         <img class="rounded d-block img-fluid" [src]="book.volumeInfo.imageLinks != undefined ? book.volumeInfo.imageLinks.thumbnail : 'assets/img/wormnotfound.jpg'" [alt]="book.volumeInfo.title">
       </div>
     </div>
-    <div *ngIf="books.totalItems > 0" class="pagination">
+   <!-- <div *ngIf="books.totalItems > 0" class="pagination">
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
       <nav aria-label="Page navigation example">
         <ul class="pagination">
           <li class="page-item">
@@ -95,7 +96,7 @@
           </li>
         </ul>
       </nav>
-    </div>
+    </div>-->
 
 
 </div>

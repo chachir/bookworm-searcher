@@ -22,6 +22,8 @@
     "@popperjs/core": "^2.8.3",
     "bootstrap": "^4.6.0",
     "jquery": "^3.5.1",
+    "jw-angular-pagination": "^1.2.0",
+    "ngx-pagination": "^5.0.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"

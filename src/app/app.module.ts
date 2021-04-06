@@ -11,6 +11,8 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { BookCarouselComponent } from './book-carousel/book-carousel.component';
 
+import {NgxPaginationModule} from 'ngx-pagination';
+
 
 @NgModule({
   declarations: [
@@ -24,6 +26,7 @@ import { BookCarouselComponent } from './book-carousel/book-carousel.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    NgxPaginationModule,
     FormsModule,
   ],
   providers: [],
