@@ -11,7 +11,6 @@
 
 .nav-link:hover {
     font-size: 25px;
-    color: black;
 }
 
 .dropdown-menu {
@@ -28,23 +27,29 @@
     color: black;
 }
 
-button:hover {
-    background-color: #DFE7E9;
-    color: black;
+ .navbar-toggler {
+  background-color: black;
 }
 
-button {
-    background-color:#DFE7E9;
-    transition: background-color .5s;
+ .navbar-toggler  .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.85)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+
  }
 
+ .navbar-toggler:hover{
+   background-color: #DFE7E9;
+ }
 
+ .navbar-toggler:hover  .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 0.85)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+
+ }
 
  li > a:hover{
    border-color: black;
  }
 
-
- .right-button {
-     float: right;
+ .navbar-nav{
+   margin-right: 50px;
  }
+
