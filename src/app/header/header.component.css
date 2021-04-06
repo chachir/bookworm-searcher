@@ -1,5 +1,6 @@
-nav{
-  background-color: #8C442C;
+.navbar{
+  background-color: rgb(140, 68, 44);
+  height: 55px;
 }
 
 .nav-link, .navbar-brand {
@@ -11,7 +12,6 @@ nav{
 .nav-link:hover {
     font-size: 25px;
     color: black;
-    border: 2px solid black;
 }
 
 .dropdown-menu {
