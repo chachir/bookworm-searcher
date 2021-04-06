@@ -74,7 +74,7 @@
      <div class="book-catalog">
     <div class="row row-cols-3">
       <div *ngFor="let book of books.items">
-        <img class="rounded d-block img-fluid" [src]="book.volumeInfo.imageLinks != undefined ? book.volumeInfo.imageLinks.thumbnail : 'assets/img/wormnotfound.jpg'" [alt]="book.volumeInfo.title">
+        <img class="rounded d-block img-fluid" routerLink="/book/{{book.id}}" [src]="book.volumeInfo.imageLinks != undefined ? book.volumeInfo.imageLinks.thumbnail : 'assets/img/wormnotfound.jpg'" [alt]="book.volumeInfo.title">
       </div>
     </div>
    <!-- <div *ngIf="books.totalItems > 0" class="pagination">

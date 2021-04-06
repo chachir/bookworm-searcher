@@ -1,12 +1,8 @@
-
-{{numberPages}}
-
-
 <div class="container-fluid">
   <div class="row">
     <div class="col">
       <div class="portada text-center">
-        <img src="https://olcovers2.blob.core.windows.net/coverswp/2019/03/New-Directions-on-Model-Predictive-Control_OpenLibra-300x430.jpg" class="rounded" alt="...">
+        <img [src]="book.volumeInfo.imageLinks != undefined ? book.volumeInfo.imageLinks.thumbnail : 'assets/img/wormnotfound.jpg'" class="rounded" alt="...">
         <div class="text-center">
           <button type="button" class="btn btn-primary">Leer</button>
           <button type="button" class="btn btn-primary">Descargar</button>
@@ -16,17 +12,17 @@
     <div class="col">
       <div class="card">
         <div class="card-body">
-          <h3 class="card-title">New Directions on Model Predictive Control</h3>
-          <p class="card-text">Model predictive control (MPC) has been an important and successful advanced control technology in process industries, mainly due to its ability to handle effectively complex systems with hard control constraints. At each sampling time, MPC solves a constrained optimal control problem online, based on the most recent state or output feedback to obtain a finite sequence of control actions and only applies the first portion. MPC presents a very flexible optimal control framework that is capable of handling a wide range of industrial issues while incorporating state or output feedback to aid in robustness of the design.</p>
+          <h3 class="card-title">{{ book.volumeInfo.title }}</h3>
+          <p class="card-text"> {{ book.volumeInfo.description }} </p>
         </div>
     </div>
     </div>
     <div class="col">
       <div class="lista">
         <ul class="list-group">
-          <li class="list-group-item"><strong>Autor:</strong> Jinfeng Liu , Helen E. Durand</li>
-          <li class="list-group-item"><strong>Editorial:</strong> MDPI</li>
-          <li class="list-group-item"><strong>Año:</strong>	2019</li>
+          <li class="list-group-item" *ngFor="let author of book.volumeInfo.authors"><strong>Autor:</strong> {{ author }}</li>
+          <li class="list-group-item"><strong>Editorial:</strong> {{ book.volumeInfo.publisher }}</li>
+          <li class="list-group-item"><strong>Año:</strong>	{{ book.volumeInfo.publishedDate }} </li>
           <li class="list-group-item">Tiempo estimado de lectura según la ténica utilizada:<br><br>
             <strong>Subvocalización:</strong><br><br>
             <strong>Lectura auditiva:</strong><br><br>
