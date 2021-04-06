@@ -29,6 +29,8 @@ export class SearchedComponent implements OnInit {
   //q: string = "";
   q: string;
 
+  public page: number;
+
 
 constructor(private APIService: APIService, private data: BookServiceService) {
    }
@@ -79,10 +81,10 @@ constructor(private APIService: APIService, private data: BookServiceService) {
      + (this.bookSearch.order?.trim().length > 0 ? "&" : "") + this.bookSearch.order;
 
     if(this.url){
-      this.APIService.search(this.url.substring(1)).subscribe((books) => {this.books = books;   });
+      this.APIService.search(this.url.substring(1)+"&maxResults=40").subscribe((books) => {this.books = books;   });
       //after search values should be null
     }
-    
+
   }
 
 
