@@ -117,3 +117,17 @@ h5{
   margin-top: 20px;
 }
 
+.paginacion ::ng-deep .ngx-pagination  {
+  background-color: rgb(223, 231, 233);
+  border-radius: 10px;
+  border: 2px solid;
+}
+
+.paginacion ::ng-deep .ngx-pagination .current{
+  background-color: #293335;
+
+}
+
+.paginacion{
+  float: right;
+}

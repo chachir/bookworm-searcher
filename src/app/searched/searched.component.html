@@ -77,17 +77,26 @@
         <img class="rounded d-block img-fluid" routerLink="/book/{{book.id}}" [src]="book.volumeInfo.imageLinks != undefined ? book.volumeInfo.imageLinks.thumbnail : 'assets/img/wormnotfound.jpg'" [alt]="book.volumeInfo.title">
       </div>
     </div>
-    <pagination-controls (pageChange)="page = $event"></pagination-controls>
-
-
-</div>
-</div>
-</div>
-
-
 
 </div>
 
+</div>
+
+<div class="paginacion">
+  <pagination-controls (pageChange)="page = $event"
+                        [responsive]=true>
+                      </pagination-controls>
+</div>
 
 </div>
+
+
+</div>
+
+
+
+
+</div>
+
+
 

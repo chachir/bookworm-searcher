@@ -6,6 +6,7 @@
 .nav-link, .navbar-brand {
     color: white !important;
     font-size: 20px;
+    background-color: rgb(140, 68, 44);
 
 }
 
@@ -49,7 +50,7 @@
    border-color: black;
  }
 
- .navbar-nav{
-   margin-right: 50px;
+  .navbar-nav{
+   margin-right: 70px;
  }
 

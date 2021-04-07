@@ -1,5 +1,5 @@
  .container-fluid{
-   background-color: rgb(223, 231, 233, 0.5);
+   background-color: rgb(223, 231, 233);
    border-radius: 25px;
  }
 
@@ -105,13 +105,17 @@
   }
 
   li {
-     background-color:rgb(255, 255, 255, 0.8);
+     background-color:black;
      border-radius: 10%;
+  }
+
+  a{
+    color: white !important;
   }
 
 
   li:hover {
-    background-color: rgb(70, 69, 69, 0.7);
+    background-color: rgb(140, 68, 44);
   }
 
   @media all and (max-width:30em){
