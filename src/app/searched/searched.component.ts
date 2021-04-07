@@ -26,7 +26,6 @@ export class SearchedComponent implements OnInit {
   selectedLanguage: string = "Language";
   selectedAvailability: string = "Availability";
 
-  //q: string = "";
   q: string;
 
   public page: number;
@@ -39,7 +38,7 @@ constructor(private APIService: APIService, private data: BookServiceService) {
 
     this.data.currentStatus.subscribe(q  => this.q = q);
     if(this.q) {
-      this.APIService.search(this.q).subscribe((books) => {this.books = books;   });
+      this.APIService.search(this.q + "&maxResults=40").subscribe((books) => {this.books = books;   });
     }
 
 
@@ -67,33 +66,38 @@ constructor(private APIService: APIService, private data: BookServiceService) {
 
 
 
-  search(){
-    //TO-DO: clean code
+  search() {
+    if(this.searchQuery()) {
+      this.searchFilter();
+      this.searchOrder();
+    }
+  }
+
+
+
+  searchQuery(): boolean {
     this.url = (this.bookSearch.title?.trim().length > 0 ? "+intitle:" : "") + this.bookSearch.title
     + (this.bookSearch.author?.trim().length > 0 ? "+inauthor:" : "") + this.bookSearch.author
     + (this.bookSearch.publisher?.trim().length > 0 ? "+inpublisher:" : "") + this.bookSearch.publisher
     + (this.bookSearch.subject?.trim().length > 0 ? "+subject:" : "") + this.bookSearch.subject
-    + (this.bookSearch.isbn?.trim().length > 0 ? "+isbn:" : "") + this.bookSearch.isbn
-    //filters
-     + (this.bookSearch.selectedLanguage?.trim().length > 0 ? "&" : "") + this.bookSearch.selectedLanguage
-     + (this.bookSearch.selectedType?.trim().length > 0? "&" : "") + this.bookSearch.selectedType
-     + (this.bookSearch.selectedAvailability?.trim().length > 0 ? "&" : "") + this.bookSearch.selectedAvailability
-     + (this.bookSearch.order?.trim().length > 0 ? "&" : "") + this.bookSearch.order;
+    + (this.bookSearch.isbn?.trim().length > 0 ? "+isbn:" : "") + this.bookSearch.isbn;
 
-    if(this.url){
-      this.APIService.search(this.url.substring(1)+"&maxResults=40").subscribe((books) => {this.books = books;   });
-      //after search values should be null
-    }
+    return !!this.url;
+  }
 
+  searchFilter(): void {
+    this.url += (this.bookSearch.selectedLanguage?.trim().length > 0 ? "&" : "") + this.bookSearch.selectedLanguage
+    + (this.bookSearch.selectedType?.trim().length > 0? "&" : "") + this.bookSearch.selectedType
+    + (this.bookSearch.selectedAvailability?.trim().length > 0 ? "&" : "") + this.bookSearch.selectedAvailability;
+  }
+
+  searchOrder() {
+    this.url += (this.bookSearch.order?.trim().length > 0 ? "&" : "") + this.bookSearch.order;
+    this.APIService.search(this.url.substring(1)+"&maxResults=40").subscribe((books) => {this.books = books;   });
   }
 
 
   /* Searcher - query */
-  searchByKeyword(keyword: string) {
-    keyword = keyword.replace(/\s/gi, '+');
-    //this.q = this.q + keyword;
-  }
-
   searchByAuthor(author: string) {
     author = author.replace(/\s/gi, '+');
     this.bookSearch.author = author;
@@ -127,7 +131,6 @@ constructor(private APIService: APIService, private data: BookServiceService) {
 
   filterType(type: string) { //all, books, magazines
     this.bookSearch.selectedType = "printType=" + type;
-    console.log(this.bookSearch.selectedType);
   }
 
   filterAvailability(availability: string) { //partial, fill, free-ebooks, paid-ebooks, ebooks

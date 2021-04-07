@@ -4,8 +4,7 @@
       <div class="portada text-center">
         <img [src]="book.volumeInfo.imageLinks != undefined ? book.volumeInfo.imageLinks.thumbnail : 'assets/img/wormnotfound.jpg'" class="rounded" alt="...">
         <div class="text-center">
-          <button type="button" class="btn btn-primary">Leer</button>
-          <button type="button" class="btn btn-primary">Descargar</button>
+          <button *ngIf="book.saleInfo.buyLink != undefined" type="button" href="book.saleInfo.buyLink" class="btn btn-primary">Buy link</button>
         </div>
       </div>
     </div>
@@ -20,15 +19,22 @@
     <div class="col">
       <div class="lista">
         <ul class="list-group">
-          <li class="list-group-item" *ngFor="let author of book.volumeInfo.authors"><strong>Autor:</strong> {{ author }}</li>
-          <li class="list-group-item"><strong>Editorial:</strong> {{ book.volumeInfo.publisher }}</li>
-          <li class="list-group-item"><strong>Año:</strong>	{{ book.volumeInfo.publishedDate }} </li>
+          <li class="list-group-item"><strong>Autor:</strong> <p *ngFor="let author of book.volumeInfo.authors"> {{ author }} </p></li>
+          <li class="list-group-item"><strong>Publisher:</strong> {{ book.volumeInfo.publisher }}</li>
+          <li class="list-group-item"><strong>Published date:</strong>	{{ book.volumeInfo.publishedDate }} </li>
+          <li class="list-group-item"><strong>Number of pages:</strong> {{ book.volumeInfo.pageCount }}</li>
+          <li class="list-group-item"><strong>Language:</strong>	{{ book.volumeInfo.language }} </li>
+          <li class="list-group-item"><strong>Categories:</strong> <p *ngFor="let category of book.volumeInfo.categories">{{ category }}</p></li>
+          <li *ngIf="book.saleInfo.listPrice != undefined" class="list-group-item"><strong>Price:</strong>	{{ book.saleInfo.listPrice.amount }} {{ book.saleInfo.listPrice.currencyCode }} </li>
           <li class="list-group-item">Tiempo estimado de lectura según la ténica utilizada:<br><br>
             <strong>Subvocalización:</strong><br><br>
             <strong>Lectura auditiva:</strong><br><br>
             <strong>Lectura mental:</strong></li>
         </ul>
       </div>
+
+      <button type="button" (click)="startTimer()" class="btn btn-primary">Start reading test</button>
+      <button type="button" (click)="stopTimer()" class="btn btn-primary">Stop reading test</button>
     </div>
   </div>
 </div>

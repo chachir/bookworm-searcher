@@ -16,8 +16,7 @@ export class BookCarouselComponent implements OnInit {
   relevantBooks: Googlebook;
 
   categories = ["ANTIQUES & COLLECTIBLES", "ARCHITECTURE", "ART", "BIBLES", "BIOGRAPHY & AUTOBIOGRAPHY", "BODY, MIND & SPIRIT", "BUSINESS & ECONOMICS", "COMICS & GRAPHIC NOVELS", "COMPUTERS", "COOKING", "CRAFTS & HOBBIES", "DESIGN", "DRAMA", "EDUCATION", "FAMILY & RELATIONSHIPS", "FICTION", "FOREIGN LANGUAGE STUDY", "GAMES & ACTIVITIES", "GARDENING ", "HEALTH & FITNESS", "HISTORY", "HOUSE & HOME", "HUMOR", "JUVENILE FICTION", "JUVENILE NONFICTION", "LANGUAGE ARTS & DISCIPLINES", "LAW", "LITERARY COLLECTIONS", "LITERARY CRITICISM", "MATHEMATICS", "MEDICAL", "MUSIC", "NATURE", "PERFORMING ARTS", "PETS", "PHILOSOPHY ", "PHOTOGRAPHY", "POETRY", "POLITICAL SCIENCE", "PSYCHOLOGY", "REFERENCE", "RELIGION", "SCIENCE", "SELF-HELP", "SOCIAL SCIENCE", "SPORTS & RECREATION", "STUDY AIDS", "TECHNOLOGY & ENGINEERING", "TRANSPORTATION", "TRAVEL", "TRUE CRIME", "YOUNG ADULT FICTION", "YOUNG ADULT NONFICTION"];
-  selectedRecentCategory = this.categories[0];
-  selectedRelevantCategory = this.categories[0];
+  selectedCategory = this.categories[0];
 
   
 
@@ -35,8 +34,8 @@ export class BookCarouselComponent implements OnInit {
       items: null,
     };
 
-    this.getNewBooks(this.selectedRecentCategory);
-    this.getTopBooks(this.selectedRelevantCategory);
+    this.getNewBooks(this.selectedCategory);
+    this.getTopBooks(this.selectedCategory);
   }
 
 
