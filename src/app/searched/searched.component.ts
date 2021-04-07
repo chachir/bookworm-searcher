@@ -39,7 +39,7 @@ constructor(private APIService: APIService, private data: BookServiceService) {
 
     this.data.currentStatus.subscribe(q  => this.q = q);
     if(this.q) {
-      this.APIService.search(this.q).subscribe((books) => {this.books = books;   });
+      this.APIService.search(this.q+"&maxResults=40").subscribe((books) => {this.books = books;   });
     }
 
 
