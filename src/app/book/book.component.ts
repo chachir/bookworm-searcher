@@ -13,17 +13,19 @@ import { ItemBook } from '../interfaces/item-book';
 export class BookComponent implements OnInit {
   numberPages: string | undefined;
   averageWPM: number = 300;
-  averageWordsPage: number = 500;
+  averageWordsPage: number = 300;
   
   time: number;
   hours: number;
   minutes: number;
 
-
   minutesReading: number;
 
   book: ItemBook;
 
+
+  doTest: boolean;
+  ongoingTest: boolean;
   startTime: number;
   endTime: number;
 
@@ -33,6 +35,8 @@ export class BookComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
+    this.doTest = false;
+    this.ongoingTest = false;
     
     if(id){
       this.getReadingSpeeding(id);
@@ -48,12 +52,19 @@ export class BookComponent implements OnInit {
                                                             this.minutes = Math.floor(this.time % 60);});
   }
 
+  test() {
+    this.doTest = !this.doTest;
+    this.ongoingTest = true;
+  }
+
   startTimer() {
     this.startTime = new Date().getTime();
+    this.ongoingTest = false;
   }
 
   stopTimer() {
     this.endTime = (new Date().getTime() - this.startTime) / 1000;
+    this.doTest = !this.doTest;
     console.log(this.endTime);
   }
 }
