@@ -1,5 +1,4 @@
  .container-fluid{
-   background-color: rgb(223, 231, 233);
    border-radius: 25px;
  }
 
@@ -115,7 +114,7 @@
 
 
   li:hover {
-    background-color: rgb(140, 68, 44);
+    background-color: #ac1400;
   }
 
   @media all and (max-width:30em){
