@@ -1,8 +1,8 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row row-cols-2">
 
-    <div class="container-fluid ml-0 ">
-      <div class="col-12 orderFiltre">
+    <div class="container">
+      <div class="col-8 orderFiltre">
         <h5>Order by:</h5>
         <div class="row">
           <div class="col">
@@ -12,31 +12,32 @@
             <label>Date</label><input class="radioButton" type="radio" name="num-book" (input)="orderBy('newest')">
           </div>
           <div class="col">
-            <p>Results: {{books.totalItems}}</p>
+            <p>Results: {{books.totalItems}} books</p>
           </div>
         </div>
       </div>
-      <div class="col-12">
-       <div class="book-catalog">
-      <div class="row row-cols-3">
+      <div class="col-8 book-catalog">
+       <div *ngIf="books.totalItems > 0" class="row row-cols-3">
         <div *ngFor="let book of books.items! | paginate: {itemsPerPage: 6, currentPage: page}">
           <img class="rounded d-block img-fluid" type="button" routerLink="/book/{{book.id}}" [src]="book.volumeInfo.imageLinks != undefined ? book.volumeInfo.imageLinks.thumbnail : 'assets/img/wormnotfound.jpg'" [title]="book.volumeInfo.title">
         </div>
       </div>
+      <div *ngIf="books.totalItems <= 0">
+        <p>Waiting for a new search...</p>
+      </div>
 
-  </div>
 
-  </div>
 
-  <div *ngIf="hasSearched" class="paginacion">
+  <div *ngIf="books.totalItems > 0" class="paginacion">
     <pagination-controls (pageChange)="page = $event"
                           [responsive]=true>
                         </pagination-controls>
   </div>
+</div>
 
   </div>
-
-    <div class="col-5 mr-0 search">
+  <div class="container">
+    <div class="col-8 search">
       <h5>Advanced search</h5>
 
         <div class="row">
@@ -63,7 +64,6 @@
             <div class="col list-group select">
               <select class="form-select input-search" aria-label="Default select example">
                 <option disabled selected>Language</option>
-                <!--<option *ngFor="let category of categories">{{category.name}}</option>-->
               </select>
             </div>
               <div class="col list-group select">
@@ -75,7 +75,7 @@
               <div class="col list-group select">
                 <select [(ngModel)]="selectedAvailability" (change)='filterAvailability(selectedAvailability)' class="form-select input-search" aria-label="Default select example">
                   <option disabled selected>Availability</option>
-                  <option *ngFor="let availability of availabilities" [value]="availability">{{availability}}</option>
+                  <option *ngFor="let availability of AV" [value]="availability.category">{{availability.categoryName}}</option>
                 </select>
               </div>
           </div>
@@ -91,15 +91,10 @@
 
 
   </div>
-
-
-
+  </div>
+</div>
 </div>
 
-
-
-
-</div>
 
 
 

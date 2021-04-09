@@ -25,6 +25,7 @@ export class APIService {
 
   /* Search */
   search(query: string): Observable<Googlebook> {
+    console.log(this.urlGBAPI2 + query);
     return this.http.get<Googlebook>(this.urlGBAPI2 + query, httpOptions);
   } 
 

@@ -123,7 +123,7 @@
 
 
   li:hover {
-    background-color: #ac1400;
+    background-color: #740e00;
   }
 
   @media all and (max-width:30em){
@@ -135,13 +135,6 @@
 
 
   .header_new {
-    color: black;
+    color: white;
     text-align: center;
   }
-
-
-  /*span {
-    text-overflow:ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-  }*/

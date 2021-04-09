@@ -1,11 +1,11 @@
 .navbar{
-  background-color: #ac1400;
-  /*height: 55px;*/
+  background-color: #740e00;
 }
 
 .nav-link, .navbar-brand {
     color: white !important;
     font-size: 20px;
+    background-color: #740e00;
 
 }
 

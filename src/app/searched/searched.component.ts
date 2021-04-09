@@ -5,6 +5,7 @@ import { Booksearch } from '../interfaces/booksearch';
 
 import { APIService } from '../services/api.service';
 import { BookServiceService } from '../services/book-service.service';
+import { AVAILABILITY_LIST } from '../interfaces/availability-list';
 
 @Component({
   selector: 'app-searched',
@@ -15,11 +16,11 @@ import { BookServiceService } from '../services/book-service.service';
 
 export class SearchedComponent implements OnInit {
 
+  AV = AVAILABILITY_LIST;
   books: Googlebook;
   bookSearch: Booksearch;
 
   types = ["all", "books", "magazines"];
-  availabilities = ["partial", "full", "free-ebooks", "paid-ebooks", "ebooks"];
 
   url: string = "";
   selectedType:string= "Type";
@@ -29,17 +30,14 @@ export class SearchedComponent implements OnInit {
   q: string;
 
   public page: number;
-  hasSearched: boolean;
 
 
 constructor(private APIService: APIService, private data: BookServiceService) {
    }
 
   ngOnInit(): void {
-    this.hasSearched = false;
     this.data.currentStatus.subscribe(q  => this.q = q);
     if(this.q) {
-      this.hasSearched = true;
       this.APIService.search(this.q + "&maxResults=40").subscribe((books) => {this.books = books;   });
     }
 
@@ -65,14 +63,12 @@ constructor(private APIService: APIService, private data: BookServiceService) {
 
   }
 
-
-
-
   search() {
     if(this.searchQuery()) {
       this.searchFilter();
       this.searchOrder();
-      this.hasSearched = true;
+    } else if(this.q) {
+      this.searchOrder();
     }
   }
 
