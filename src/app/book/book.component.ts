@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { APIService } from '../services/api.service';
 import { ItemBook } from '../interfaces/item-book';
+import { Time } from '../interfaces/time';
 
 @Component({
   selector: 'app-book',
@@ -11,23 +12,20 @@ import { ItemBook } from '../interfaces/item-book';
 })
 
 export class BookComponent implements OnInit {
-  numberPages: string | undefined;
   averageWPM: number = 300;
   averageWordsPage: number = 300;
-  
-  time: number;
-  hours: number;
-  minutes: number;
 
-  minutesReading: number;
+  wordsPage: number;
+  wpm: number;
+
+  timeEstimated: Time;
+  timeTest: Time;
 
   book: ItemBook;
-
 
   doTest: boolean;
   ongoingTest: boolean;
   startTime: number;
-  endTime: number;
 
 
   constructor(private APIService: APIService,
@@ -37,6 +35,19 @@ export class BookComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
     this.doTest = false;
     this.ongoingTest = false;
+
+    this.timeEstimated = {
+      time: 0,
+      hours: 0,
+      minutes: 0,
+    };
+
+    this.timeTest = {
+      time: 0,
+      hours: 0,
+      minutes: 0,
+    };
+
     
     if(id){
       this.getReadingSpeeding(id);
@@ -46,10 +57,18 @@ export class BookComponent implements OnInit {
   /**to do */
   getReadingSpeeding(idBook: string){
     this.APIService.searchById(idBook).subscribe((book) => {this.book = book;
-                                                            this.numberPages = this.book.volumeInfo.pageCount;
-                                                            this.time = Number(this.numberPages) * this.averageWPM / this.averageWordsPage;
-                                                            this.hours = Math.floor(this.time / 60);
-                                                            this.minutes = Math.floor(this.time % 60);});
+                                                            this.timeEstimated.time = Number(this.book.volumeInfo.pageCount) * this.averageWordsPage / this.averageWPM;
+                                                            this.timeEstimated = this.getHoursMinutes(this.timeEstimated);});
+  }
+
+  getHoursMinutes(time: Time){
+    time.hours = Math.floor(time.time / 60);
+    time.minutes = Math.floor(time.time % 60);
+    return time;
+  }
+
+  counterWords(text: string) {
+    this.wordsPage = text.split(" ").length;
   }
 
   test() {
@@ -63,8 +82,12 @@ export class BookComponent implements OnInit {
   }
 
   stopTimer() {
-    this.endTime = (new Date().getTime() - this.startTime) / 1000;
+    this.timeTest.time = (new Date().getTime() - this.startTime) / 1000;
     this.doTest = !this.doTest;
-    console.log(this.endTime);
+    
+    this.wpm = (this.wordsPage * 60 / this.timeTest.time);
+    this.timeTest.time = Number(this.book.volumeInfo.pageCount) * this.averageWordsPage / this.wpm;
+    
+    this.timeTest = this.getHoursMinutes(this.timeTest);
   }
 }

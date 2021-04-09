@@ -17,6 +17,7 @@ export class BookCarouselComponent implements OnInit {
 
   categories = ["ANTIQUES & COLLECTIBLES", "ARCHITECTURE", "ART", "BIBLES", "BIOGRAPHY & AUTOBIOGRAPHY", "BODY, MIND & SPIRIT", "BUSINESS & ECONOMICS", "COMICS & GRAPHIC NOVELS", "COMPUTERS", "COOKING", "CRAFTS & HOBBIES", "DESIGN", "DRAMA", "EDUCATION", "FAMILY & RELATIONSHIPS", "FICTION", "FOREIGN LANGUAGE STUDY", "GAMES & ACTIVITIES", "GARDENING ", "HEALTH & FITNESS", "HISTORY", "HOUSE & HOME", "HUMOR", "JUVENILE FICTION", "JUVENILE NONFICTION", "LANGUAGE ARTS & DISCIPLINES", "LAW", "LITERARY COLLECTIONS", "LITERARY CRITICISM", "MATHEMATICS", "MEDICAL", "MUSIC", "NATURE", "PERFORMING ARTS", "PETS", "PHILOSOPHY ", "PHOTOGRAPHY", "POETRY", "POLITICAL SCIENCE", "PSYCHOLOGY", "REFERENCE", "RELIGION", "SCIENCE", "SELF-HELP", "SOCIAL SCIENCE", "SPORTS & RECREATION", "STUDY AIDS", "TECHNOLOGY & ENGINEERING", "TRANSPORTATION", "TRAVEL", "TRUE CRIME", "YOUNG ADULT FICTION", "YOUNG ADULT NONFICTION"];
   selectedCategory = this.categories[0];
+  max_results = 'maxResults=7';
 
   
 
@@ -41,11 +42,11 @@ export class BookCarouselComponent implements OnInit {
 
   /** Recommendations on home page */
   getNewBooks(category: string): void{
-    this.APIService.search('subject:' + category + '&orderBy=newest&maxResults=6').subscribe((recentBooks) => {this.recentBooks = recentBooks;   });
+    this.APIService.search('subject:' + category + '&orderBy=newest&' + this.max_results).subscribe((recentBooks) => {this.recentBooks = recentBooks;   });
   }
 
   getTopBooks(category: string): void{
-    this.APIService.search('subject:' + category + '&orderBy=relevance&maxResults=6').subscribe((relevantBooks) => {this.relevantBooks = relevantBooks;   });
+    this.APIService.search('subject:' + category + '&orderBy=relevance&' + this.max_results).subscribe((relevantBooks) => {this.relevantBooks = relevantBooks;   });
   }
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BookServiceService } from '../services/book-service.service';
 
 @Component({
@@ -9,8 +10,10 @@ import { BookServiceService } from '../services/book-service.service';
 export class HomeComponent implements OnInit {
 
  
-  constructor(private data: BookServiceService) { }
-  status: string; //keyword
+  constructor(private data: BookServiceService,
+    private router: Router,
+    private route: ActivatedRoute) { }
+  status: string;
 
   ngOnInit(): void {
     this.data.currentStatus.subscribe(status => this.status = status);
@@ -18,8 +21,11 @@ export class HomeComponent implements OnInit {
 
   searchKey(keyword: string){
     keyword = keyword.replace(/\s/gi, '+');
-    console.log(keyword);
     this.data.changeStatus(keyword);
+  }
+
+  onKeyDownEvent(event: any) {
+    this.router.navigate(['/search'], { relativeTo: this.route });
   }
 
 }
