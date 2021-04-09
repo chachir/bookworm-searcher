@@ -42,7 +42,7 @@
           <li class="list-group-item"><strong>Published date:</strong>	{{ book.volumeInfo.publishedDate }} </li>
           <li class="list-group-item"><strong>Number of pages:</strong> {{ book.volumeInfo.pageCount }}</li>
           <li class="list-group-item"><strong>Language:</strong>	{{ book.volumeInfo.language }} </li>
-          <li class="list-group-item"><strong>Categories:</strong> <p *ngFor="let category of book.volumeInfo.categories">{{ category }}</p></li>
+          <li *ngIf="book.volumeInfo.categories" class="list-group-item"><strong>Categories:</strong> <p *ngFor="let category of book.volumeInfo.categories">{{ category }}</p></li>
           <li *ngIf="book.saleInfo.listPrice != undefined" class="list-group-item"><strong>Price:</strong>	{{ book.saleInfo.listPrice.amount }} {{ book.saleInfo.listPrice.currencyCode }} </li>
           <li class="list-group-item"><strong>Estimated reading time:</strong>	{{ hours }}h {{ minutes }}min 
             <button type="button" (click)="test()" class="btn btn-primary">Test your reading speed</button></li>
