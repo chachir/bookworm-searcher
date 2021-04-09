@@ -25,12 +25,10 @@ export class APIService {
 
   /* Search */
   search(query: string): Observable<Googlebook> {
-    console.log(this.urlGBAPI2 + query);
     return this.http.get<Googlebook>(this.urlGBAPI2 + query, httpOptions);
   } 
 
   searchById(id: string): Observable<ItemBook> {
-    console.log(this.urlGBAPI + '/' + id);
     return this.http.get<ItemBook>(this.urlGBAPI + '/' + id, httpOptions);
   }
   
