@@ -1,4 +1,4 @@
-import { BookCategory } from './interfaces/book-category';
+import { BookCategory } from './book-category';
 
 export const CATEGORY_LIST: BookCategory[] = [
   { categoryName: 'ANTIQUES & COLLECTIBLES', category: 'Dr Nice' },
