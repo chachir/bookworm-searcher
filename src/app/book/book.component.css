@@ -8,6 +8,10 @@
   text-align: center;
 }
 
+.card-img-top{
+  width: 35%;
+}
+
 .btn{
   margin-right: 10px;
   margin-top: 15px;

@@ -59,14 +59,14 @@
   <div class="row">
     <div class="col mb-5">
       <div class="card mx-auto" style="width: 28rem;">
-        <img class="card-img-top mx-auto d-block mt-2" [src]="book.volumeInfo.imageLinks != undefined ? book.volumeInfo.imageLinks.thumbnail : 'assets/img/wormnotfound.jpg'" alt="...">
+        <img class="card-img-top mx-auto d-block mt-2 rounded" [src]="book.volumeInfo.imageLinks != undefined ? book.volumeInfo.imageLinks.thumbnail : 'assets/img/wormnotfound.jpg'" alt="...">
         <div class="card-body">
           <h3 class="card-text text-center">{{ book.volumeInfo.title }}</h3>
         </div>
       </div>
     </div>
     <div class="col mb-5">
-      <div class="card mx-auto" style="width:28rem;">
+      <div class="card mx-auto" style="width:35rem;">
         <div class="card-body">
           <h3 class="card-title text-center">SINOPSIS</h3>
           <button type="button text-center" *ngIf="doTest && ongoingTest" (click)="startTimer()" class="btn btn-primary">Start reading test</button>
