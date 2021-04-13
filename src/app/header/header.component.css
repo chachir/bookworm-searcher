@@ -3,14 +3,25 @@
 }
 
 .nav-link, .navbar-brand {
-    color: white !important;
-    font-size: 20px;
-    background-color: #740e00;
+  color: white !important;
+  font-size: 20px;
+  background-color: #740e00;
 
 }
 
+.active{
+  border-radius: 10px;
+  background-color: white;
+  color: black !important;
+}
+
+
 .nav-link:not(:hover) {
     font-size: 25px;
+}
+
+.nav-link:hover {
+  border-radius: 10px;
 }
 
 .dropdown-menu {

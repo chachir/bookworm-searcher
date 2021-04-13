@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<!--<div class="container-fluid">
   <div class="row">
 
     <div class="card mb-3" style="max-width: 540px;">
@@ -15,7 +15,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div>-->
     <!--<div class="col">
       <div class="portada text-center">
         <img [src]="book.volumeInfo.imageLinks != undefined ? book.volumeInfo.imageLinks.thumbnail : 'assets/img/wormnotfound.jpg'" class="rounded" alt="...">
@@ -34,7 +34,7 @@
         </div>
     </div>
     </div>-->
-    <div class="col-md-4">
+    <!--<div class="col-md-4">
       <div class="lista">
         <ul class="list-group">
           <li class="list-group-item"><strong>Autor:</strong> <p *ngFor="let author of book.volumeInfo.authors"> {{ author }} </p></li>
@@ -44,13 +44,53 @@
           <li class="list-group-item"><strong>Language:</strong>	{{ book.volumeInfo.language }} </li>
           <li *ngIf="book.volumeInfo.categories" class="list-group-item"><strong>Categories:</strong> <p *ngFor="let category of book.volumeInfo.categories">{{ category }}</p></li>
           <li *ngIf="book.saleInfo.listPrice != undefined" class="list-group-item"><strong>Price:</strong>	{{ book.saleInfo.listPrice.amount }} {{ book.saleInfo.listPrice.currencyCode }} </li>
-          <li class="list-group-item"><strong>Estimated reading time:</strong>	{{ timeEstimated.hours }}h {{ timeEstimated.minutes }}min 
+          <li class="list-group-item"><strong>Estimated reading time:</strong>	{{ timeEstimated.hours }}h {{ timeEstimated.minutes }}min
           <li class="list-group-item"><strong>Your estimated reading time:</strong>	<p *ngIf="timeTest.time > 0">{{ timeTest.hours }}h {{ timeTest.minutes }}min </p>
             <button type="button" (click)="test(); counterWords(book.volumeInfo.description)" class="btn btn-primary">Test your reading speed<p *ngIf="timeTest.time > 0">again</p></button></li>
         </ul>
       </div>
-    
-      
+
+
+    </div>
+  </div>
+</div>-->
+
+<div class="container-fluid mx-auto">
+  <div class="row">
+    <div class="col mb-5">
+      <div class="card mx-auto" style="width: 28rem;">
+        <img class="card-img-top mx-auto d-block mt-2" [src]="book.volumeInfo.imageLinks != undefined ? book.volumeInfo.imageLinks.thumbnail : 'assets/img/wormnotfound.jpg'" alt="...">
+        <div class="card-body">
+          <h3 class="card-text text-center">{{ book.volumeInfo.title }}</h3>
+        </div>
+      </div>
+    </div>
+    <div class="col mb-5">
+      <div class="card mx-auto" style="width:28rem;">
+        <div class="card-body">
+          <h3 class="card-title text-center">SINOPSIS</h3>
+          <button type="button text-center" *ngIf="doTest && ongoingTest" (click)="startTimer()" class="btn btn-primary">Start reading test</button>
+          <app-read-more [text]="book.volumeInfo.description" [maxLength]="80"></app-read-more>
+          <br>
+          <button type="button" *ngIf="doTest && !ongoingTest" (click)="stopTimer()" class="btn btn-primary">Stop reading test</button>
+        </div>
+      </div>
+    </div>
+    <div class="col mb-5">
+      <div class="card mx-auto" style="width: 28rem;">
+        <ul class="list-group list-group-flush text-center">
+          <li class="list-group-item"><strong>Autor:</strong> <p *ngFor="let author of book.volumeInfo.authors"> {{ author }} </p></li>
+          <li class="list-group-item"><strong>Publisher:</strong> {{ book.volumeInfo.publisher }}</li>
+          <li class="list-group-item"><strong>Published date:</strong>	{{ book.volumeInfo.publishedDate }}</li>
+          <li class="list-group-item"><strong>Number of pages:</strong> {{ book.volumeInfo.pageCount }}</li>
+          <li class="list-group-item"><strong>Language:</strong>	{{ book.volumeInfo.language }} </li>
+          <li *ngIf="book.volumeInfo.categories" class="list-group-item"><strong>Categories:</strong> <p *ngFor="let category of book.volumeInfo.categories">{{ category }}</p></li>
+          <li *ngIf="book.saleInfo.listPrice != undefined" class="list-group-item"><strong>Price:</strong>	{{ book.saleInfo.listPrice.amount }} {{ book.saleInfo.listPrice.currencyCode }} </li>
+          <li class="list-group-item"><strong>Estimated reading time:</strong>	{{ timeEstimated.hours }}h {{ timeEstimated.minutes }}min
+          <li class="list-group-item"><strong>Your estimated reading time:</strong>	<p *ngIf="timeTest.time > 0">{{ timeTest.hours }}h {{ timeTest.minutes }}min </p>
+            <button type="button" (click)="test(); counterWords(book.volumeInfo.description)" class="btn btn-primary">Test your reading speed<p *ngIf="timeTest.time > 0">again</p></button></li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
