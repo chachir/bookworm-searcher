@@ -12,7 +12,7 @@
             <label>Date</label><input class="radioButton" type="radio" name="num-book" (input)="orderBy('newest')">
           </div>
           <div class="col">
-            <p>Results: {{books.totalItems}} books</p>
+            <p *ngIf="books.totalItems > 0">About {{books.totalItems}} results</p>
           </div>
         </div>
       </div>
@@ -62,14 +62,15 @@
         </div>
           <div class="row">
             <div class="col list-group select">
-              <select class="form-select input-search" aria-label="Default select example">
+              <select [(ngModel)]="selectedLanguage" (change)='filterByLanguage(selectedLanguage)' class="form-select input-search" aria-label="Default select example">
                 <option disabled selected>Language</option>
+                <option *ngFor="let language of LA" [value]="language.category">{{language.categoryName}}</option>
               </select>
             </div>
               <div class="col list-group select">
                 <select [(ngModel)]="selectedType" (change)='filterType(selectedType)' class="form-select input-search" aria-label="Default select example">
                   <option disabled selected>Type</option>
-                  <option *ngFor="let type of types" [value]="type">{{type}}</option>
+                  <option *ngFor="let type of TY" [value]="type.category">{{type.categoryName}}</option>
                 </select>
               </div>
               <div class="col list-group select">

@@ -5,7 +5,7 @@ import { Booksearch } from '../interfaces/booksearch';
 
 import { APIService } from '../services/api.service';
 import { BookServiceService } from '../services/book-service.service';
-import { AVAILABILITY_LIST } from '../interfaces/availability-list';
+import { AVAILABILITY_LIST, LANGUAGE_LIST, TYPE_LIST } from '../interfaces/filter-lists';
 
 @Component({
   selector: 'app-searched',
@@ -17,10 +17,10 @@ import { AVAILABILITY_LIST } from '../interfaces/availability-list';
 export class SearchedComponent implements OnInit {
 
   AV = AVAILABILITY_LIST;
+  TY = TYPE_LIST;
+  LA = LANGUAGE_LIST;
   books: Googlebook;
   bookSearch: Booksearch;
-
-  types = ["all", "books", "magazines"];
 
   url: string = "";
   selectedType:string= "Type";
@@ -128,11 +128,11 @@ constructor(private APIService: APIService, private data: BookServiceService) {
     this.bookSearch.selectedLanguage = "langRestrict=" + lang;
   }
 
-  filterType(type: string) { //all, books, magazines
+  filterType(type: string) {
     this.bookSearch.selectedType = "printType=" + type;
   }
 
-  filterAvailability(availability: string) { //partial, fill, free-ebooks, paid-ebooks, ebooks
+  filterAvailability(availability: string) {
     this.bookSearch.selectedAvailability = "filter=" + availability;
   }
 
