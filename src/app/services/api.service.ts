@@ -17,21 +17,17 @@ const httpOptions = {
 })
 export class APIService {
 
-  urlGBAPI: string = "https://www.googleapis.com/books/v1/volumes";
-  urlGBAPI2: string = this.urlGBAPI + "?q=";
+  urlGB: string = "https://www.googleapis.com/books/v1/volumes";
+  urlGBQuery: string = this.urlGB + "?q=";
 
   constructor(private http: HttpClient) { }
 
-
-  /* Search */
-  search(query: string): Observable<Googlebook> {
-    console.log(this.urlGBAPI2 + query);
-    return this.http.get<Googlebook>(this.urlGBAPI2 + query, httpOptions);
-  } 
-
   searchById(id: string): Observable<ItemBook> {
-    return this.http.get<ItemBook>(this.urlGBAPI + '/' + id, httpOptions);
+    return this.http.get<ItemBook>(this.urlGB + '/' + id, httpOptions);
   }
-  
+  search(query: string): Observable<Googlebook> {
+    console.log(this.urlGBQuery + query);
+    return this.http.get<Googlebook>(this.urlGBQuery + query, httpOptions);
+  } 
 
 }

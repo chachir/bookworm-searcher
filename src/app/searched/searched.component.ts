@@ -5,7 +5,7 @@ import { Booksearch } from '../interfaces/booksearch';
 
 import { APIService } from '../services/api.service';
 import { BookServiceService } from '../services/book-service.service';
-import { AVAILABILITY_LIST, LANGUAGE_LIST, TYPE_LIST } from '../interfaces/filter-lists';
+import { AVAILABILITY_LIST, LANGUAGE_LIST, TYPE_LIST } from '../data-categories/filter-lists';
 
 @Component({
   selector: 'app-searched',
@@ -36,7 +36,7 @@ constructor(private APIService: APIService, private data: BookServiceService) {
    }
 
   ngOnInit(): void {
-    this.data.currentStatus.subscribe(q  => this.q = q);
+    this.data.currentKeyword.subscribe(q  => this.q = q);
     if(this.q) {
       this.APIService.search(this.q + "&maxResults=40").subscribe((books) => {this.books = books;   });
     }
@@ -68,6 +68,7 @@ constructor(private APIService: APIService, private data: BookServiceService) {
       this.searchFilter();
       this.searchOrder();
     } else if(this.q) {
+      this.url = this.q;
       this.searchOrder();
     }
   }
@@ -92,11 +93,12 @@ constructor(private APIService: APIService, private data: BookServiceService) {
 
   searchOrder() {
     this.url += (this.bookSearch.order?.trim().length > 0 ? "&" : "") + this.bookSearch.order;
-    this.APIService.search(this.url.substring(1)+"&maxResults=40").subscribe((books) => {this.books = books;   });
+    this.APIService.search((this.url.substring(0, 1) == '+'? this.url.substring(1): this.url) + "&maxResults=40").subscribe((books) => {this.books = books;   });
   }
 
 
-  /* Searcher - query */
+
+  
   searchByAuthor(author: string) {
     author = author.replace(/\s/gi, '+');
     this.bookSearch.author = author;
@@ -123,7 +125,6 @@ constructor(private APIService: APIService, private data: BookServiceService) {
   }
 
 
-  /* Searcher - filters */
   filterByLanguage(lang: string) {
     this.bookSearch.selectedLanguage = "langRestrict=" + lang;
   }
@@ -137,7 +138,6 @@ constructor(private APIService: APIService, private data: BookServiceService) {
   }
 
 
-  /* Searcher - order */
   orderBy(order: string) {
     this.bookSearch.order = "orderBy=" + order;
     this.search();

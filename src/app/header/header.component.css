@@ -9,7 +9,7 @@
 
 }
 
-.nav-link:hover {
+.nav-link:not(:hover) {
     font-size: 25px;
 }
 

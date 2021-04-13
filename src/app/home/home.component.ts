@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+
 import { BookServiceService } from '../services/book-service.service';
 
 @Component({
@@ -13,15 +14,15 @@ export class HomeComponent implements OnInit {
   constructor(private data: BookServiceService,
     private router: Router,
     private route: ActivatedRoute) { }
-  status: string;
+    keyword: string;
 
   ngOnInit(): void {
-    this.data.currentStatus.subscribe(status => this.status = status);
+    this.data.currentKeyword.subscribe(keyword => this.keyword = keyword);
   }
 
   searchKey(keyword: string){
     keyword = keyword.replace(/\s/gi, '+');
-    this.data.changeStatus(keyword);
+    this.data.changeKeyword(keyword);
   }
 
   onKeyDownEvent(event: any) {

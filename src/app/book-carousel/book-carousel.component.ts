@@ -4,7 +4,7 @@ import { APIService } from '../services/api.service';
 import { BookServiceService } from '../services/book-service.service';
 
 import { Googlebook } from '../interfaces/googlebook';
-//import { CATEGORY_LIST } from '../category-list';
+import { CATEGORY_LIST } from '../data-categories/filter-lists';
 
 @Component({
   selector: 'app-book-carousel',
@@ -12,11 +12,11 @@ import { Googlebook } from '../interfaces/googlebook';
   styleUrls: ['./book-carousel.component.css']
 })
 export class BookCarouselComponent implements OnInit {
-  public recentBooks: Googlebook;
+  recentBooks: Googlebook;
   relevantBooks: Googlebook;
 
-  categories = ["ANTIQUES & COLLECTIBLES", "ARCHITECTURE", "ART", "BIBLES", "BIOGRAPHY & AUTOBIOGRAPHY", "BODY, MIND & SPIRIT", "BUSINESS & ECONOMICS", "COMICS & GRAPHIC NOVELS", "COMPUTERS", "COOKING", "CRAFTS & HOBBIES", "DESIGN", "DRAMA", "EDUCATION", "FAMILY & RELATIONSHIPS", "FICTION", "FOREIGN LANGUAGE STUDY", "GAMES & ACTIVITIES", "GARDENING ", "HEALTH & FITNESS", "HISTORY", "HOUSE & HOME", "HUMOR", "JUVENILE FICTION", "JUVENILE NONFICTION", "LANGUAGE ARTS & DISCIPLINES", "LAW", "LITERARY COLLECTIONS", "LITERARY CRITICISM", "MATHEMATICS", "MEDICAL", "MUSIC", "NATURE", "PERFORMING ARTS", "PETS", "PHILOSOPHY ", "PHOTOGRAPHY", "POETRY", "POLITICAL SCIENCE", "PSYCHOLOGY", "REFERENCE", "RELIGION", "SCIENCE", "SELF-HELP", "SOCIAL SCIENCE", "SPORTS & RECREATION", "STUDY AIDS", "TECHNOLOGY & ENGINEERING", "TRANSPORTATION", "TRAVEL", "TRUE CRIME", "YOUNG ADULT FICTION", "YOUNG ADULT NONFICTION"];
-  selectedCategory = this.categories[0];
+  categories = CATEGORY_LIST;
+  selectedCategory = this.categories[0].category;
   max_results = 'maxResults=7';
 
   

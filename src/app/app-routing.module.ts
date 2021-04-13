@@ -10,7 +10,6 @@ const routes: Routes = [
   { path:'home', component: HomeComponent },
   { path:'book/:id', component: BookComponent },
   { path:'search', component: SearchedComponent },
-  { path:'home', component: HomeComponent },
   { path:'', redirectTo: '/home', pathMatch: 'full' },
   { path:'**', component: PageNotFoundComponent }
 ];

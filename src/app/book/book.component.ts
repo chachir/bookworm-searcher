@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { APIService } from '../services/api.service';
+
 import { ItemBook } from '../interfaces/item-book';
 import { Time } from '../interfaces/time';
 
@@ -50,12 +51,12 @@ export class BookComponent implements OnInit {
 
     
     if(id){
-      this.getReadingSpeeding(id);
+      this.getBook(id);
     }
   }
 
-  /**to do */
-  getReadingSpeeding(idBook: string){
+
+  getBook(idBook: string){
     this.APIService.searchById(idBook).subscribe((book) => {this.book = book;
                                                             this.timeEstimated.time = Number(this.book.volumeInfo.pageCount) * this.averageWordsPage / this.averageWPM;
                                                             this.timeEstimated = this.getHoursMinutes(this.timeEstimated);});
