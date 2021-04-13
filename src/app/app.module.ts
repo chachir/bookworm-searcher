@@ -12,6 +12,7 @@ import { HeaderComponent } from './header/header.component';
 import { BookCarouselComponent } from './book-carousel/book-carousel.component';
 
 import {NgxPaginationModule} from 'ngx-pagination';
+import { ReadMoreModule } from 'ng-readmore';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
     HttpClientModule,
     NgxPaginationModule,
     FormsModule,
+    ReadMoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

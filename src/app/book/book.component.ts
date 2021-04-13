@@ -48,7 +48,7 @@ export class BookComponent implements OnInit {
       minutes: 0,
     };
 
-    
+
     if(id){
       this.getReadingSpeeding(id);
     }
@@ -84,10 +84,10 @@ export class BookComponent implements OnInit {
   stopTimer() {
     this.timeTest.time = (new Date().getTime() - this.startTime) / 1000;
     this.doTest = !this.doTest;
-    
+
     this.wpm = (this.wordsPage * 60 / this.timeTest.time);
     this.timeTest.time = Number(this.book.volumeInfo.pageCount) * this.averageWordsPage / this.wpm;
-    
+
     this.timeTest = this.getHoursMinutes(this.timeTest);
   }
 }
