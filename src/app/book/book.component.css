@@ -23,3 +23,16 @@ img{
 }
 
 
+.btn{
+  color: white;
+  background-color: #740e00;
+  border-color: #740e00;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 20px;
+}
+
+.btn:hover{
+  background-color: rgb(121, 121, 121);
+}
