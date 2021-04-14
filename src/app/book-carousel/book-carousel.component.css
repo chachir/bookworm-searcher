@@ -1,6 +1,4 @@
- .container-fluid{
-   border-radius: 25px;
- }
+
 
  .carousel{
     margin-right: auto;
@@ -49,21 +47,6 @@
     text-align-last: center;
     font-size: 20px;
   }
-
-  /*.container {
-      display: flex;
-      justify-content: center;
-  }
-
-  p {
-      font-family: arial;
-      font-size: 1.5rem;
-      color: black;
-      padding-top: 30px;
-      text-align: center;
-      text-shadow: 2px 2px 1px #94b2b8;;
-  }*/
-
 
   .newest-books div {
 
@@ -134,7 +117,19 @@
   }
 
 
-  .header_new {
+  .header_books {
     color: white;
     text-align: center;
+  }
+
+  @media(max-width:768px){
+    .header_books{
+      color: black;
+    }
+    li{
+      background-color: #740e00;
+    }
+    li:hover{
+      background-color: black;
+    }
   }
