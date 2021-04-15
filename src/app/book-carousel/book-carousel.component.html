@@ -18,7 +18,7 @@
 
           <div class="carousel-inner">
             <div class="carousel-item" *ngFor="let book of recentBooks.items;let index = index;let isFirst = first" [ngClass]="{active:isFirst}">
-              <img [src]="book.volumeInfo.imageLinks != undefined ? book.volumeInfo.imageLinks.thumbnail : 'assets/img/wormnotfound.jpg'" class="rounded d-block w-100" [alt]="book.volumeInfo.title">
+              <img [src]="book.volumeInfo?.imageLinks != undefined ? book.volumeInfo!.imageLinks?.thumbnail : 'assets/img/wormnotfound.jpg'" class="rounded d-block w-100" [alt]="book.volumeInfo?.title">
             </div>
           </div>
 
@@ -37,7 +37,7 @@
       <div class="column newest-books-list">
 
         <ul id="newest_buttons" *ngFor="let book of recentBooks.items" class="list-group">
-          <li class="list-group"><a routerLink="/book/{{book.id}}" class="button" [title]="book.volumeInfo.title"><p>{{ book.volumeInfo.title }}</p></a></li>
+          <li class="list-group"><a routerLink="/book/{{book.id}}" class="button" [title]="book.volumeInfo?.title"><p>{{ book.volumeInfo?.title }}</p></a></li>
         </ul>
 
       </div>
@@ -57,7 +57,7 @@
 
           <div class="carousel-inner">
             <div class="carousel-item" *ngFor="let book of relevantBooks.items;let index = index;let isFirst = first" [ngClass]="{active:isFirst}">
-              <img [src]="book.volumeInfo.imageLinks != undefined ? book.volumeInfo.imageLinks.thumbnail : 'assets/img/wormnotfound.jpg'" class="rounded d-block w-100" [alt]="book.volumeInfo.title">
+              <img [src]="book.volumeInfo?.imageLinks != undefined ? book.volumeInfo!.imageLinks?.thumbnail : 'assets/img/wormnotfound.jpg'" class="rounded d-block w-100" [alt]="book.volumeInfo?.title">
             </div>
           </div>
 
@@ -76,7 +76,7 @@
       <div class="column newest-books-list">
 
         <ul id="newest_buttons" *ngFor="let book of relevantBooks.items" class="list-group">
-          <li class="list-group"><a routerLink="/book/{{book.id}}" class="button" [title]="book.volumeInfo.title"><p>{{ book.volumeInfo.title }}</p></a></li>
+          <li class="list-group"><a routerLink="/book/{{book.id}}" class="button" [title]="book.volumeInfo?.title"><p>{{ book.volumeInfo?.title }}</p></a></li>
         </ul>
 
       </div>

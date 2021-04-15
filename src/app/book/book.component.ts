@@ -6,6 +6,10 @@ import { APIService } from '../services/api.service';
 import { ItemBook } from '../interfaces/item-book';
 import { Time } from '../interfaces/time';
 
+import { LANGUAGE_LIST } from '../data-categories/filter-lists';
+import { BookCategory } from '../interfaces/book-category';
+import { analyzeAndValidateNgModules } from '@angular/compiler';
+
 @Component({
   selector: 'app-book',
   templateUrl: './book.component.html',
@@ -36,6 +40,7 @@ export class BookComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
     this.doTest = false;
     this.ongoingTest = false;
+    this.getLanguage('en');
 
     this.timeEstimated = {
       time: 0,
@@ -49,6 +54,9 @@ export class BookComponent implements OnInit {
       minutes: 0,
     };
 
+    this.book = {id: "",
+      volumeInfo: null,
+      saleInfo: null};
 
     if(id){
       this.getBook(id);
@@ -58,7 +66,7 @@ export class BookComponent implements OnInit {
 
   getBook(idBook: string){
     this.APIService.searchById(idBook).subscribe((book) => {this.book = book;
-                                                            this.timeEstimated.time = Number(this.book.volumeInfo.pageCount) * this.averageWordsPage / this.averageWPM;
+                                                            this.timeEstimated.time = Number(this.book.volumeInfo?.pageCount) * this.averageWordsPage / this.averageWPM;
                                                             this.timeEstimated = this.getHoursMinutes(this.timeEstimated);});
   }
 
@@ -68,8 +76,10 @@ export class BookComponent implements OnInit {
     return time;
   }
 
-  counterWords(text: string) {
-    this.wordsPage = text.split(" ").length;
+  counterWords(text: string|undefined) {
+    if(text != null){
+      this.wordsPage = text.split(" ").length;
+    }
   }
 
   test() {
@@ -87,8 +97,19 @@ export class BookComponent implements OnInit {
     this.doTest = !this.doTest;
 
     this.wpm = (this.wordsPage * 60 / this.timeTest.time);
-    this.timeTest.time = Number(this.book.volumeInfo.pageCount) * this.averageWordsPage / this.wpm;
+    this.timeTest.time = Number(this.book.volumeInfo?.pageCount) * this.averageWordsPage / this.wpm;
 
     this.timeTest = this.getHoursMinutes(this.timeTest);
+  }
+
+  getLanguage(lan: string|undefined){
+    if(lan != null) {
+      for(let lang in LANGUAGE_LIST){
+        if(LANGUAGE_LIST[lang].category == lan){
+          return LANGUAGE_LIST[lang].categoryName;
+        }
+      }
+    }
+    return "Unknown";
   }
 }

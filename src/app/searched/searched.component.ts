@@ -41,7 +41,6 @@ constructor(private APIService: APIService, private data: BookServiceService) {
       this.APIService.search(this.q + "&maxResults=40").subscribe((books) => {this.books = books;   });
     }
 
-
     this.books = {
       totalItems: 0,
       items: null,
