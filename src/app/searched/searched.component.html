@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<!--<div class="container-fluid">
   <div class="row row-cols-2">
 
     <div class="container">
@@ -16,7 +16,7 @@
           </div>
         </div>
       </div>
-      <div class="col-8 book-catalog">
+      <div class="col book-catalog">
        <div *ngIf="books.totalItems > 0" class="row row-cols-3">
         <div *ngFor="let book of books.items! | paginate: {itemsPerPage: 6, currentPage: page}">
           <img class="rounded d-block img-fluid" type="button" routerLink="/book/{{book.id}}" [src]="book.volumeInfo.imageLinks != undefined ? book.volumeInfo.imageLinks.thumbnail : 'assets/img/wormnotfound.jpg'" [title]="book.volumeInfo.title">
@@ -94,8 +94,97 @@
   </div>
   </div>
 </div>
+</div>-->
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-8 col-xl-6 mx-auto ordenar">
+      <div class="orderFiltre">
+      <h5>Order by:</h5>
+        <div class="row text-center">
+          <div class="col">
+            <label>Relevance</label> <input class="radioButton" type="radio" name="num-book" value="2" (input)="orderBy('relevance')" checked>
+          </div>
+          <div class="col">
+            <label>Date</label><input class="radioButton" type="radio" name="num-book" (input)="orderBy('newest')">
+          </div>
+          <div class="col">
+            <p *ngIf="books.totalItems > 0">About {{books.totalItems}} results</p>
+          </div>
+        </div>
+      </div>
+      <div class="col book-catalog">
+       <div *ngIf="books.totalItems > 0" class="row row-cols-3">
+        <div *ngFor="let book of books.items! | paginate: {itemsPerPage: 6, currentPage: page}">
+          <img class="rounded d-block img-fluid" type="button" routerLink="/book/{{book.id}}" [src]="book.volumeInfo.imageLinks != undefined ? book.volumeInfo.imageLinks.thumbnail : 'assets/img/wormnotfound.jpg'" [title]="book.volumeInfo.title">
+        </div>
+      </div>
+      <div *ngIf="books.totalItems <= 0">
+        <p>Waiting for a new search...</p>
+      </div>
+
+
+
+  <div *ngIf="books.totalItems > 0" class="paginacion">
+    <pagination-controls (pageChange)="page = $event"
+                          [responsive]="true">
+                        </pagination-controls>
+  </div>
 </div>
+</div>
+    <div class="col-sm-10 col-md-6 col-lg-4 col-xl-4  search">
+      <h5>Advanced search</h5>
+
+      <div class="row">
+
+        <div class="col-12 list-group">
+          <input #titleBox class="form-control input-search" type="text" placeholder="Title" (keydown.enter)="search()" (input)="searchByTitle(titleBox.value)">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6 list-group">
+          <input #authorBox class="form-control input-search" type="text" placeholder="Author" (keydown.enter)="search()" (input)="searchByAuthor(authorBox.value)">
+          <input #ISBNBox class="form-control input-search" type="text" placeholder="ISBN" (keydown.enter)="search()" (input)="searchByISBN(ISBNBox.value)">
+
+        </div>
+
+        <div class="col-6 list-group">
+          <input #publisherBox class="form-control input-search" type="text" placeholder="Publisher" (keydown.enter)="search()" (input)="searchByPublisher(publisherBox.value)">
+          <input #subjectBox class="form-control input-search" type="text" placeholder="Subject" (keydown.enter)="search()" (input)="searchBySubject(subjectBox.value)">
+        </div>
 
 
+      </div>
+        <div class="row">
+          <div class="col list-group select">
+            <select [(ngModel)]="selectedLanguage" (change)='filterByLanguage(selectedLanguage)' class="form-select input-search">
+              <option disabled selected>Language</option>
+              <option *ngFor="let language of LA" [value]="language.category">{{language.categoryName}}</option>
+            </select>
+          </div>
+            <div class="col list-group select">
+              <select [(ngModel)]="selectedType" (change)='filterType(selectedType)' class="form-select input-search">
+                <option disabled selected>Type</option>
+                <option *ngFor="let type of TY" [value]="type.category">{{type.categoryName}}</option>
+              </select>
+            </div>
+            <div class="col list-group select">
+              <select [(ngModel)]="selectedAvailability" (change)='filterAvailability(selectedAvailability)' class="form-select input-search">
+                <option disabled selected>Availability</option>
+                <option *ngFor="let availability of AV" [value]="availability.category">{{availability.categoryName}}</option>
+              </select>
+            </div>
+        </div>
 
 
+        <div class="col button-search">
+          <button class="btn btn-outline-success" (click)="search()" type="button">Search</button>
+        </div>
+
+        <div class="col">
+          <img class="worm img-fluid" src="..\assets\img\wormasks.png">
+        </div>
+
+    </div>
+  </div>
+</div>
