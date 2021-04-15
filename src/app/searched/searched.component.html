@@ -19,7 +19,7 @@
       <div class="col-8 book-catalog">
        <div *ngIf="books.totalItems > 0" class="row row-cols-3">
         <div *ngFor="let book of books.items! | paginate: {itemsPerPage: 6, currentPage: page}">
-          <img class="rounded d-block img-fluid" type="button" routerLink="/book/{{book.id}}" [src]="book.volumeInfo.imageLinks != undefined ? book.volumeInfo.imageLinks.thumbnail : 'assets/img/wormnotfound.jpg'" [title]="book.volumeInfo.title">
+          <img class="rounded d-block img-fluid" type="button" routerLink="/book/{{book.id}}" [src]="book.volumeInfo?.imageLinks != undefined ? book.volumeInfo!.imageLinks?.thumbnail : 'assets/img/wormnotfound.jpg'" [title]="book.volumeInfo?.title">
         </div>
       </div>
       <div *ngIf="books.totalItems <= 0">
