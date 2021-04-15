@@ -24,6 +24,7 @@
     "jquery": "^3.5.1",
     "jw-angular-pagination": "^1.2.0",
     "ng-readmore": "^1.0.0",
+    "nga-read-more": "0.0.6",
     "ngx-pagination": "^5.0.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",

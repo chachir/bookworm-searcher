@@ -28,7 +28,7 @@ import { ReadMoreModule } from 'ng-readmore';
     HttpClientModule,
     NgxPaginationModule,
     FormsModule,
-    ReadMoreModule
+    ReadMoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
