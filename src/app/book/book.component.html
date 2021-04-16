@@ -18,7 +18,7 @@
           <h3 class="card-title text-center">Synopsis</h3>
           <button type="button text-center" *ngIf="doTest && ongoingTest" (click)="startTimer()" class="btn btn-primary">Start reading test</button>
           <!--<p [innerHTML]="book.volumeInfo?.description != undefined ? book.volumeInfo!.description : '[There is not any available synopsis to show.]'">  </p>-->
-          <app-read-more [text]="book.volumeInfo?.description != undefined ? book.volumeInfo!.description : '[There is not any available synopsis to show.]'" [maxLength]="200"></app-read-more>
+          <app-read-more [text]="book.volumeInfo?.description != undefined ? book.volumeInfo!.description : '[There is not any available synopsis to show.]'" [maxLength]="100"></app-read-more>
           
           <br>
           <button type="button" *ngIf="doTest && !ongoingTest" (click)="stopTimer()" class="btn btn-primary">Stop reading test</button>
