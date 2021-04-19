@@ -4,7 +4,7 @@ import { Googlebook } from '../interfaces/googlebook';
 import { Booksearch } from '../interfaces/booksearch';
 
 import { APIService } from '../services/api.service';
-import { BookServiceService } from '../services/book-service.service';
+import { BookService } from '../services/book.service';
 import { AVAILABILITY_LIST, LANGUAGE_LIST, TYPE_LIST } from '../data-categories/filter-lists';
 
 @Component({
@@ -32,7 +32,7 @@ export class SearchedComponent implements OnInit {
   public page: number;
 
 
-constructor(private APIService: APIService, private data: BookServiceService) {
+constructor(private APIService: APIService, private data: BookService) {
    }
 
   ngOnInit(): void {

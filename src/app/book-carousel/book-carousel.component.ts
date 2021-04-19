@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { APIService } from '../services/api.service';
-import { BookServiceService } from '../services/book-service.service';
+import { BookService } from '../services/book.service';
 
 import { Googlebook } from '../interfaces/googlebook';
 import { CATEGORY_LIST } from '../data-categories/filter-lists';
@@ -22,7 +22,7 @@ export class BookCarouselComponent implements OnInit {
   
 
 
-  constructor(private APIService: APIService, private data: BookServiceService) { }
+  constructor(private APIService: APIService, private data: BookService) { }
 
   ngOnInit(): void {
 

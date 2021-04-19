@@ -2,13 +2,19 @@
   <div class="row">
     <div class="col mb-5">
       <div class="card mx-auto transparent" style="width: 28rem;">
-        <img class="card-img-top mx-auto d-block mt-2 rounded" [src]="book.volumeInfo?.imageLinks != undefined ? book.volumeInfo!.imageLinks?.thumbnail : 'assets/img/wormnotfound.jpg'">
+        <img class="card-img-top mx-auto d-block mt-2 rounded"
+          [src]="book.volumeInfo?.imageLinks != undefined ? book.volumeInfo!.imageLinks?.thumbnail : 'assets/img/wormnotfound.jpg'">
         <div class="card-body">
           <h3 class="card-text text-center">{{ book.volumeInfo?.title }}</h3>
-          <h5 class="card-text text-center">by <p *ngFor="let author of book.volumeInfo?.authors"> {{ author }} </p></h5>
+          <div *ngIf="book.volumeInfo?.authors">
+            <h5 class="card-text text-center">by <p *ngFor="let author of book.volumeInfo?.authors"> {{ author }} </p>
+            </h5>
+          </div>
           <ul class="list-group list-group-flush text-center">
-            <li *ngIf="book.volumeInfo?.categories" class="list-group-item transparent"><strong>Categories:</strong> <p *ngFor="let category of book.volumeInfo?.categories">{{ category }}</p></li>
-            </ul>
+            <li *ngIf="book.volumeInfo?.categories" class="list-group-item transparent"><strong>Categories:</strong>
+              <p *ngFor="let category of book.volumeInfo?.categories">{{ category }}</p>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
@@ -16,28 +22,40 @@
       <div class="card mx-auto" style="width:100%;">
         <div class="card-body">
           <h3 class="card-title text-center">Synopsis</h3>
-          <button type="button text-center" *ngIf="doTest && ongoingTest" (click)="startTimer()" class="btn btn-primary">Start reading test</button>
+          <button type="button text-center" *ngIf="doTest && ongoingTest" (click)="startTimer()"
+            class="btn btn-primary">Start reading test</button>
           <!--<p [innerHTML]="book.volumeInfo?.description != undefined ? book.volumeInfo!.description : '[There is not any available synopsis to show.]'">  </p>-->
-          <app-read-more [text]="book.volumeInfo?.description != undefined ? book.volumeInfo!.description : '[There is not any available synopsis to show.]'" [maxLength]="100"></app-read-more>
-          
+          <app-read-more
+            [text]="book.volumeInfo?.description != undefined ? book.volumeInfo!.description : '[There is not any available synopsis to show.]'"
+            [maxLength]="100"></app-read-more>
+
           <br>
-          <button type="button" *ngIf="doTest && !ongoingTest" (click)="stopTimer()" class="btn btn-primary">Stop reading test</button>
+          <button type="button" *ngIf="doTest && !ongoingTest" (click)="stopTimer()" class="btn btn-primary">Stop
+            reading test</button>
         </div>
       </div>
     </div>
     <div class="col mb-5">
       <div class="card mx-auto" style="width: 28rem;">
         <ul class="list-group list-group-flush text-center">
-          <li class="list-group-item"><h3 class="card-title text-center">Details</h3></li>
-          <li class="list-group-item"><strong>Language:</strong>	{{ getLanguage(book.volumeInfo?.language) }} </li>
+          <li class="list-group-item">
+            <h3 class="card-title text-center">Details</h3>
+          </li>
+          <li class="list-group-item"><strong>Language:</strong> {{ getLanguage(book.volumeInfo?.language) }} </li>
           <li class="list-group-item"><strong>Publisher:</strong> {{ book.volumeInfo?.publisher }}</li>
-          <li class="list-group-item"><strong>Published date:</strong>	{{ book.volumeInfo?.publishedDate }}</li>
+          <li class="list-group-item"><strong>Published date:</strong> {{ book.volumeInfo?.publishedDate }}</li>
           <li class="list-group-item"><strong>Number of pages:</strong> {{ book.volumeInfo?.pageCount }}</li>
-          <li class="list-group-item"><strong>Estimated reading time:</strong>	{{ timeEstimated.hours }}h {{ timeEstimated.minutes }}min
-          <li class="list-group-item"><strong>Your estimated reading time:</strong>	<p *ngIf="timeTest.time > 0">{{ timeTest.hours }}h {{ timeTest.minutes }}min </p>
-          <button type="button" (click)="test(); counterWords(book.volumeInfo?.description)" class="btn btn-primary">Test your reading speed<p *ngIf="timeTest.time > 0">again</p></button></li>
-          <li *ngIf="book.saleInfo?.saleability == 'FOR_SALE'" class="list-group-item"><strong>Available for purchasing in your country!</strong></li>
-          <li *ngIf="book.saleInfo?.listPrice != undefined" class="list-group-item"><strong>Price:</strong>	{{ book.saleInfo?.listPrice?.amount }} {{ book.saleInfo?.listPrice?.currencyCode }} </li>
+          <li class="list-group-item"><strong>Estimated reading time:</strong> {{ timeEstimated.hours }}h {{
+            timeEstimated.minutes }}min
+          <li class="list-group-item"><strong>Your estimated reading time:</strong>
+            <p *ngIf="timeTest.time > 0">{{ timeTest.hours }}h {{ timeTest.minutes }}min </p>
+            <button type="button" (click)="test(); counterWords(book.volumeInfo?.description)"
+              class="btn btn-primary">Test your reading speed<p *ngIf="timeTest.time > 0">again</p></button>
+          </li>
+          <li *ngIf="book.saleInfo?.saleability == 'FOR_SALE'" class="list-group-item"><strong>Available for purchasing
+              in your country!</strong></li>
+          <li *ngIf="book.saleInfo?.listPrice != undefined" class="list-group-item"><strong>Price:</strong> {{
+            book.saleInfo?.listPrice?.amount }} {{ book.saleInfo?.listPrice?.currencyCode }} </li>
         </ul>
       </div>
     </div>

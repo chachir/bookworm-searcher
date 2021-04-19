@@ -7,8 +7,6 @@ import { ItemBook } from '../interfaces/item-book';
 import { Time } from '../interfaces/time';
 
 import { LANGUAGE_LIST } from '../data-categories/filter-lists';
-import { BookCategory } from '../interfaces/book-category';
-import { analyzeAndValidateNgModules } from '@angular/compiler';
 
 @Component({
   selector: 'app-book',

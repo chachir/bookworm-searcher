@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { BookServiceService } from '../services/book-service.service';
+import { BookService } from '../services/book.service';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +11,7 @@ import { BookServiceService } from '../services/book-service.service';
 export class HomeComponent implements OnInit {
 
  
-  constructor(private data: BookServiceService,
+  constructor(private data: BookService,
     private router: Router,
     private route: ActivatedRoute) { }
     keyword: string;

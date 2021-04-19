@@ -29,4 +29,18 @@ describe('BookComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('#test() should toggle #doTest', () => {
+    expect(component.doTest).toBe(false, 'off at first');
+    expect(component.ongoingTest).toBe(false, 'off at first');
+    component.test();
+    expect(component.doTest).toBe(true, 'on after first');
+    expect(component.ongoingTest).toBe(true, 'on after first');
+    component.test();
+    expect(component.doTest).toBe(false, 'off after second');
+    expect(component.ongoingTest).toBe(true, 'off after second');
+  });
+
+  
+
 });

@@ -4,7 +4,7 @@ import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class BookServiceService {
+export class BookService {
 
   private defaultKeyword = new BehaviorSubject("");
   currentKeyword  =this.defaultKeyword.asObservable();

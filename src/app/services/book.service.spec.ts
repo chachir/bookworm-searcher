@@ -1,24 +1,24 @@
 import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
-import { BookServiceService } from './book-service.service';
+import { BookService } from './book.service';
 
 
 
-describe('BookServiceService', () => {
+describe('BookService', () => {
 
   beforeEach(() => TestBed.configureTestingModule({
     imports: [HttpClientTestingModule], 
-    providers: [BookServiceService]
+    providers: [BookService]
   }));
 
   it('should be created', () => {
-   const service: BookServiceService = TestBed.inject(BookServiceService);
+   const service: BookService = TestBed.inject(BookService);
    expect(service).toBeTruthy();
   });
 
   it('should have changeKeyword function', () => {
-   const service: BookServiceService = TestBed.inject(BookServiceService);
+   const service: BookService = TestBed.inject(BookService);
    expect(service.changeKeyword).toBeTruthy();
   });  
 

@@ -29,4 +29,5 @@ describe('SearchedComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  
 });
