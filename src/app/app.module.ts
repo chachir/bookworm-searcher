@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
@@ -13,6 +13,7 @@ import { BookCarouselComponent } from './book-carousel/book-carousel.component';
 
 import {NgxPaginationModule} from 'ngx-pagination';
 import { ReadMoreModule } from 'ng-readmore';
+
 
 
 @NgModule({
@@ -31,6 +32,9 @@ import { ReadMoreModule } from 'ng-readmore';
     NgxPaginationModule,
     FormsModule,
     ReadMoreModule,
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
   ],
   providers: [],
   bootstrap: [AppComponent]
