@@ -1,24 +1,40 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { BookComponent } from './book/book.component';
-import { SearchedComponent } from './searched/searched.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+
+import { AppRoutingModule,  routingComponents } from './app-routing.module';
+import { RouterTestingModule } from "@angular/router/testing";
+
+import { AppComponent } from './app.component';
+import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
+import { BookCarouselComponent } from './book-carousel/book-carousel.component';
+
+import {NgxPaginationModule} from 'ngx-pagination';
+import { ReadMoreModule } from 'ng-readmore';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    BookComponent,
-    SearchedComponent
+    routingComponents,
+    FooterComponent,
+    HeaderComponent,
+    BookCarouselComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    RouterTestingModule,
+    HttpClientModule,
+    NgxPaginationModule,
+    FormsModule,
+    ReadMoreModule,
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
   ],
   providers: [],
   bootstrap: [AppComponent]

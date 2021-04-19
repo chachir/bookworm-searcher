@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {APIService} from '../Servicios/api.service';
-import {interfazLibro} from '../interfazLibro';
+import { ActivatedRoute, Router } from '@angular/router';
+
+import { BookService } from '../services/book.service';
 
 @Component({
   selector: 'app-home',
@@ -8,44 +9,24 @@ import {interfazLibro} from '../interfazLibro';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  books: interfazLibro[] = [];
-  book: interfazLibro[] = [];
-  numberPages: String | undefined;
-  averageWPM = 300;
-  averageWordsPage = 500;
 
-
-
-  constructor(private APIService: APIService) { }
+ 
+  constructor(private data: BookService,
+    private router: Router,
+    private route: ActivatedRoute) { }
+    keyword: string;
 
   ngOnInit(): void {
-    this.getPrueba();
+    this.data.currentKeyword.subscribe(keyword => this.keyword = keyword);
   }
 
-  getNewBooks(): void{
-    this.APIService.getNewBooks().subscribe((books) => {this.books = books; console.log(this.books);});
+  searchKey(keyword: string){
+    keyword = keyword.replace(/\s/gi, '+');
+    this.data.changeKeyword(keyword);
   }
 
-  getTopBooks(): void {
-    this.APIService.getTopBooks().subscribe((books) => {this.books = books; });
+  onKeyDownEvent(event: any) {
+    this.router.navigate(['/search'], { relativeTo: this.route });
   }
-
-  getReadingSpeeding(idBook: number): number{ //minutes
-    this.APIService.getBookByID(idBook).subscribe((book) => {this.book = book; this.numberPages = this.book.pop()?.pages; });
-    return this.averageWPM * this.averageWPM / this.averageWordsPage;
-  }
-
-  /***************** */
-  getPrueba(): void{
-    this.APIService.searchByKeyword("robótica").subscribe((books) => {this.books = books; });
-    this.APIService.filterByLanguage("all").subscribe((books) => {this.books = books;});
-    //this.APIService.filterByPublisherDate("2011").subscribe((books) => {this.books = books; });
-    this.APIService.orderBy(2).subscribe((books) => {this.books = books; console.log(this.books)});
-  }
-  /***************** */
 
 }
-
-
-
-

@@ -1,0 +1,117 @@
+
+
+ .carousel{
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .carousel-control-prev{
+    left: -15%;
+  }
+
+  .carousel-control-next{
+    right: -15%;
+  }
+
+  .carousel-indicators{
+    top: 100%;
+  }
+
+  .row{
+    margin-bottom: 30px;
+    margin-top: 20px;
+  }
+
+  .column{
+    margin-bottom: 20px;
+  }
+
+  .category_list{
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: rgb(0, 0, 0, 0.7);
+    color: white;
+    text-align-last: center;
+    font-size: 20px;
+  }
+
+  .newest-books div {
+
+      max-width: 200px;
+      max-height: 300px;
+  }
+
+  .new-books div {
+
+      max-width: 200px;
+      max-height: 300px;
+  }
+
+
+  ul {
+    width:250px;
+    resize:both;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  p{
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+
+  a.button{
+    display:inline-block;
+    padding:0.35em 1.2em;
+    margin:0 0.3em 0.3em 0;
+    text-decoration:none;
+    font-family:'Roboto',sans-serif;
+    font-weight:30;
+    color: white;
+    text-align:center;
+    transition: all 0.2s;
+  }
+
+  a.button:hover {
+    color: white;
+
+  }
+
+  li {
+     background-color:black;
+     border-radius: 10%;
+  }
+
+  li:hover {
+    background-color: #740e00;
+  }
+
+  @media all and (max-width:30em){
+    a.button{
+      display:block;
+      margin:0.4em auto;
+    }
+  }
+
+
+  .header_books {
+    color: white;
+    text-align: center;
+  }
+
+  @media(max-width:768px){
+    .header_books{
+      color: black;
+    }
+    li{
+      background-color: #740e00;
+    }
+    li:hover{
+      background-color: black;
+    }
+  }
