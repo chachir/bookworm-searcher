@@ -1,37 +1,15 @@
-.navbar{
+.navbar, .dropdown-menu {
   background-color: #740e00;
 }
 
-/*.nav-link, .navbar-brand {
-  color: white !important;
-  font-size: 20px;
-  background-color: #740e00;
-
-}
-
-.active{
-  border-radius: 10px;
-  background-color: white;
-  color: black !important;
-}*/
-
-
-/*.nav-link:not(:hover) {
-    font-size: 25px;
-}
-
-.nav-link:hover {
-  border-radius: 10px;
-}*/
-
-.active{
+.active {
   color: white !important;
 }
 
 .nav-link, .navbar-brand {
   color: rgba(245, 245, 245, 0.493);
   font-size: 20px;
-  background-color: #740e00;
+  background-color: rgb(116, 14, 0);
 
 }
 
@@ -39,45 +17,27 @@
   color: white;
 }
 
-.dropdown-menu {
-    background-color: #740e00;
-
+.navbar-toggler {
+  background-color: rgba(245, 245, 245, 0.664);
 }
 
-.dropdown-item {
-    color: rgba(245, 245, 245, 0.493);
-}
+.navbar-toggler  .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(116, 14, 0)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+ }
 
-.dropdown-item:hover {
-    background-color: #740e00;
-    color: white;
-}
-
-
-
- .navbar-toggler {
-  background-color: black;
-}
-
- .navbar-toggler  .navbar-toggler-icon {
+.navbar-toggler:hover  .navbar-toggler-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.85)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-
  }
 
- /*.navbar-toggler:hover{
-   background-color: #DFE7E9;
- }*/
-
- .navbar-toggler:hover  .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 0.85)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-
- }
-
- li > a:hover{
-   border-color: black;
- }
-
-  .navbar-nav{
+.navbar-nav {
    margin-right: 70px;
  }
 
+.dropdown-item {
+  color: rgba(245, 245, 245, 0.493);
+}
+
+.dropdown-item:hover {
+  background-color: #740e00;
+  color: white;
+}

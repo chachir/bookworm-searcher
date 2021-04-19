@@ -3,7 +3,6 @@
   margin-bottom: 40px;
 }
 
-
 .list-group{
   margin-top: 20px;
 }
@@ -24,8 +23,6 @@
 
 .rounded{
   margin-bottom: 20px;
- /* width: 150px;
-  height: 200px; */
   box-shadow: 2px 2px 10px #666;
   margin-left: auto;
   margin-right: auto;
@@ -54,12 +51,6 @@
   background-color: rgb(121, 121, 121);
 }
 
-/* nav{
-  margin-left: auto;
-  margin-right: auto;
-}
-*/
-
 .search {
 
   border-radius: 25px;
@@ -70,13 +61,7 @@
   margin-right: auto;
 }
 
-
-/* .input-search {
-  margin: 0.2rem;
-}
-*/
-
-.orderFiltre{
+.orderFilter{
   background-color: #740e00;
   border-radius: 25px;
   margin-bottom: 20;
@@ -93,6 +78,11 @@
 
 label{
   font-weight: 500;
+}
+
+.bold {
+  color: white;
+  font-weight: bold;
 }
 
 .worm{
@@ -114,7 +104,6 @@ h5{
 
 
 .button-search{
-  /*position: absolute; delete if you want the button working*/
   left: 20%;
 }
 
@@ -133,9 +122,7 @@ h5{
 
 .paginacion ::ng-deep .ngx-pagination .current{
   background-color: #2c2c2c;
-
 }
-
 
 input[type='radio']:after {
   width: 15px;
