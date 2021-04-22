@@ -12,3 +12,11 @@
   height: 3.5rem;
 }
 
+a {
+  color: #c2b9b8;
+}
+
+p {
+  font-size: larger;
+  text-align: justify;
+}

@@ -4,7 +4,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule,  routingComponents } from './app-routing.module';
-import { RouterTestingModule } from "@angular/router/testing";
 
 import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
@@ -27,7 +26,6 @@ import { ReadMoreModule } from 'ng-readmore';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterTestingModule,
     HttpClientModule,
     NgxPaginationModule,
     FormsModule,
