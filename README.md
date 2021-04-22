@@ -1,27 +1,33 @@
-# OpenLibra
+# BookWorm
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.1.2.
+BookWorm is a book search engine that helps you find information about any book by title, author or genre. You can refine your search with filters and more info you know about the volume you are looking for. And check out how long it will take to read your next book!
 
-## Development server
+## Features
+ - Search books by title, isbn, author...
+ - Get top and most recent books for each genre.
+ - Test your reading speed and get estimated reading time for any book
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Live Demo
 
-## Code scaffolding
+[BookWorm]()
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Built with
 
-## Build
+ - Angular v9
+ - Bootstrap v4.6
+ - Google Books API
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+---
+## Authors
 
-## Running unit tests
+ - Nadia Carrera Chahir
+ - Alejandro Leiva Palomo
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## License
 
-## Running end-to-end tests
+This project is licensed under the [GPLv3](https://www.fsf.org/) - see [LICENSE](https://github.com/chachir/open-libra/blob/master/LICENSE.md) for details.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## Acknowledgments
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+ - [Flaticon](https://www.flaticon.com/)
+ - [Freepik](https://www.freepik.com/)
