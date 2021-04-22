@@ -4,6 +4,7 @@
       <div class="card mx-auto transparent" style="width: 28rem;">
         <img class="card-img-top mx-auto d-block mt-2 rounded"
           [src]="book.volumeInfo?.imageLinks != undefined ? book.volumeInfo!.imageLinks?.thumbnail : 'assets/img/wormnotfound.jpg'">
+          <!--<a href="http://www.freepik.com" target="_blank">Designed by pch.vector / freepik</a>-->
         <div class="card-body">
           <h3 class="card-text text-center">{{ book.volumeInfo?.title }}</h3>
           <div *ngIf="book.volumeInfo?.authors">
