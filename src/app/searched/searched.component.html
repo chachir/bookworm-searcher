@@ -21,6 +21,7 @@
             <img style="width:60%;" class="rounded d-block img-fluid" type="button" routerLink="/book/{{book.id}}"
               [src]="book.volumeInfo?.imageLinks != undefined ? book.volumeInfo!.imageLinks?.thumbnail : 'assets/img/wormnotfound.jpg'"
               [title]="book.volumeInfo?.title">
+              <!--<a href="http://www.freepik.com" target="_blank">Designed by pch.vector / freepik</a>-->
           </div>
         </div>
         <div *ngIf="books.totalItems <= 0">

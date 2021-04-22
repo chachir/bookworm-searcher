@@ -7,18 +7,18 @@
         <input #keywordBox class="form-control search" type="search"
           (keydown.enter)="searchKey(keywordBox.value); onKeyDownEvent($event)" placeholder="Search a book"
           (input)="searchKey(keywordBox.value)">
-        <button class="btn" type="button"><a routerLink="/search"><img src="../assets/img/search.png" /></a></button>
+        <button class="btn" type="button"><a routerLink="/search"><img src="../assets/img/search.png" title="Search!"/></a></button>
+        <!--<a href="https://www.flaticon.com/authors/smashicons" target="_blank">Designed by Smashicons / flaticon</a>-->
       </form>
       <br><br>
-      This glorious web is a book search engine that helps you find information about books, where you can purchase them
-      and even check out how long it will take to read.
-      <br><br>
-      <img src="../assets/img/wormabc.png" alt="Book" width="100" height="100">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Non doloribus cum, ad quisquam amet, ipsa labore eaque
-      fuga debitis consectetur nesciunt maxime, veniam a? Possimus quidem aliquam dolore praesentium hic.<br><br><br>
+      <p>To find specific books, please go to advanced search and refine your search by title, author, publisher, subject or ISBN. You can also limit your search with filters.
+        BookWorm is a book search engine that helps you find information about books and check out how long it will take to read.
+        For further information, click in the following <a href="https://github.com/chachir/open-libra/" target="_blank">GitHub repo</a>.</p>
+        <br><br>
+        <a href="http://www.freepik.com" target="_blank"><img src="../assets/img/wormabc.png" title="Designed by pch.vector / freepik" width="30%" height="30%"></a>
+      </div>
     </div>
     <div class="col">
       <app-book-carousel></app-book-carousel>
     </div>
   </div>
-</div>
