@@ -11,7 +11,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { BookCarouselComponent } from './book-carousel/book-carousel.component';
 
-import {NgxPaginationModule} from 'ngx-pagination';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { ReadMoreModule } from 'ng-readmore';
 
 
