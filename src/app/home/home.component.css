@@ -20,3 +20,9 @@ p {
   font-size: larger;
   text-align: justify;
 }
+
+img{
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
