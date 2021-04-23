@@ -26,8 +26,7 @@ export class APIService {
     return this.http.get<ItemBook>(this.urlGB + '/' + id, httpOptions);
   }
   search(query: string): Observable<Googlebook> {
-    console.log(this.urlGBQuery + query);
     return this.http.get<Googlebook>(this.urlGBQuery + query, httpOptions);
-  } 
+  }
 
 }
