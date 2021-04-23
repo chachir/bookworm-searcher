@@ -1,6 +1,6 @@
-# BookWorm
+# BookWorm SE
 
-BookWorm is a book search engine that helps you find information about any book by title, author or genre. You can refine your search with filters and more info you know about the volume you are looking for. And check out how long it will take to read your next book!
+BookWorm SE is a book search engine that helps you find information about any book by title, author or genre. You can refine your search with filters and more info you know about the volume you are looking for. And check out how long it will take to read your next book!
 
 ## Features
  - Search books by title, isbn, author...
