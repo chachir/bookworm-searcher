@@ -1,0 +1,10 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    background-image: url("/assets/img/fondo.jpg");
+    width: auto;
+    height: auto;
+    background-size: cover;
+}
+
+
+/*# sourceMappingURL=styles.css.map*/

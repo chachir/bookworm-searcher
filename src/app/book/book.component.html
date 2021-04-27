@@ -1,7 +1,7 @@
 <div class="container-fluid mx-auto">
   <div class="row">
-    <div class="col mb-5">
-      <div class="card mx-auto transparent" style="width: 28rem;">
+    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
+      <div class="card mx-auto transparent" style="width: 100%;">
         <img class="card-img-top mx-auto d-block mt-2 rounded"
           [src]="book.volumeInfo?.imageLinks != undefined ? book.volumeInfo!.imageLinks?.thumbnail : 'assets/img/wormnotfound.jpg'">
           <!--<a href="http://www.freepik.com" target="_blank">Designed by pch.vector / freepik</a>-->
@@ -19,7 +19,7 @@
         </div>
       </div>
     </div>
-    <div class="col mb-5">
+    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
       <div class="card mx-auto" style="width:100%;">
         <div class="card-body">
           <h3 class="card-title text-center">Synopsis</h3>
@@ -35,8 +35,8 @@
         </div>
       </div>
     </div>
-    <div class="col mb-5">
-      <div class="card mx-auto" style="width: 28rem;">
+    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 details">
+      <div class="card mx-auto" style="width:100%;">
         <ul class="list-group list-group-flush text-center">
           <li class="list-group-item">
             <h3 class="card-title text-center">Details</h3>

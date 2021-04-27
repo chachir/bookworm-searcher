@@ -33,3 +33,7 @@ img{
 .btn:hover{
   background-color: rgb(121, 121, 121);
 }
+
+.details {
+  margin-bottom: 60px;
+}
