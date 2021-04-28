@@ -28,8 +28,8 @@
 
   .column{
     margin-bottom: 20px;
-    margin-right: auto;
-    margin-left: auto;
+    /*margin-right: auto;
+    margin-left: auto;*/
   }
 
   .category_list{
@@ -40,6 +40,8 @@
     color: white;
     text-align-last: center;
     font-size: 20px;
+    width: 100%;
+    max-width: 20em;
   }
 
   .newest-books div {

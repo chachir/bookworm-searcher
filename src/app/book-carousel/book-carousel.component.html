@@ -34,7 +34,7 @@
         </a>
       </div>
     </div>
-    <div class="column newest-books-list">
+    <div class="column">
       <ul id="newest_buttons" *ngFor="let book of recentBooks.items" class="list-group">
         <li class="list-group"><a routerLink="/book/{{book.id}}" class="button" [title]="book.volumeInfo?.title">
             <p>{{ book.volumeInfo?.title }}</p>
@@ -69,7 +69,7 @@
         </a>
       </div>
     </div>
-    <div class="column relevant-books-list">
+    <div class="column">
       <ul id="newest_buttons" *ngFor="let book of relevantBooks.items" class="list-group">
         <li class="list-group"><a routerLink="/book/{{book.id}}" class="button" [title]="book.volumeInfo?.title">
             <p>{{ book.volumeInfo?.title }}</p>
