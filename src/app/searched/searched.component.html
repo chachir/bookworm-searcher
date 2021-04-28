@@ -3,14 +3,14 @@
     <div class="col-sm-12 col-md-6 col-lg-8 col-xl-6 mx-auto ordenar">
       <div class="orderFilter">
         <div class="row text-center">
-          <div class="col">
+          <div class="col-12">
             <h5>Order by:</h5>
           </div>
-          <div class="col">
+          <div class="col-sm-12 col-md-6 col-lg-8 col-xl-6">
             <label>Relevance</label> <input class="radioButton" type="radio" name="num-book" value="2"
               (input)="orderBy('relevance')" checked>
           </div>
-          <div class="col">
+          <div class="col-sm-12 col-md-6 col-lg-8 col-xl-6">
             <label>Date</label><input class="radioButton" type="radio" name="num-book" (input)="orderBy('newest')">
           </div>
         </div>
