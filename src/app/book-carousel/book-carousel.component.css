@@ -20,10 +20,16 @@
   .row{
     margin-bottom: 30px;
     margin-top: 20px;
+    margin-right: auto;
+    margin-left: auto;
   }
+
+
 
   .column{
     margin-bottom: 20px;
+    margin-right: auto;
+    margin-left: auto;
   }
 
   .category_list{
@@ -42,19 +48,15 @@
       max-height: 300px;
   }
 
-  .new-books div {
+  .relevant-books div {
 
-      max-width: 200px;
-      max-height: 300px;
-  }
-
+    max-width: 200px;
+    max-height: 300px;
+}
 
   ul {
     width:250px;
-    resize:both;
     text-align: center;
-    margin-right: auto;
-    margin-left: auto;
   }
 
   p{
@@ -115,4 +117,5 @@
     li:hover{
       background-color: black;
     }
+
   }

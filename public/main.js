@@ -36,8 +36,8 @@ BookService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjec
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\nadia\Documents\Mis_Proyectos\OpenLibra\open-libra\src\main.ts */"zUnb");
 
+module.exports = __webpack_require__(/*! C:\Users\nadia\Documents\Mis_Proyectos\OpenLibra\open-libra\src\main.ts */"zUnb");
 
 /***/ }),
 
@@ -367,7 +367,9 @@ __webpack_require__.r(__webpack_exports__);
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 const environment = {
+
     production: false
+
 };
 /*
  * For easier debugging in development mode, you can import the following file
@@ -974,6 +976,7 @@ HeaderComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineCo
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "nav", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "img", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "a", 2);
+
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3, "BookWorm SE");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "button", 3);
