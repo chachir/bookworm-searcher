@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/open-libra",
+    "public": "public",
     "ignore": [
       "firebase.json",
       "**/.*",
