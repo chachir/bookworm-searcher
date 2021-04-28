@@ -63,6 +63,7 @@
     overflow: hidden;
     margin-top: auto;
     margin-bottom: auto;
+    max-width: 200px;
   }
 
   a.button{
